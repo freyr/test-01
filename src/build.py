@@ -31,6 +31,19 @@ ZADANIA = {
 }
 OSTATNIE = max(ZADANIA)
 
+LEKCJE = {
+    1: ("Co to jest system kontroli wersji", "Historia projektu zamiast plików index_dobry_POPRAWIONY2.html. Commit, hash, diff."),
+    2: ("Git i GitHub: repozytorium rozproszone", "Git to program, GitHub to serwis. Każdy komputer ma pełną kopię historii."),
+    3: ("Wiersz poleceń", "Git Bash albo Terminal: pwd, ls, cd, mkdir, Tab i strzałka w górę."),
+    4: ("Instalacja i pierwsza konfiguracja Gita", "Instalacja, imię i e-mail w każdym commicie, ustawienie dla git pull."),
+    5: ("Klucz SSH: logowanie bez hasła", "Para kluczy, klucz publiczny na GitHubie, test połączenia."),
+    6: ("Klonowanie i stan repozytorium", "git clone, git status, git log. Trzy miejsca, w których są Twoje zmiany."),
+    7: ("git add i git commit: zapisywanie zmian", "Zadania 4 i 5 zapisane jako commity. Dobre opisy commitów."),
+    8: ("git push i git pull: wymiana z GitHubem", "Wysyłanie na GitHub, praca w szkole i w domu, odrzucony push. Ściąga."),
+}
+OSTATNIA_LEKCJA = max(LEKCJE)
+SESJE = json.loads((SRC / "git" / "sesje.json").read_text(encoding="utf-8"))
+
 
 ETAPY_FORMULARZA = [
     ("Formularz i tabela", "Znaczniki <code>&lt;form&gt;</code> i <code>&lt;table&gt;</code>. Tabela rozkłada pola równo na stronie. Szerokość i wysokość komórek są zaplanowane od razu, w komórkach są na razie napisy zastępcze."),
@@ -177,11 +190,69 @@ def strona_opisu(nr, kod, poprzedni, nowe_pliki, etapy_html="", glowny="index.ht
 """
 
 
+def terminal(nazwa, zakres=None):
+    """Sesja z git/sesje.json jako okno terminala. zakres "a-b" wybiera kroki (od 1)."""
+    kroki = SESJE[nazwa]
+    if zakres:
+        od, _, do = zakres.partition("-")
+        kroki = kroki[int(od) - 1:int(do or od)]
+    linie = []
+    for k in kroki:
+        if "uwaga" in k:
+            linie.append(f'<span class="t-uwaga"># {html.escape(k["uwaga"])}</span>')
+            continue
+        linie.append(f'<span class="t-prompt">{html.escape(k["prompt"])} $</span> <span class="t-cmd">{html.escape(k["cmd"])}</span>')
+        for l in k["out"].split("\n") if k["out"] else []:
+            klasa = ""
+            if k.get("diff") and l.startswith(("+", "-")) and l[:3] not in ("+++", "---"):
+                klasa = "t-add" if l[0] == "+" else "t-del"
+            elif l.startswith((" ! [rejected]", "error:", "fatal:")):
+                klasa = "t-del"
+            linie.append(f'<span class="{klasa}">{html.escape(l)}</span>' if klasa else html.escape(l))
+    return '<pre class="term">' + "\n".join(linie) + "</pre>"
+
+
+def nawigacja_lekcji(nr):
+    lewa = f'<a href="lekcja{nr - 1}.html">← Lekcja {nr - 1}</a>' if nr > 1 else "<span></span>"
+    prawa = f'<a href="lekcja{nr + 1}.html">Lekcja {nr + 1} →</a>' if nr < OSTATNIA_LEKCJA else "<span></span>"
+    return f'<nav class="nav">{lewa}<a href="../index.html#git">Wszystkie lekcje</a>{prawa}</nav>'
+
+
+def strona_lekcji(nr):
+    tytul, _ = LEKCJE[nr]
+    tresc = (SRC / "git" / f"lekcja{nr}.html").read_text(encoding="utf-8")
+    tresc = re.sub(r"\{\{sesja (\w+)(?: ([\d-]+))?\}\}", lambda m: terminal(m[1], m[2]), tresc)
+    return f"""<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git, lekcja {nr} - {tytul}</title>
+<link rel="stylesheet" href="../opis/styl.css">
+</head>
+<body class="git">
+<main>
+{nawigacja_lekcji(nr)}
+<p class="eyebrow"><span class="pill">Dodatek: Git i GitHub</span> Lekcja {nr} z {OSTATNIA_LEKCJA}</p>
+<h1>{tytul}</h1>
+{tresc}
+{nawigacja_lekcji(nr)}
+</main>
+</body>
+</html>
+"""
+
+
 def strona_glowna():
     karty = "".join(
         f"""<li class="card"><span class="num">{nr}</span><div><h2>{t}</h2><p>{o}</p>
 <p class="links"><a href="opis/zadanie{nr}.html">Wyjaśnienie i zmiany</a> · <a href="zadanie{nr}/index.html">Strona po zadaniu</a></p></div></li>"""
         for nr, (t, o) in ZADANIA.items()
+    )
+    karty_git = "".join(
+        f"""<li class="card"><span class="num">G{nr}</span><div><h2>{t}</h2><p>{o}</p>
+<p class="links"><a href="git/lekcja{nr}.html">Otwórz lekcję</a></p></div></li>"""
+        for nr, (t, o) in LEKCJE.items()
     )
     return f"""<!DOCTYPE html>
 <html lang="pl">
@@ -202,6 +273,11 @@ def strona_glowna():
 </ul>
 <p>Dane ucznia są fałszywe. Wpisz swoje dane i swój numer z dziennika: od niego zależą wielkości i kolejność.</p>
 <ol class="cards">{karty}</ol>
+<section class="git" id="git">
+<h2 class="sekcja"><span class="pill">Dodatek</span> Git i GitHub</h2>
+<p>Zadania HTML uczą pisać strony. Te lekcje uczą narzędzia, którym programiści przechowują kod: Gita i GitHuba. Zamiast wgrywać pliki przez stronę WWW, zapisujesz zmiany w terminalu i wysyłasz je na GitHub jednym poleceniem. Przykłady używają tej samej strony Johna Doe.</p>
+<ol class="cards">{karty_git}</ol>
+</section>
 </main>
 </body>
 </html>
@@ -209,7 +285,7 @@ def strona_glowna():
 
 
 def main():
-    for stary in ["index.html", "opis"] + [f"zadanie{i}" for i in ZADANIA]:
+    for stary in ["index.html", "opis", "git"] + [f"zadanie{i}" for i in ZADANIA]:
         sciezka = DOCS / stary
         if sciezka.is_dir():
             shutil.rmtree(sciezka)
@@ -242,6 +318,10 @@ def main():
             dodatki = dict(etapy_html=sekcja_etapow(nr, plik, lista, poprzednie_podstrony[plik]), glowny=plik, kod_glowny=lista[-1][2])
         (DOCS / "opis" / f"zadanie{nr}.html").write_text(strona_opisu(nr, kod, poprzedni, nowe, **dodatki), encoding="utf-8")
         poprzedni, poprzednie_pliki, poprzednie_podstrony = kod, pliki, podstrony(nr)
+
+    (DOCS / "git").mkdir()
+    for nr in LEKCJE:
+        (DOCS / "git" / f"lekcja{nr}.html").write_text(strona_lekcji(nr), encoding="utf-8")
 
     (DOCS / "index.html").write_text(strona_glowna(), encoding="utf-8")
 

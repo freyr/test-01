@@ -1,0 +1,75 @@
+<p>Aby wysłać commity na GitHub, Git musi udowodnić, że to Ty. Hasło do konta tu nie działa. Najwygodniejszy sposób to <b>klucz SSH</b>: konfigurujesz go raz i więcej nie wpisujesz żadnego hasła.</p>
+
+<h2>Jak działa para kluczy</h2>
+<p>Polecenie <code>ssh-keygen</code> tworzy dwa pliki, które pasują do siebie:</p>
+<ul>
+<li><b>klucz prywatny</b> <code>id_ed25519</code>: zostaje tylko na Twoim komputerze. Działa jak klucz do drzwi.</li>
+<li><b>klucz publiczny</b> <code>id_ed25519.pub</code>: kopiujesz go na GitHub. Działa jak zamek, który pasuje tylko do Twojego klucza.</li>
+</ul>
+<p>Przy każdym połączeniu GitHub sprawdza, czy masz klucz prywatny, który pasuje do zamka na Twoim koncie. Sam klucz prywatny nigdy nie jest wysyłany.</p>
+
+<figure class="schemat">
+<svg viewBox="0 0 760 170" role="img" aria-label="Klucz prywatny na komputerze, klucz publiczny na GitHubie">
+<rect class="s-box" x="30" y="20" width="300" height="130" rx="10"/>
+<text class="s-t" x="180" y="52" text-anchor="middle">Twój komputer</text>
+<text class="s-m" x="180" y="85" text-anchor="middle">~/.ssh/id_ed25519</text>
+<text class="s-a" x="180" y="108" text-anchor="middle">prywatny: nikomu</text>
+<text class="s-m" x="180" y="132" text-anchor="middle">~/.ssh/id_ed25519.pub</text>
+<rect class="s-box2" x="430" y="20" width="300" height="130" rx="10"/>
+<text class="s-t" x="580" y="52" text-anchor="middle">GitHub → Settings</text>
+<text class="s-m" x="580" y="85" text-anchor="middle">SSH and GPG keys</text>
+<text class="s-a" x="580" y="118" text-anchor="middle">publiczny: kopia .pub</text>
+<path class="s-l" d="M330 132 L425 110"/><text class="s-a" x="350" y="150">kopiujesz</text>
+</svg>
+<figcaption>Na GitHub trafia tylko plik <code>.pub</code>.</figcaption>
+</figure>
+
+<div class="ostrzezenie"><b>Klucz prywatny jest jak hasło.</b> Nie wysyłaj go nikomu, nie wklejaj na GitHub, nie wgrywaj do repozytorium. Na GitHub kopiujesz tylko plik z końcówką <code>.pub</code>.</div>
+
+<h2>Krok 1: utwórz klucz</h2>
+<p>Wpisz polecenie z Twoim e-mailem. Na trzy pytania odpowiedz klawiszem <kbd>Enter</kbd>: domyślne miejsce pliku i puste hasło do klucza.</p>
+{{sesja ssh 1-1}}
+<p>Obrazek z kreskami (<i>randomart</i>) to graficzna wersja odcisku klucza. Nie musisz go zapamiętywać.</p>
+<div class="tip"><b>Hasło do klucza</b> (<i>passphrase</i>) chroni klucz, gdy ktoś skopiuje plik. Na własnym komputerze możesz je pominąć. Na komputerze szkolnym ustaw hasło albo usuń folder <code>~/.ssh</code> po lekcji.</div>
+
+<h2>Krok 2: skopiuj klucz publiczny</h2>
+{{sesja ssh 2-3}}
+<p>Zaznacz całą linię od <code>ssh-ed25519</code> do adresu e-mail i skopiuj ją. W Git Bash kopiujesz zaznaczeniem myszą i wklejasz klawiszami <kbd>Shift</kbd> + <kbd>Insert</kbd>. W Git Bash zadziała też polecenie <code>clip &lt; ~/.ssh/id_ed25519.pub</code>, na macOS <code>pbcopy &lt; ~/.ssh/id_ed25519.pub</code>. Kopiują one klucz do schowka.</p>
+
+<h2>Krok 3: dodaj klucz na GitHubie</h2>
+<ol>
+<li>Na GitHubie kliknij swój awatar w prawym górnym rogu i wybierz <b>Settings</b>.</li>
+<li>W menu po lewej wybierz <b>SSH and GPG keys</b>.</li>
+<li>Kliknij <b>New SSH key</b>.</li>
+<li>W polu <b>Title</b> wpisz nazwę komputera, na przykład <code>Laptop w domu</code>.</li>
+<li>W polu <b>Key</b> wklej skopiowaną linię.</li>
+<li>Kliknij <b>Add SSH key</b>. GitHub może poprosić o hasło do konta.</li>
+</ol>
+<p>Każdy komputer ma swój klucz. Na GitHubie możesz dodać kilka kluczy: z domu, ze szkoły, z laptopa.</p>
+
+<h2>Krok 4: sprawdź połączenie</h2>
+{{sesja ssh 4-4}}
+<p>Przy pierwszym połączeniu SSH pyta, czy ufasz serwerowi. Porównaj odcisk z tym, który GitHub podaje na stronie <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints">GitHub's SSH key fingerprints</a>. Odcisk ED25519 to <code>SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU</code>. Gdy się zgadza, wpisz <code>yes</code>.</p>
+<p>Napis <code>Hi johndoe! You've successfully authenticated</code> oznacza sukces. Zdanie <i>„GitHub does not provide shell access”</i> to nie błąd. GitHub tylko informuje, że nie można się na nim zalogować jak na zwykły komputer.</p>
+
+<h2>Typowe błędy</h2>
+<table class="req">
+<tr><th>Komunikat</th><th>Przyczyna i rozwiązanie</th></tr>
+<tr><td><code>Permission denied (publickey)</code></td><td>GitHub nie zna Twojego klucza. Sprawdź, czy dodałeś plik <code>.pub</code> na swoim koncie (krok 3).</td></tr>
+<tr><td><code>Could not resolve hostname</code></td><td>Brak internetu albo literówka w <code>github.com</code>.</td></tr>
+<tr><td>Prośba o login i hasło przy <code>git push</code></td><td>Repozytorium ma adres <code>https://</code>. Klonuj adresem SSH <code>git@github.com:...</code> (lekcja 6).</td></tr>
+</table>
+
+<div class="cwiczenie">
+<p><b>Ćwiczenie</b></p>
+<ol>
+<li>Utwórz klucz poleceniem <code>ssh-keygen</code>.</li>
+<li>Wyświetl klucz publiczny i dodaj go na GitHubie.</li>
+<li>Sprawdź połączenie. Czy GitHub pisze Twoją nazwę użytkownika?</li>
+</ol>
+</div>
+
+<h2>Sprawdź się</h2>
+<details class="quiz"><summary>Który plik kopiujesz na GitHub?</summary><p>Tylko klucz publiczny: <code>~/.ssh/id_ed25519.pub</code>.</p></details>
+<details class="quiz"><summary>Kolega prosi o Twój plik <code>id_ed25519</code>, „żeby też mógł wysyłać”. Co robisz?</summary><p>Odmawiasz. Z tym plikiem kolega może zmieniać wszystkie Twoje repozytoria. Kolega tworzy własny klucz, a Ty dodajesz go jako współpracownika repozytorium.</p></details>
+<details class="quiz"><summary>Czy przy każdym <code>git push</code> wpisujesz hasło?</summary><p>Nie. Klucz SSH loguje Cię automatycznie.</p></details>

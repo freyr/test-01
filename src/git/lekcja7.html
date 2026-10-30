@@ -1,0 +1,65 @@
+<p>Teraz zrobisz zadanie 4 na swoim komputerze i zapiszesz je jako commit. Zamiast wgrywać plik przez stronę WWW, użyjesz dwóch poleceń: <code>git add</code> i <code>git commit</code>.</p>
+
+<h2>Krok 1: zmień plik i sprawdź stan</h2>
+<p>Otwórz <code>index.html</code> w Notatniku, dopisz listy z zadania 4 i zapisz plik. Potem zapytaj Gita, co widzi:</p>
+{{sesja zmiana 1-2}}
+<p>Git zauważył zmianę: <code>modified: index.html</code>. Napis <code>Changes not staged for commit</code> oznacza, że zmiana jest tylko w katalogu roboczym. Jeszcze nie ma jej w poczekalni.</p>
+
+<h2>Krok 2: zobacz, co zmieniłeś</h2>
+<p><code>git diff</code> pokazuje zmiany linia po linii. Linie z <code>+</code> (zielone) doszły, linie z <code>-</code> (czerwone) zniknęły. Linia <code>@@ -93,6 +93,75 @@</code> mówi, w którym miejscu pliku jest zmiana.</p>
+{{sesja zmiana 3-3}}
+<p>Wynik jest długi, dlatego tu jest skrócony. W terminalu przewijasz go spacją i wychodzisz klawiszem <kbd>q</kbd>. Przed każdym commitem warto przejrzeć <code>git diff</code>. Tak wyłapiesz przypadkowe zmiany.</p>
+
+<h2>Krok 3: git add, czyli zmiana do poczekalni</h2>
+{{sesja zmiana 4-5}}
+<p><code>git add</code> nic nie wypisuje. <code>git status</code> pokazuje teraz <code>Changes to be committed</code>: zmiana jest w poczekalni i wejdzie do następnego commita.</p>
+
+<h2>Krok 4: git commit, czyli zapis w historii</h2>
+{{sesja zmiana 6-7}}
+<p>Git utworzył commit <code>e32ebb1</code>: 1 plik, 69 nowych linii. W historii <code>HEAD -&gt; main</code> jest już o jeden commit dalej niż <code>origin/main</code>. Commit jest na razie tylko na Twoim komputerze. Lekcja 8 pokazuje, jak wysłać go na GitHub.</p>
+
+<h2>Nowe pliki: zadanie 5</h2>
+<p>W zadaniu 5 zmieniasz <code>index.html</code> i kopiujesz do folderu pięć obrazków. Nowych plików Git jeszcze nie śledzi:</p>
+{{sesja nowe_pliki 1-2}}
+<p><code>Untracked files</code> to pliki, których nie ma w żadnym commicie. Git ich nie zapisze, dopóki nie dodasz ich przez <code>git add</code>. To częsty błąd: strona działa na Twoim komputerze, ale na GitHubie brakuje obrazków.</p>
+<p>Zamiast wypisywać każdy plik, użyj <code>git add .</code>. Kropka oznacza bieżący folder, czyli wszystkie zmienione i nowe pliki:</p>
+{{sesja nowe_pliki 3-5}}
+<p>Napis <code>Your branch is ahead of 'origin/main' by 1 commit</code> przypomina, że commit z zadania 4 nadal czeka na wysłanie. Po tym commicie czekają już dwa.</p>
+
+<div class="tip"><b>Przed <code>git add .</code> zawsze wykonaj <code>git status</code>.</b> Sprawdź, czy na liście nie ma plików, których nie chcesz w repozytorium, na przykład <code>Thumbs.db</code>, <code>.DS_Store</code> albo prywatnych dokumentów. Repozytorium na GitHubie jest publiczne.</div>
+
+<h2>Dobry opis commita</h2>
+<p>Opis czytasz Ty za miesiąc i nauczyciel. Ma powiedzieć, <b>co</b> zmieniłeś, w jednym krótkim zdaniu.</p>
+<table class="req">
+<tr><th>Słaby opis</th><th>Dobry opis</th></tr>
+<tr><td><code>zmiany</code></td><td><code>Zadanie 4: wyliczenia i numerowania</code></td></tr>
+<tr><td><code>poprawka</code></td><td><code>Popraw link do strony szkoły</code></td></tr>
+<tr><td><code>asdf</code></td><td><code>Dodaj 5 animowanych grafik</code></td></tr>
+<tr><td><code>zadanie 4, 5 i 6</code></td><td>trzy osobne commity, po jednym na zadanie</td></tr>
+</table>
+<p>Rób commit po każdym skończonym kroku. Małe commity łatwo opisać i łatwo cofnąć.</p>
+
+<h2>Gdy się pomylisz</h2>
+<table class="req">
+<tr><th>Sytuacja</th><th>Polecenie</th></tr>
+<tr><td>Dodałeś plik do poczekalni przez pomyłkę</td><td><code>git restore --staged plik</code> (plik wraca z poczekalni, zmiany zostają)</td></tr>
+<tr><td>Chcesz cofnąć wszystkie zmiany w pliku od ostatniego commita</td><td><code>git restore plik</code> (<b>uwaga:</b> zmiany znikną na zawsze)</td></tr>
+<tr><td>Literówka w opisie ostatniego commita, jeszcze przed <code>git push</code></td><td><code>git commit --amend -m "nowy opis"</code></td></tr>
+</table>
+<p>Git sam podpowiada te polecenia w wyniku <code>git status</code>, w liniach w nawiasach.</p>
+
+<div class="cwiczenie">
+<p><b>Ćwiczenie</b></p>
+<ol>
+<li>Zrób zadanie 4 w swoim repozytorium.</li>
+<li>Obejrzyj zmiany przez <code>git diff</code>.</li>
+<li>Dodaj plik do poczekalni i zrób commit z dobrym opisem.</li>
+<li>Zrób zadanie 5. Sprawdź, czy obrazki są na liście <code>Untracked files</code>, i zapisz wszystko jednym <code>git add .</code> i jednym commitem.</li>
+<li>Sprawdź <code>git log --oneline</code>. Ile commitów czeka na wysłanie?</li>
+</ol>
+</div>
+
+<h2>Sprawdź się</h2>
+<details class="quiz"><summary>Zrobiłeś <code>git commit</code>, ale Git pisze <code>nothing added to commit</code>. Co pominąłeś?</summary><p><code>git add</code>. Commit zapisuje tylko to, co jest w poczekalni.</p></details>
+<details class="quiz"><summary>Co znaczy <code>Untracked files</code>?</summary><p>Nowe pliki, których nie ma w żadnym commicie. Dodaj je przez <code>git add</code>.</p></details>
+<details class="quiz"><summary>Zrobiłeś commit. Czy strona na github.io już się zmieniła?</summary><p>Nie. Commit jest tylko na Twoim komputerze. Potrzebny jest <code>git push</code>.</p></details>

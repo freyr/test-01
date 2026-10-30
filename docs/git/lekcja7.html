@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git, lekcja 7 - git add i git commit: zapisywanie zmian</title>
+<link rel="stylesheet" href="../opis/styl.css">
+</head>
+<body class="git">
+<main>
+<nav class="nav"><a href="lekcja6.html">← Lekcja 6</a><a href="../index.html#git">Wszystkie lekcje</a><a href="lekcja8.html">Lekcja 8 →</a></nav>
+<p class="eyebrow"><span class="pill">Dodatek: Git i GitHub</span> Lekcja 7 z 8</p>
+<h1>git add i git commit: zapisywanie zmian</h1>
+<p>Teraz zrobisz zadanie 4 na swoim komputerze i zapiszesz je jako commit. Zamiast wgrywać plik przez stronę WWW, użyjesz dwóch poleceń: <code>git add</code> i <code>git commit</code>.</p>
+
+<h2>Krok 1: zmień plik i sprawdź stan</h2>
+<p>Otwórz <code>index.html</code> w Notatniku, dopisz listy z zadania 4 i zapisz plik. Potem zapytaj Gita, co widzi:</p>
+<pre class="term"><span class="t-uwaga"># Edytujesz index.html (zadanie 4) i zapisujesz plik.</span>
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git status</span>
+On branch main
+Your branch is up to date with &#x27;origin/main&#x27;.
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+	modified:   index.html
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</pre>
+<p>Git zauważył zmianę: <code>modified: index.html</code>. Napis <code>Changes not staged for commit</code> oznacza, że zmiana jest tylko w katalogu roboczym. Jeszcze nie ma jej w poczekalni.</p>
+
+<h2>Krok 2: zobacz, co zmieniłeś</h2>
+<p><code>git diff</code> pokazuje zmiany linia po linii. Linie z <code>+</code> (zielone) doszły, linie z <code>-</code> (czerwone) zniknęły. Linia <code>@@ -93,6 +93,75 @@</code> mówi, w którym miejscu pliku jest zmiana.</p>
+<pre class="term"><span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git diff</span>
+diff --git a/index.html b/index.html
+index e80330b..5568e40 100644
+--- a/index.html
++++ b/index.html
+@@ -93,6 +93,75 @@
+
+ 		&lt;hr size=&quot;10&quot; width=&quot;30%&quot; color=&quot;green&quot;&gt;
+
+<span class="t-add">+		&lt;!-- zadanie 4: wyliczenia i numerowania o informatyce --&gt;</span>
+<span class="t-add">+		&lt;br&gt;&lt;br&gt;&lt;br&gt;</span>
+<span class="t-add">+		&lt;h1&gt;Poniżej są trzy wyliczenia z różnymi znakami wyliczenia&lt;/h1&gt;</span>
+<span class="t-add">+		&lt;ul type=&quot;square&quot;&gt;</span>
+<span class="t-add">+			&lt;li&gt;procesor&lt;/li&gt;</span>
+<span class="t-add">+			&lt;li&gt;pamięć RAM&lt;/li&gt;</span>
+<span class="t-add">+			&lt;li&gt;dysk SSD&lt;/li&gt;</span>
+<span class="t-add">+		&lt;/ul&gt;</span>
+<span class="t-add">+		&lt;ul type=&quot;disc&quot;&gt;</span>
+<span class="t-add">+			&lt;li&gt;klawiatura&lt;/li&gt;</span>
+<span class="t-add">+			&lt;li&gt;mysz&lt;/li&gt;</span>
+<span class="t-add">+			&lt;li&gt;monitor&lt;/li&gt;</span>
+<span class="t-add">+		&lt;/ul&gt;</span>
+<span class="t-add">+		&lt;ul type=&quot;circle&quot;&gt;</span>
+…</pre>
+<p>Wynik jest długi, dlatego tu jest skrócony. W terminalu przewijasz go spacją i wychodzisz klawiszem <kbd>q</kbd>. Przed każdym commitem warto przejrzeć <code>git diff</code>. Tak wyłapiesz przypadkowe zmiany.</p>
+
+<h2>Krok 3: git add, czyli zmiana do poczekalni</h2>
+<pre class="term"><span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git add index.html</span>
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git status</span>
+On branch main
+Your branch is up to date with &#x27;origin/main&#x27;.
+
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+	modified:   index.html</pre>
+<p><code>git add</code> nic nie wypisuje. <code>git status</code> pokazuje teraz <code>Changes to be committed</code>: zmiana jest w poczekalni i wejdzie do następnego commita.</p>
+
+<h2>Krok 4: git commit, czyli zapis w historii</h2>
+<pre class="term"><span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git commit -m &quot;Zadanie 4: wyliczenia i numerowania&quot;</span>
+[main e32ebb1] Zadanie 4: wyliczenia i numerowania
+ 1 file changed, 69 insertions(+)
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git log --oneline</span>
+e32ebb1 (HEAD -&gt; main) Zadanie 4: wyliczenia i numerowania
+cbbd694 (origin/main, origin/HEAD) Add files via upload
+dae89b8 Update index.html
+3d6c131 Add files via upload
+e898b1e Initial commit</pre>
+<p>Git utworzył commit <code>e32ebb1</code>: 1 plik, 69 nowych linii. W historii <code>HEAD -&gt; main</code> jest już o jeden commit dalej niż <code>origin/main</code>. Commit jest na razie tylko na Twoim komputerze. Lekcja 8 pokazuje, jak wysłać go na GitHub.</p>
+
+<h2>Nowe pliki: zadanie 5</h2>
+<p>W zadaniu 5 zmieniasz <code>index.html</code> i kopiujesz do folderu pięć obrazków. Nowych plików Git jeszcze nie śledzi:</p>
+<pre class="term"><span class="t-uwaga"># Zadanie 5: zmieniasz index.html i kopiujesz do folderu 5 obrazków .gif.</span>
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git status</span>
+On branch main
+Your branch is ahead of &#x27;origin/main&#x27; by 1 commit.
+  (use &quot;git push&quot; to publish your local commits)
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+	modified:   index.html
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+	grafika1.gif
+	grafika2.gif
+	grafika3.gif
+	grafika4.gif
+	grafika5.gif
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</pre>
+<p><code>Untracked files</code> to pliki, których nie ma w żadnym commicie. Git ich nie zapisze, dopóki nie dodasz ich przez <code>git add</code>. To częsty błąd: strona działa na Twoim komputerze, ale na GitHubie brakuje obrazków.</p>
+<p>Zamiast wypisywać każdy plik, użyj <code>git add .</code>. Kropka oznacza bieżący folder, czyli wszystkie zmienione i nowe pliki:</p>
+<pre class="term"><span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git add .</span>
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git status</span>
+On branch main
+Your branch is ahead of &#x27;origin/main&#x27; by 1 commit.
+  (use &quot;git push&quot; to publish your local commits)
+
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+	new file:   grafika1.gif
+	new file:   grafika2.gif
+	new file:   grafika3.gif
+	new file:   grafika4.gif
+	new file:   grafika5.gif
+	modified:   index.html
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git commit -m &quot;Zadanie 5: animowane grafiki&quot;</span>
+[main 12f2637] Zadanie 5: animowane grafiki
+ 6 files changed, 5 insertions(+)
+ create mode 100644 grafika1.gif
+ create mode 100644 grafika2.gif
+ create mode 100644 grafika3.gif
+ create mode 100644 grafika4.gif
+ create mode 100644 grafika5.gif</pre>
+<p>Napis <code>Your branch is ahead of 'origin/main' by 1 commit</code> przypomina, że commit z zadania 4 nadal czeka na wysłanie. Po tym commicie czekają już dwa.</p>
+
+<div class="tip"><b>Przed <code>git add .</code> zawsze wykonaj <code>git status</code>.</b> Sprawdź, czy na liście nie ma plików, których nie chcesz w repozytorium, na przykład <code>Thumbs.db</code>, <code>.DS_Store</code> albo prywatnych dokumentów. Repozytorium na GitHubie jest publiczne.</div>
+
+<h2>Dobry opis commita</h2>
+<p>Opis czytasz Ty za miesiąc i nauczyciel. Ma powiedzieć, <b>co</b> zmieniłeś, w jednym krótkim zdaniu.</p>
+<table class="req">
+<tr><th>Słaby opis</th><th>Dobry opis</th></tr>
+<tr><td><code>zmiany</code></td><td><code>Zadanie 4: wyliczenia i numerowania</code></td></tr>
+<tr><td><code>poprawka</code></td><td><code>Popraw link do strony szkoły</code></td></tr>
+<tr><td><code>asdf</code></td><td><code>Dodaj 5 animowanych grafik</code></td></tr>
+<tr><td><code>zadanie 4, 5 i 6</code></td><td>trzy osobne commity, po jednym na zadanie</td></tr>
+</table>
+<p>Rób commit po każdym skończonym kroku. Małe commity łatwo opisać i łatwo cofnąć.</p>
+
+<h2>Gdy się pomylisz</h2>
+<table class="req">
+<tr><th>Sytuacja</th><th>Polecenie</th></tr>
+<tr><td>Dodałeś plik do poczekalni przez pomyłkę</td><td><code>git restore --staged plik</code> (plik wraca z poczekalni, zmiany zostają)</td></tr>
+<tr><td>Chcesz cofnąć wszystkie zmiany w pliku od ostatniego commita</td><td><code>git restore plik</code> (<b>uwaga:</b> zmiany znikną na zawsze)</td></tr>
+<tr><td>Literówka w opisie ostatniego commita, jeszcze przed <code>git push</code></td><td><code>git commit --amend -m "nowy opis"</code></td></tr>
+</table>
+<p>Git sam podpowiada te polecenia w wyniku <code>git status</code>, w liniach w nawiasach.</p>
+
+<div class="cwiczenie">
+<p><b>Ćwiczenie</b></p>
+<ol>
+<li>Zrób zadanie 4 w swoim repozytorium.</li>
+<li>Obejrzyj zmiany przez <code>git diff</code>.</li>
+<li>Dodaj plik do poczekalni i zrób commit z dobrym opisem.</li>
+<li>Zrób zadanie 5. Sprawdź, czy obrazki są na liście <code>Untracked files</code>, i zapisz wszystko jednym <code>git add .</code> i jednym commitem.</li>
+<li>Sprawdź <code>git log --oneline</code>. Ile commitów czeka na wysłanie?</li>
+</ol>
+</div>
+
+<h2>Sprawdź się</h2>
+<details class="quiz"><summary>Zrobiłeś <code>git commit</code>, ale Git pisze <code>nothing added to commit</code>. Co pominąłeś?</summary><p><code>git add</code>. Commit zapisuje tylko to, co jest w poczekalni.</p></details>
+<details class="quiz"><summary>Co znaczy <code>Untracked files</code>?</summary><p>Nowe pliki, których nie ma w żadnym commicie. Dodaj je przez <code>git add</code>.</p></details>
+<details class="quiz"><summary>Zrobiłeś commit. Czy strona na github.io już się zmieniła?</summary><p>Nie. Commit jest tylko na Twoim komputerze. Potrzebny jest <code>git push</code>.</p></details>
+
+<nav class="nav"><a href="lekcja6.html">← Lekcja 6</a><a href="../index.html#git">Wszystkie lekcje</a><a href="lekcja8.html">Lekcja 8 →</a></nav>
+</main>
+</body>
+</html>

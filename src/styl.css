@@ -108,3 +108,76 @@ details summary { cursor: pointer; font-weight: 600; margin: 8px 0; }
   .btn { color: #10140f; }
   .tip { background: #2e2814; }
 }
+
+/* Dodatek Git i GitHub: fioletowy motyw. */
+.git {
+  --accent: #6941c6;
+  --tint: #f3effc;
+}
+.pill {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-right: 6px;
+  vertical-align: 2px;
+}
+body.git { background: linear-gradient(var(--tint), var(--bg) 320px) no-repeat, var(--bg); }
+body.git h1 { color: var(--accent); }
+section.git { margin-top: 48px; padding: 4px 18px 8px; border-radius: 10px; background: var(--tint); }
+section.git .sekcja { border-top: 0; }
+section.git .num { font-size: 15px; }
+
+pre.term {
+  background: #1d1b26;
+  color: #e4e1ee;
+  padding: 14px 16px;
+  border-radius: 8px;
+  tab-size: 8;
+  border-top: 26px solid #2d2a3a;
+  position: relative;
+}
+pre.term::before {
+  content: "● ● ●";
+  position: absolute;
+  top: -22px;
+  left: 12px;
+  color: #6f6a86;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+.t-prompt { color: #b69cff; }
+.t-cmd { color: #ffffff; font-weight: 700; }
+.t-uwaga { color: #8f8aa6; font-style: italic; }
+.t-add { color: #7ee2a0; }
+.t-del { color: #ff9b9b; }
+
+details.quiz { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 6px 14px; margin: 8px 0; }
+details.quiz p { margin: 6px 0 10px; }
+
+.cwiczenie { background: var(--tint); border-left: 4px solid var(--accent); padding: 10px 14px; border-radius: 4px; }
+.cwiczenie ol { margin: 6px 0; }
+
+.ostrzezenie { background: #fdecec; border-left: 4px solid #c62828; padding: 10px 14px; border-radius: 4px; }
+
+figure.schemat { margin: 18px 0; text-align: center; }
+figure.schemat svg { max-width: 100%; height: auto; }
+figure.schemat figcaption { color: var(--muted); font-size: 14px; margin-top: 6px; }
+.s-box { fill: var(--card); stroke: var(--accent); stroke-width: 2; }
+.s-box2 { fill: var(--tint); stroke: var(--accent); stroke-width: 2; }
+.s-t { fill: var(--text); font: 600 15px system-ui, sans-serif; }
+.s-m { fill: var(--muted); font: 13px ui-monospace, Menlo, monospace; }
+.s-a { fill: var(--accent); font: 700 14px ui-monospace, Menlo, monospace; }
+.s-l { stroke: var(--accent); stroke-width: 2.5; fill: none; }
+.s-dot { fill: var(--accent); }
+
+@media (prefers-color-scheme: dark) {
+  .git { --accent: #b69cff; --tint: #241f33; }
+  .pill { color: #17141f; }
+  .ostrzezenie { background: #3a1c1c; }
+}

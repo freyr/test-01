@@ -1,0 +1,78 @@
+<p>Commity z zadań 4 i 5 są na Twoim komputerze. W tej lekcji wyślesz je na GitHub, pobierzesz je na drugim komputerze i rozwiążesz najczęstszy problem: odrzucony push.</p>
+
+<h2>git push: wyślij commity na GitHub</h2>
+{{sesja push}}
+<p>Najważniejsza linia to <code>cbbd694..12f2637  main -&gt; main</code>. Gałąź <code>main</code> na GitHubie przesunęła się z commita <code>cbbd694</code> (zadanie 3) na <code>12f2637</code> (zadanie 5). Teraz <code>HEAD</code> i <code>origin/main</code> wskazują ten sam commit, a <code>git status</code> pisze <code>up to date</code>.</p>
+<p>Po minucie lub dwóch GitHub Pages publikuje nową wersję strony. Postęp widzisz na GitHubie w karcie <b>Actions</b>.</p>
+<div class="tip">Przy pierwszym <code>git push</code> możesz zobaczyć prośbę o login i hasło. To znaczy, że repozytorium ma adres HTTPS. Sprawdź <code>git remote -v</code> i sklonuj repozytorium jeszcze raz adresem SSH.</div>
+
+<h2>git pull: pobierz commity na innym komputerze</h2>
+<p>John ma repozytorium także w domu. Sklonował je tydzień temu, przed zadaniami 4 i 5. Domowa kopia nie wie jeszcze o nowych commitach:</p>
+{{sesja dom 1-4}}
+<p><code>git pull</code> pobrał dwa commity i przesunął gałąź <code>main</code> do przodu (<code>Fast-forward</code>). Teraz komputer w domu ma te same pliki, co komputer w szkole.</p>
+<p>W domu John dopisuje opis do <code>README.md</code> i od razu go wysyła:</p>
+{{sesja dom 5-8}}
+
+<h2>Odrzucony push</h2>
+<p>Następnego dnia w szkole John robi zadanie 6. Zapomina, że wczoraj w domu wysłał commit z README.</p>
+{{sesja odrzucony 1-4}}
+<p>GitHub odrzucił push (<code>rejected</code>). Na GitHubie jest commit z README, którego nie ma na szkolnym komputerze. Git nie nadpisze cudzej pracy, nawet jeśli to Twoja praca z innego komputera. Podpowiedź <code>hint:</code> mówi, co zrobić: <code>git pull</code>, potem znowu <code>git push</code>.</p>
+{{sesja odrzucony 5-7}}
+<p><code>git pull</code> pobrał commit z README i <b>przełożył</b> commit z zadaniem 6 na koniec historii (<code>Successfully rebased</code>). Tak działa ustawienie <code>pull.rebase true</code> z lekcji 4. Historia jest prosta: README, a po nim zadanie 6. Commit z zadaniem 6 dostał nowy hash, <code>d0d7e0c</code> zamiast <code>39f3882</code>, bo ma teraz innego rodzica.</p>
+
+<figure class="schemat">
+<svg viewBox="0 0 760 230" role="img" aria-label="Historia przed i po git pull z rebase">
+<text class="s-t" x="20" y="30">Przed git pull</text>
+<line class="s-l" x1="60" y1="70" x2="300" y2="70"/>
+<circle class="s-dot" cx="80" cy="70" r="10"/><text class="s-m" x="80" y="100" text-anchor="middle">12f2637</text><text class="s-m" x="80" y="117" text-anchor="middle">zad. 5</text>
+<line class="s-l" x1="80" y1="70" x2="280" y2="35"/>
+<circle class="s-dot" cx="280" cy="35" r="10"/><text class="s-m" x="320" y="40">9d86af9 README (GitHub)</text>
+<circle class="s-dot" cx="280" cy="70" r="10"/><text class="s-m" x="320" y="75">39f3882 zad. 6 (szkoła)</text>
+<text class="s-t" x="20" y="160">Po git pull</text>
+<line class="s-l" x1="60" y1="195" x2="560" y2="195"/>
+<circle class="s-dot" cx="80" cy="195" r="10"/><text class="s-m" x="80" y="222" text-anchor="middle">12f2637</text>
+<circle class="s-dot" cx="280" cy="195" r="10"/><text class="s-m" x="280" y="222" text-anchor="middle">9d86af9 README</text>
+<circle class="s-dot" cx="500" cy="195" r="10"/><text class="s-a" x="500" y="222" text-anchor="middle">d0d7e0c zad. 6</text>
+</svg>
+<figcaption>Rebase przekłada Twój commit na koniec historii z GitHuba.</figcaption>
+</figure>
+
+<div class="tip"><b>Zasada:</b> zacznij pracę od <code>git pull</code>, zakończ pracę <code>git push</code>. Wtedy odrzucony push zdarza się rzadko.</div>
+
+<h2>Konflikt</h2>
+<p>Czasem w obu commitach zmieniła się <b>ta sama linia</b> tego samego pliku. Wtedy Git nie wie, którą wersję wybrać, i zgłasza konflikt (<code>CONFLICT</code>). W pliku zobaczysz znaczniki:</p>
+<pre class="code">&lt;&lt;&lt;&lt;&lt;&lt;&lt; ...
+wersja z GitHuba
+=======
+Twoja wersja
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; ...</pre>
+<p>Zostaw właściwą wersję, usuń znaczniki i zapisz plik. Potem wykonaj <code>git add plik</code> i <code>git rebase --continue</code>. Aby zrezygnować i wrócić do stanu przed <code>git pull</code>, wykonaj <code>git rebase --abort</code>. Gdy pracujesz sam i zaczynasz od <code>git pull</code>, konflikt prawie się nie zdarza.</p>
+
+<h2>Ściąga</h2>
+<table class="req">
+<tr><th>Kiedy</th><th>Polecenie</th></tr>
+<tr><td>raz na komputerze</td><td><code>git config --global user.name "Imię Nazwisko"</code><br><code>git config --global user.email "adres@z.githuba"</code><br><code>git config --global pull.rebase true</code><br><code>ssh-keygen -t ed25519 -C "adres@z.githuba"</code></td></tr>
+<tr><td>raz na repozytorium</td><td><code>git clone git@github.com:login/repozytorium.git</code></td></tr>
+<tr><td>na początku pracy</td><td><code>git pull</code></td></tr>
+<tr><td>po każdym kroku</td><td><code>git status</code><br><code>git diff</code><br><code>git add .</code><br><code>git commit -m "Co zmieniłem"</code></td></tr>
+<tr><td>na końcu pracy</td><td><code>git push</code></td></tr>
+<tr><td>gdy nie wiesz, co dalej</td><td><code>git status</code> (i przeczytaj podpowiedzi)</td></tr>
+<tr><td>historia</td><td><code>git log --oneline</code></td></tr>
+</table>
+
+<div class="cwiczenie">
+<p><b>Ćwiczenie</b></p>
+<ol>
+<li>Wyślij commity z zadań 4 i 5 przez <code>git push</code>.</li>
+<li>Na GitHubie sprawdź listę commitów i stronę na github.io.</li>
+<li>Na GitHubie zmień <code>README.md</code> przez stronę WWW (ikona ołówka) i zrób commit.</li>
+<li>Na komputerze zrób zadanie 6 i commit, <b>bez</b> <code>git pull</code>. Spróbuj <code>git push</code>. Przeczytaj błąd.</li>
+<li>Napraw sytuację przez <code>git pull</code> i <code>git push</code>. Sprawdź historię.</li>
+</ol>
+</div>
+
+<h2>Sprawdź się</h2>
+<details class="quiz"><summary>Co znaczy <code>cbbd694..12f2637  main -&gt; main</code>?</summary><p>Gałąź <code>main</code> na GitHubie przesunęła się z commita <code>cbbd694</code> na <code>12f2637</code>.</p></details>
+<details class="quiz"><summary>Push został odrzucony z napisem <code>fetch first</code>. Co robisz?</summary><p><code>git pull</code>, a potem znowu <code>git push</code>.</p></details>
+<details class="quiz"><summary>Dlaczego po rebase commit z zadaniem 6 ma inny hash?</summary><p>Hash zależy także od rodzica commita. Po rebase rodzicem jest commit z README, więc hash jest nowy.</p></details>
+<details class="quiz"><summary>Jaka zasada chroni przed odrzuconym pushem?</summary><p>Zaczynaj pracę od <code>git pull</code>, kończ <code>git push</code>.</p></details>

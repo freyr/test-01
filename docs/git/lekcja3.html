@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git, lekcja 3 - Wiersz poleceń</title>
+<link rel="stylesheet" href="../opis/styl.css">
+</head>
+<body class="git">
+<main>
+<nav class="nav"><a href="lekcja2.html">← Lekcja 2</a><a href="../index.html#git">Wszystkie lekcje</a><a href="lekcja4.html">Lekcja 4 →</a></nav>
+<p class="eyebrow"><span class="pill">Dodatek: Git i GitHub</span> Lekcja 3 z 8</p>
+<h1>Wiersz poleceń</h1>
+<p>Git obsługujesz poleceniami wpisywanymi w <b>wierszu poleceń</b> (inaczej: terminal, konsola). Na początku wygląda to trudno, ale wystarczy kilka poleceń.</p>
+
+<h2>Jak otworzyć terminal</h2>
+<ul>
+<li><b>Windows:</b> zainstaluj Git ze strony <a href="https://git-scm.com/downloads">git-scm.com</a> (lekcja 4). Instalator dodaje program <b>Git Bash</b>. Otwórz menu Start i wpisz <code>Git Bash</code>. W folderze możesz też kliknąć prawym przyciskiem myszy i wybrać <b>Open Git Bash here</b>.</li>
+<li><b>macOS:</b> naciśnij <kbd>Cmd</kbd> + <kbd>Spacja</kbd>, wpisz <code>Terminal</code> i naciśnij <kbd>Enter</kbd>.</li>
+<li><b>Linux:</b> naciśnij <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd>.</li>
+</ul>
+<p>Wszystkie przykłady na tych stronach pochodzą z Git Bash. W Terminalu na macOS i Linuksie polecenia są takie same.</p>
+
+<h2>Jak czytać okno terminala</h2>
+<p>Każda linia zaczyna się od <b>znaku zachęty</b> (ang. <i>prompt</i>). Pokazuje on, w którym folderze jesteś. Znak <code>~</code> oznacza Twój folder domowy, na przykład <code>C:\Users\John</code>. Po znaku <code>$</code> wpisujesz polecenie i naciskasz <kbd>Enter</kbd>. Pod spodem pojawia się wynik.</p>
+<pre class="term"><span class="t-prompt">~/Documents $</span> <span class="t-cmd">mkdir informatyka</span>
+<span class="t-uwaga"># ↑ folder        ↑ polecenie, które wpisujesz</span></pre>
+<p>Nie przepisuj znaku zachęty ani <code>$</code>. Wpisuj tylko pogrubiony tekst.</p>
+
+<h2>Pięć poleceń do poruszania się po folderach</h2>
+<table class="req">
+<tr><th>Polecenie</th><th>Co robi</th><th>Skąd nazwa</th></tr>
+<tr><td><code>pwd</code></td><td>pokazuje, w którym folderze jesteś</td><td><i>print working directory</i></td></tr>
+<tr><td><code>ls</code></td><td>pokazuje pliki i foldery w bieżącym folderze</td><td><i>list</i></td></tr>
+<tr><td><code>cd nazwa</code></td><td>wchodzi do folderu</td><td><i>change directory</i></td></tr>
+<tr><td><code>cd ..</code></td><td>wraca do folderu wyżej</td><td><code>..</code> to folder nadrzędny</td></tr>
+<tr><td><code>cd ~</code></td><td>wraca do folderu domowego</td><td></td></tr>
+<tr><td><code>mkdir nazwa</code></td><td>tworzy nowy folder</td><td><i>make directory</i></td></tr>
+</table>
+
+<h2>Przykład</h2>
+<p>John sprawdza, gdzie jest, wchodzi do Dokumentów, tworzy folder <code>informatyka</code>, wchodzi do niego i wraca:</p>
+<pre class="term"><span class="t-prompt">~ $</span> <span class="t-cmd">pwd</span>
+/c/Users/John
+<span class="t-prompt">~ $</span> <span class="t-cmd">ls</span>
+Desktop		Downloads	Pictures
+Documents	Music		Videos
+<span class="t-prompt">~ $</span> <span class="t-cmd">cd Documents</span>
+<span class="t-prompt">~/Documents $</span> <span class="t-cmd">pwd</span>
+/c/Users/John/Documents
+<span class="t-prompt">~/Documents $</span> <span class="t-cmd">mkdir informatyka</span>
+<span class="t-prompt">~/Documents $</span> <span class="t-cmd">ls</span>
+informatyka
+<span class="t-prompt">~/Documents $</span> <span class="t-cmd">cd informatyka</span>
+<span class="t-prompt">~/Documents/informatyka $</span> <span class="t-cmd">pwd</span>
+/c/Users/John/Documents/informatyka
+<span class="t-prompt">~/Documents/informatyka $</span> <span class="t-cmd">cd ..</span>
+<span class="t-prompt">~/Documents $</span> <span class="t-cmd">pwd</span>
+/c/Users/John/Documents
+<span class="t-prompt">~/Documents $</span> <span class="t-cmd">cd ~</span></pre>
+<p>Zwróć uwagę:</p>
+<ul>
+<li>Polecenia <code>cd</code> i <code>mkdir</code> nic nie wypisują. Brak komunikatu oznacza, że wszystko się udało.</li>
+<li>Znak zachęty zmienia się po każdym <code>cd</code>. Zawsze widzisz, w którym folderze jesteś.</li>
+<li>W Git Bash dysk <code>C:</code> ma ścieżkę <code>/c/</code>, a ukośniki są w prawą stronę: <code>/c/Users/John</code>.</li>
+</ul>
+
+<h2>Dwa skróty, które oszczędzają czas</h2>
+<ul>
+<li><kbd>Tab</kbd>: wpisz <code>cd Doc</code> i naciśnij <kbd>Tab</kbd>. Terminal sam dopisze <code>Documents/</code>. Mniej pisania i brak literówek.</li>
+<li><kbd>↑</kbd>: strzałka w górę przywraca poprzednie polecenie. Naciśnij ją kilka razy, aby cofnąć się dalej.</li>
+</ul>
+<div class="tip"><b>Wielkość liter ma znaczenie.</b> <code>cd documents</code> może nie zadziałać, gdy folder nazywa się <code>Documents</code>. Używaj <kbd>Tab</kbd>, a nie pomylisz się.</div>
+<div class="tip"><b>Spacje w nazwach</b> sprawiają kłopot. Nazywaj foldery bez spacji i bez polskich znaków: <code>zadania-html</code>, a nie <code>Zadania z HTML</code>.</div>
+
+<div class="cwiczenie">
+<p><b>Ćwiczenie</b></p>
+<ol>
+<li>Otwórz terminal i wpisz <code>pwd</code>.</li>
+<li>Wpisz <code>ls</code> i znajdź folder <code>Documents</code> (lub <code>Dokumenty</code>).</li>
+<li>Wejdź do niego poleceniem <code>cd</code> z klawiszem <kbd>Tab</kbd>.</li>
+<li>Utwórz folder <code>informatyka</code> i wejdź do niego.</li>
+<li>Wróć do folderu domowego jednym poleceniem.</li>
+</ol>
+</div>
+
+<h2>Sprawdź się</h2>
+<details class="quiz"><summary>Jesteś w <code>~/Documents/informatyka</code>. Gdzie będziesz po <code>cd ..</code>?</summary><p>W <code>~/Documents</code>.</p></details>
+<details class="quiz"><summary>Polecenie <code>mkdir test</code> nic nie wypisało. Czy to błąd?</summary><p>Nie. Brak komunikatu oznacza sukces. Sprawdź poleceniem <code>ls</code>.</p></details>
+<details class="quiz"><summary>Jak powtórzyć poprzednie polecenie bez pisania?</summary><p>Naciśnij strzałkę w górę, a potem <kbd>Enter</kbd>.</p></details>
+
+<nav class="nav"><a href="lekcja2.html">← Lekcja 2</a><a href="../index.html#git">Wszystkie lekcje</a><a href="lekcja4.html">Lekcja 4 →</a></nav>
+</main>
+</body>
+</html>

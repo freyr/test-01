@@ -1,0 +1,296 @@
+{
+ "terminal": [
+  {
+   "prompt": "~",
+   "cmd": "pwd",
+   "out": "/c/Users/John"
+  },
+  {
+   "prompt": "~",
+   "cmd": "ls",
+   "out": "Desktop\t\tDownloads\tPictures\nDocuments\tMusic\t\tVideos"
+  },
+  {
+   "prompt": "~",
+   "cmd": "cd Documents",
+   "out": ""
+  },
+  {
+   "prompt": "~/Documents",
+   "cmd": "pwd",
+   "out": "/c/Users/John/Documents"
+  },
+  {
+   "prompt": "~/Documents",
+   "cmd": "mkdir informatyka",
+   "out": ""
+  },
+  {
+   "prompt": "~/Documents",
+   "cmd": "ls",
+   "out": "informatyka"
+  },
+  {
+   "prompt": "~/Documents",
+   "cmd": "cd informatyka",
+   "out": ""
+  },
+  {
+   "prompt": "~/Documents/informatyka",
+   "cmd": "pwd",
+   "out": "/c/Users/John/Documents/informatyka"
+  },
+  {
+   "prompt": "~/Documents/informatyka",
+   "cmd": "cd ..",
+   "out": ""
+  },
+  {
+   "prompt": "~/Documents",
+   "cmd": "pwd",
+   "out": "/c/Users/John/Documents"
+  },
+  {
+   "prompt": "~/Documents",
+   "cmd": "cd ~",
+   "out": ""
+  }
+ ],
+ "konfiguracja": [
+  {
+   "prompt": "~",
+   "cmd": "git --version",
+   "out": "git version 2.51.0.windows.1"
+  },
+  {
+   "prompt": "~",
+   "cmd": "git config --global user.name \"John Doe\"",
+   "out": ""
+  },
+  {
+   "prompt": "~",
+   "cmd": "git config --global user.email \"john.doe@example.com\"",
+   "out": ""
+  },
+  {
+   "prompt": "~",
+   "cmd": "git config --global pull.rebase true",
+   "out": ""
+  },
+  {
+   "prompt": "~",
+   "cmd": "git config --global --list",
+   "out": "user.name=John Doe\nuser.email=john.doe@example.com\npull.rebase=true"
+  }
+ ],
+ "ssh": [
+  {
+   "prompt": "~",
+   "cmd": "ssh-keygen -t ed25519 -C \"john.doe@example.com\"",
+   "out": "Generating public/private ed25519 key pair.\nEnter file in which to save the key (/c/Users/John/.ssh/id_ed25519):\nCreated directory '/c/Users/John/.ssh'.\nEnter passphrase (empty for no passphrase):\nEnter same passphrase again:\nYour identification has been saved in /c/Users/John/.ssh/id_ed25519\nYour public key has been saved in /c/Users/John/.ssh/id_ed25519.pub\nThe key fingerprint is:\nSHA256:ZRY+7mddk0AWvyAAxL1KCP6Phjim75fKyzGm22liT/g john.doe@example.com\nThe key's randomart image is:\n+--[ED25519 256]--+\n|      ooo..  +.  |\n|   .   . o..o .  |\n|  . . .   B. o . |\n|   . . . * .. o o|\n|    . . S .    +.|\n|  .  . . .   . ..|\n| .=...o   . o .  |\n|.@+=oo .   o     |\n|B*%E.            |\n+----[SHA256]-----+"
+  },
+  {
+   "prompt": "~",
+   "cmd": "ls ~/.ssh",
+   "out": "id_ed25519\tid_ed25519.pub"
+  },
+  {
+   "prompt": "~",
+   "cmd": "cat ~/.ssh/id_ed25519.pub",
+   "out": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGPTl6DPm/MwlQ3SRO9PrK/WLkwPM7M6P1ljoE+JhTlK john.doe@example.com"
+  },
+  {
+   "prompt": "~",
+   "cmd": "ssh -T git@github.com",
+   "out": "The authenticity of host 'github.com (140.82.121.3)' can't be established.\nED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.\nThis key is not known by any other names.\nAre you sure you want to continue connecting (yes/no/[fingerprint])? yes\nWarning: Permanently added 'github.com' (ED25519) to the list of known hosts.\nHi johndoe! You've successfully authenticated, but GitHub does not provide shell access."
+  }
+ ],
+ "klon": [
+  {
+   "prompt": "~",
+   "cmd": "git clone git@github.com:johndoe/zadania-html.git",
+   "out": "Cloning into 'zadania-html'...\nremote: Enumerating objects: 12, done.\nremote: Counting objects: 100% (12/12), done.\nremote: Compressing objects: 100% (10/10), done.\nremote: Total 12 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)\nReceiving objects: 100% (12/12), done.\nResolving deltas: 100% (2/2), done."
+  },
+  {
+   "prompt": "~",
+   "cmd": "cd zadania-html",
+   "out": ""
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "ls",
+   "out": "README.md\tindex.html"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git status",
+   "out": "On branch main\nYour branch is up to date with 'origin/main'.\n\nnothing to commit, working tree clean"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git log --oneline",
+   "out": "cbbd694 (HEAD -> main, origin/main, origin/HEAD) Add files via upload\ndae89b8 Update index.html\n3d6c131 Add files via upload\ne898b1e Initial commit"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git log -1",
+   "out": "commit cbbd694e87cf0e20064cfcc23d97d10525ac9347\nAuthor: John Doe <john.doe@example.com>\nDate:   Tue Sep 29 16:51:00 2026 +0200\n\n    Add files via upload"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git remote -v",
+   "out": "origin\tgit@github.com:johndoe/zadania-html.git (fetch)\norigin\tgit@github.com:johndoe/zadania-html.git (push)"
+  }
+ ],
+ "zmiana": [
+  {
+   "uwaga": "Edytujesz index.html (zadanie 4) i zapisujesz plik."
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git status",
+   "out": "On branch main\nYour branch is up to date with 'origin/main'.\n\nChanges not staged for commit:\n  (use \"git add <file>...\" to update what will be committed)\n  (use \"git restore <file>...\" to discard changes in working directory)\n\tmodified:   index.html\n\nno changes added to commit (use \"git add\" and/or \"git commit -a\")"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git diff",
+   "out": "diff --git a/index.html b/index.html\nindex e80330b..5568e40 100644\n--- a/index.html\n+++ b/index.html\n@@ -93,6 +93,75 @@\n\n \t\t<hr size=\"10\" width=\"30%\" color=\"green\">\n\n+\t\t<!-- zadanie 4: wyliczenia i numerowania o informatyce -->\n+\t\t<br><br><br>\n+\t\t<h1>Poniżej są trzy wyliczenia z różnymi znakami wyliczenia</h1>\n+\t\t<ul type=\"square\">\n+\t\t\t<li>procesor</li>\n+\t\t\t<li>pamięć RAM</li>\n+\t\t\t<li>dysk SSD</li>\n+\t\t</ul>\n+\t\t<ul type=\"disc\">\n+\t\t\t<li>klawiatura</li>\n+\t\t\t<li>mysz</li>\n+\t\t\t<li>monitor</li>\n+\t\t</ul>\n+\t\t<ul type=\"circle\">\n…",
+   "diff": true
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git add index.html",
+   "out": ""
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git status",
+   "out": "On branch main\nYour branch is up to date with 'origin/main'.\n\nChanges to be committed:\n  (use \"git restore --staged <file>...\" to unstage)\n\tmodified:   index.html"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git commit -m \"Zadanie 4: wyliczenia i numerowania\"",
+   "out": "[main e32ebb1] Zadanie 4: wyliczenia i numerowania\n 1 file changed, 69 insertions(+)"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git log --oneline",
+   "out": "e32ebb1 (HEAD -> main) Zadanie 4: wyliczenia i numerowania\ncbbd694 (origin/main, origin/HEAD) Add files via upload\ndae89b8 Update index.html\n3d6c131 Add files via upload\ne898b1e Initial commit"
+  }
+ ],
+ "nowe_pliki": [
+  {
+   "uwaga": "Zadanie 5: zmieniasz index.html i kopiujesz do folderu 5 obrazków .gif."
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git status",
+   "out": "On branch main\nYour branch is ahead of 'origin/main' by 1 commit.\n  (use \"git push\" to publish your local commits)\n\nChanges not staged for commit:\n  (use \"git add <file>...\" to update what will be committed)\n  (use \"git restore <file>...\" to discard changes in working directory)\n\tmodified:   index.html\n\nUntracked files:\n  (use \"git add <file>...\" to include in what will be committed)\n\tgrafika1.gif\n\tgrafika2.gif\n\tgrafika3.gif\n\tgrafika4.gif\n\tgrafika5.gif\n\nno changes added to commit (use \"git add\" and/or \"git commit -a\")"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git add .",
+   "out": ""
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git status",
+   "out": "On branch main\nYour branch is ahead of 'origin/main' by 1 commit.\n  (use \"git push\" to publish your local commits)\n\nChanges to be committed:\n  (use \"git restore --staged <file>...\" to unstage)\n\tnew file:   grafika1.gif\n\tnew file:   grafika2.gif\n\tnew file:   grafika3.gif\n\tnew file:   grafika4.gif\n\tnew file:   grafika5.gif\n\tmodified:   index.html"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git commit -m \"Zadanie 5: animowane grafiki\"",
+   "out": "[main 12f2637] Zadanie 5: animowane grafiki\n 6 files changed, 5 insertions(+)\n create mode 100644 grafika1.gif\n create mode 100644 grafika2.gif\n create mode 100644 grafika3.gif\n create mode 100644 grafika4.gif\n create mode 100644 grafika5.gif"
+  }
+ ],
+ "push": [
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git push",
+   "out": "Enumerating objects: 13, done.\nCounting objects: 100% (13/13), done.\nDelta compression using up to 12 threads\nCompressing objects: 100% (11/11), done.\nWriting objects: 100% (11/11), 11.36 KiB | 11.36 MiB/s, done.\nTotal 11 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)\nTo github.com:johndoe/zadania-html.git\n   cbbd694..12f2637  main -> main"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git status",
+   "out": "On branch main\nYour branch is up to date with 'origin/main'.\n\nnothing to commit, working tree clean"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git log --oneline",
+   "out": "12f2637 (HEAD -> main, origin/main, origin/HEAD) Zadanie 5: animowane grafiki\ne32ebb1 Zadanie 4: wyliczenia i numerowania\ncbbd694 Add files via upload\ndae89b8 Update index.html\n3d6c131 Add files via upload\ne898b1e Initial commit"
+  }
+ ],
+ "dom": [
+  {
+   "uwaga": "Komputer w domu. Repozytorium jest sklonowane od tygodnia."
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git log --oneline",
+   "out": "cbbd694 (HEAD -> main, origin/main, origin/HEAD) Add files via upload\ndae89b8 Update index.html\n3d6c131 Add files via upload\ne898b1e Initial commit"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git pull",
+   "out": "remote: Enumerating objects: 13, done.\nremote: Counting objects: 100% (13/13), done.\nremote: Compressing objects: 100% (11/11), done.\nremote: Total 11 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)\nFrom github.com:johndoe/zadania-html\n   cbbd694..12f2637  main       -> origin/main\nUpdating cbbd694..12f2637\nFast-forward\n grafika1.gif | Bin 0 -> 5857 bytes\n grafika2.gif | Bin 0 -> 1481 bytes\n grafika3.gif | Bin 0 -> 3024 bytes\n grafika4.gif | Bin 0 -> 4525 bytes\n grafika5.gif | Bin 0 -> 2013 bytes\n index.html   |  74 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n 6 files changed, 74 insertions(+)\n create mode 100644 grafika1.gif\n create mode 100644 grafika2.gif\n create mode 100644 grafika3.gif\n create mode 100644 grafika4.gif\n create mode 100644 grafika5.gif"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git log --oneline",
+   "out": "12f2637 (HEAD -> main, origin/main, origin/HEAD) Zadanie 5: animowane grafiki\ne32ebb1 Zadanie 4: wyliczenia i numerowania\ncbbd694 Add files via upload\ndae89b8 Update index.html\n3d6c131 Add files via upload\ne898b1e Initial commit"
+  },
+  {
+   "uwaga": "Dopisujesz opis do README.md."
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git add README.md",
+   "out": ""
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git commit -m \"Opis repozytorium w README\"",
+   "out": "[main 9d86af9] Opis repozytorium w README\n 1 file changed, 4 insertions(+)"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git push",
+   "out": "Enumerating objects: 5, done.\nCounting objects: 100% (5/5), done.\nDelta compression using up to 12 threads\nCompressing objects: 100% (3/3), done.\nWriting objects: 100% (3/3), 398 bytes | 398.00 KiB/s, done.\nTotal 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)\nTo github.com:johndoe/zadania-html.git\n   12f2637..9d86af9  main -> main"
+  }
+ ],
+ "odrzucony": [
+  {
+   "uwaga": "Następnego dnia w szkole. Robisz zadanie 6, ale zapominasz o git pull."
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git add .",
+   "out": ""
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git commit -m \"Zadanie 6: linki i podstrony\"",
+   "out": "[main 39f3882] Zadanie 6: linki i podstrony\n 7 files changed, 84 insertions(+)\n create mode 100644 formularz_doe.html\n create mode 100644 plik_doe.html\n create mode 100644 plik_doe.zip\n create mode 100644 poczta.gif\n create mode 100644 poczta_doe.html\n create mode 100644 tabela_doe.html"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git push",
+   "out": "To github.com:johndoe/zadania-html.git\n ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to 'git@github.com:johndoe/zadania-html.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details."
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git pull",
+   "out": "remote: Enumerating objects: 5, done.\nremote: Counting objects: 100% (5/5), done.\nremote: Compressing objects: 100% (3/3), done.\nremote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)\nFrom github.com:johndoe/zadania-html\n   12f2637..9d86af9  main       -> origin/main\nSuccessfully rebased and updated refs/heads/main."
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git push",
+   "out": "Enumerating objects: 11, done.\nCounting objects: 100% (11/11), done.\nDelta compression using up to 12 threads\nCompressing objects: 100% (9/9), done.\nWriting objects: 100% (9/9), 3.79 KiB | 3.79 MiB/s, done.\nTotal 9 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)\nTo github.com:johndoe/zadania-html.git\n   9d86af9..d0d7e0c  main -> main"
+  },
+  {
+   "prompt": "~/zadania-html (main)",
+   "cmd": "git log --oneline",
+   "out": "d0d7e0c (HEAD -> main, origin/main, origin/HEAD) Zadanie 6: linki i podstrony\n9d86af9 Opis repozytorium w README\n12f2637 Zadanie 5: animowane grafiki\ne32ebb1 Zadanie 4: wyliczenia i numerowania\ncbbd694 Add files via upload\ndae89b8 Update index.html\n3d6c131 Add files via upload\ne898b1e Initial commit"
+  }
+ ]
+}

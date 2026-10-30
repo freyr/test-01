@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git, lekcja 6 - Klonowanie i stan repozytorium</title>
+<link rel="stylesheet" href="../opis/styl.css">
+</head>
+<body class="git">
+<main>
+<nav class="nav"><a href="lekcja5.html">← Lekcja 5</a><a href="../index.html#git">Wszystkie lekcje</a><a href="lekcja7.html">Lekcja 7 →</a></nav>
+<p class="eyebrow"><span class="pill">Dodatek: Git i GitHub</span> Lekcja 6 z 8</p>
+<h1>Klonowanie i stan repozytorium</h1>
+<p>Repozytorium <code>zadania-html</code> jest już na GitHubie, bo zadania 1-3 wgrałeś przez stronę WWW. Teraz pobierzesz jego kopię na komputer. To się nazywa <b>klonowanie</b>.</p>
+
+<h2>Adres repozytorium</h2>
+<p>Na stronie repozytorium kliknij zielony przycisk <b>Code</b>, wybierz kartę <b>SSH</b> i skopiuj adres. Wygląda tak:</p>
+<pre class="code">git@github.com:johndoe/zadania-html.git</pre>
+<p>Wybierz adres SSH, a nie HTTPS. Wtedy Git użyje Twojego klucza z lekcji 5.</p>
+
+<h2>git clone: pobierz kopię</h2>
+<p>Wejdź do folderu, w którym ma być projekt, i wklej adres po <code>git clone</code>:</p>
+<pre class="term"><span class="t-prompt">~ $</span> <span class="t-cmd">git clone git@github.com:johndoe/zadania-html.git</span>
+Cloning into &#x27;zadania-html&#x27;...
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 12 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (12/12), done.
+Resolving deltas: 100% (2/2), done.
+<span class="t-prompt">~ $</span> <span class="t-cmd">cd zadania-html</span>
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">ls</span>
+README.md	index.html</pre>
+<p><code>git clone</code> tworzy folder <code>zadania-html</code> i pobiera do niego wszystkie pliki oraz <b>całą historię</b>. Linie <code>remote:</code> wypisuje GitHub. Klonujesz tylko raz na każdym komputerze. Potem już tylko pobierasz nowości przez <code>git pull</code>.</p>
+<p>Po wejściu do folderu repozytorium znak zachęty pokazuje <code>(main)</code>. To nazwa <b>gałęzi</b>, czyli linii historii. Na razie masz tylko jedną gałąź, <code>main</code>.</p>
+
+<h2>git status: co się dzieje</h2>
+<p>To najważniejsze polecenie. Używaj go zawsze, gdy nie wiesz, co dalej. Nic nie zmienia, tylko opisuje stan.</p>
+<pre class="term"><span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git status</span>
+On branch main
+Your branch is up to date with &#x27;origin/main&#x27;.
+
+nothing to commit, working tree clean</pre>
+<ul>
+<li><code>On branch main</code>: jesteś na gałęzi <code>main</code>.</li>
+<li><code>up to date with 'origin/main'</code>: masz te same commity, co GitHub.</li>
+<li><code>nothing to commit, working tree clean</code>: od ostatniego commita nic nie zmieniłeś.</li>
+</ul>
+
+<h2>git log: historia</h2>
+<pre class="term"><span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git log --oneline</span>
+cbbd694 (HEAD -&gt; main, origin/main, origin/HEAD) Add files via upload
+dae89b8 Update index.html
+3d6c131 Add files via upload
+e898b1e Initial commit
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git log -1</span>
+commit cbbd694e87cf0e20064cfcc23d97d10525ac9347
+Author: John Doe &lt;john.doe@example.com&gt;
+Date:   Tue Sep 29 16:51:00 2026 +0200
+
+    Add files via upload</pre>
+<p><code>git log --oneline</code> pokazuje jeden commit w linii: skrócony hash i opis. Najnowszy commit jest na górze. Oznaczenia w nawiasie:</p>
+<ul>
+<li><code>HEAD -&gt; main</code>: tu jesteś teraz;</li>
+<li><code>origin/main</code>: tu jest gałąź <code>main</code> na GitHubie (według ostatniej wiadomości od GitHuba).</li>
+</ul>
+<p>Sam <code>git log</code> pokazuje więcej: pełny hash, autora i datę. <code>-1</code> ogranicza wynik do jednego commita. Gdy historia jest długa, <code>git log</code> wyświetla ją stronami: spacja przewija, <kbd>q</kbd> wychodzi.</p>
+
+<h2>git remote: skąd jest kopia</h2>
+<pre class="term"><span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git remote -v</span>
+origin	git@github.com:johndoe/zadania-html.git (fetch)
+origin	git@github.com:johndoe/zadania-html.git (push)</pre>
+<p>Git pamięta, skąd sklonowałeś repozytorium, pod nazwą <code>origin</code>. Dlatego później wystarczy <code>git push</code> bez adresu.</p>
+
+<h2>Trzy miejsca, w których są Twoje zmiany</h2>
+<p>To najważniejsza idea Gita. Każda zmiana przechodzi przez trzy miejsca:</p>
+<figure class="schemat">
+<svg viewBox="0 0 760 210" role="img" aria-label="Katalog roboczy, poczekalnia i repozytorium">
+<rect class="s-box" x="20" y="30" width="210" height="110" rx="10"/>
+<text class="s-t" x="125" y="65" text-anchor="middle">Katalog roboczy</text>
+<text class="s-m" x="125" y="90" text-anchor="middle">pliki, które edytujesz</text>
+<text class="s-m" x="125" y="110" text-anchor="middle">w Notatniku</text>
+<rect class="s-box" x="275" y="30" width="210" height="110" rx="10"/>
+<text class="s-t" x="380" y="65" text-anchor="middle">Poczekalnia</text>
+<text class="s-m" x="380" y="90" text-anchor="middle">(staging area)</text>
+<text class="s-m" x="380" y="110" text-anchor="middle">zmiany do commita</text>
+<rect class="s-box2" x="530" y="30" width="210" height="110" rx="10"/>
+<text class="s-t" x="635" y="65" text-anchor="middle">Repozytorium</text>
+<text class="s-m" x="635" y="90" text-anchor="middle">historia commitów</text>
+<text class="s-m" x="635" y="110" text-anchor="middle">(folder .git)</text>
+<path class="s-l" d="M232 85 L270 85"/><text class="s-a" x="251" y="175" text-anchor="middle">git add</text>
+<path class="s-l" d="M487 85 L525 85"/><text class="s-a" x="506" y="175" text-anchor="middle">git commit</text>
+<path class="s-l" d="M251 145 L251 160"/><path class="s-l" d="M506 145 L506 160"/>
+</svg>
+<figcaption>Zmieniony plik najpierw trafia do poczekalni (<code>git add</code>), potem do historii (<code>git commit</code>).</figcaption>
+</figure>
+<p>Porównanie: pakujesz paczkę. Na biurku masz rzeczy (katalog roboczy). Wybrane rzeczy wkładasz do pudełka (poczekalnia). Na końcu zaklejasz pudełko i piszesz na nim, co jest w środku (commit). Lekcja 7 pokazuje to na zadaniach 4 i 5.</p>
+<p>Historia jest w ukrytym folderze <code>.git</code> w repozytorium. Nie zmieniaj go ręcznie i nie usuwaj go.</p>
+
+<div class="cwiczenie">
+<p><b>Ćwiczenie</b></p>
+<ol>
+<li>Skopiuj adres SSH swojego repozytorium.</li>
+<li>Sklonuj je do folderu <code>~/Documents/informatyka</code>.</li>
+<li>Wejdź do folderu repozytorium i wykonaj <code>git status</code>.</li>
+<li>Policz commity w <code>git log --oneline</code>. Czy ta liczba jest taka sama, jak na GitHubie?</li>
+</ol>
+</div>
+
+<h2>Sprawdź się</h2>
+<details class="quiz"><summary>Ile razy klonujesz repozytorium na jednym komputerze?</summary><p>Raz. Potem pobierasz nowe commity przez <code>git pull</code>.</p></details>
+<details class="quiz"><summary>Co znaczy <code>working tree clean</code>?</summary><p>Pliki w folderze są takie same, jak w ostatnim commicie.</p></details>
+<details class="quiz"><summary>Wymień trzy miejsca, przez które przechodzi zmiana.</summary><p>Katalog roboczy, poczekalnia (staging area), repozytorium (historia).</p></details>
+
+<nav class="nav"><a href="lekcja5.html">← Lekcja 5</a><a href="../index.html#git">Wszystkie lekcje</a><a href="lekcja7.html">Lekcja 7 →</a></nav>
+</main>
+</body>
+</html>

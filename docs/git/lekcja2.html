@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git, lekcja 2 - Git i GitHub: repozytorium rozproszone</title>
+<link rel="stylesheet" href="../opis/styl.css">
+</head>
+<body class="git">
+<main>
+<nav class="nav"><a href="lekcja1.html">← Lekcja 1</a><a href="../index.html#git">Wszystkie lekcje</a><a href="lekcja3.html">Lekcja 3 →</a></nav>
+<p class="eyebrow"><span class="pill">Dodatek: Git i GitHub</span> Lekcja 2 z 8</p>
+<h1>Git i GitHub: repozytorium rozproszone</h1>
+<p>Git i GitHub to dwie różne rzeczy. Ta lekcja wyjaśnia różnicę i pokazuje, gdzie jest Twoja historia.</p>
+
+<h2>Git to program, GitHub to serwis</h2>
+<table class="req">
+<tr><th></th><th>Git</th><th>GitHub</th></tr>
+<tr><td>Co to jest</td><td>program na Twoim komputerze</td><td>strona WWW i serwer w internecie</td></tr>
+<tr><td>Co robi</td><td>zapisuje historię projektu (commity)</td><td>przechowuje kopie repozytoriów i pokazuje je w przeglądarce</td></tr>
+<tr><td>Czy działa bez internetu</td><td>tak</td><td>nie</td></tr>
+<tr><td>Dodatki</td><td>-</td><td>GitHub Pages, konto, uprawnienia, zgłoszenia</td></tr>
+</table>
+<p><b>Repozytorium</b> (w skrócie <b>repo</b>) to folder projektu razem z całą jego historią. Repozytorium Johna nazywa się <code>zadania-html</code>.</p>
+
+<h2>Centralny i rozproszony system</h2>
+<p>Starsze systemy kontroli wersji są <b>centralne</b>. Historia jest tylko na jednym serwerze. Gdy serwer nie działa, nie możesz zapisać żadnej zmiany.</p>
+<p>Git jest <b>rozproszony</b>. Każdy komputer, który ma repozytorium, ma <b>pełną kopię całej historii</b>. Możesz robić commity w autobusie bez internetu. Kopię na GitHubie aktualizujesz później jednym poleceniem.</p>
+
+<figure class="schemat">
+<svg viewBox="0 0 760 290" role="img" aria-label="GitHub i dwa komputery z pełną kopią repozytorium">
+<rect class="s-box2" x="255" y="15" width="250" height="90" rx="10"/>
+<text class="s-t" x="380" y="48" text-anchor="middle">GitHub</text>
+<text class="s-m" x="380" y="72" text-anchor="middle">johndoe/zadania-html</text>
+<text class="s-m" x="380" y="92" text-anchor="middle">pełna historia</text>
+<rect class="s-box" x="30" y="185" width="250" height="90" rx="10"/>
+<text class="s-t" x="155" y="218" text-anchor="middle">Komputer w szkole</text>
+<text class="s-m" x="155" y="242" text-anchor="middle">pełna historia</text>
+<text class="s-m" x="155" y="262" text-anchor="middle">+ Twoje nowe commity</text>
+<rect class="s-box" x="480" y="185" width="250" height="90" rx="10"/>
+<text class="s-t" x="605" y="218" text-anchor="middle">Komputer w domu</text>
+<text class="s-m" x="605" y="242" text-anchor="middle">pełna historia</text>
+<text class="s-m" x="605" y="262" text-anchor="middle">+ Twoje nowe commity</text>
+<path class="s-l" d="M180 182 L300 110"/><path class="s-l" d="M240 110 L130 180"/>
+<text class="s-a" x="285" y="160">push ↑</text><text class="s-a" x="105" y="140">↓ pull</text>
+<path class="s-l" d="M580 182 L460 110"/><path class="s-l" d="M520 110 L630 180"/>
+<text class="s-a" x="430" y="160">↑ push</text><text class="s-a" x="600" y="140">pull ↓</text>
+</svg>
+<figcaption>Trzy pełne kopie jednego repozytorium. <code>git push</code> wysyła commity na GitHub, <code>git pull</code> pobiera je z GitHuba.</figcaption>
+</figure>
+
+<p>Kopię na GitHubie nazywamy <b>zdalnym repozytorium</b> (ang. <i>remote</i>). Git nadaje jej krótką nazwę <code>origin</code>. Kopia na Twoim komputerze to <b>repozytorium lokalne</b>.</p>
+<p>Kopie nie łączą się same. Ty decydujesz, kiedy wysłać i pobrać zmiany:</p>
+<ul>
+<li><code>git push</code>: wyślij moje nowe commity na GitHub;</li>
+<li><code>git pull</code>: pobierz z GitHuba commity, których jeszcze nie mam.</li>
+</ul>
+
+<h2>Gdzie tu jest GitHub Pages</h2>
+<p>GitHub Pages to dodatek GitHuba. Po każdym nowym commicie na GitHubie Pages bierze pliki z repozytorium i publikuje je jako stronę <code>https://johndoe.github.io/zadania-html/</code>. Nie ma znaczenia, czy commit przyszedł ze strony WWW, czy z <code>git push</code>. Po minucie lub dwóch strona jest aktualna.</p>
+
+<div class="tip"><b>Ważne:</b> commit na Twoim komputerze nie zmienia strony w internecie. Strona zmienia się dopiero po <code>git push</code>.</div>
+
+<h2>Sprawdź się</h2>
+<details class="quiz"><summary>Czy Git działa bez internetu?</summary><p>Tak. Commity zapisujesz lokalnie. Internet jest potrzebny tylko do <code>git push</code> i <code>git pull</code>.</p></details>
+<details class="quiz"><summary>Co znaczy „rozproszony”?</summary><p>Każda kopia repozytorium ma pełną historię. Żaden serwer nie jest jedynym miejscem, gdzie jest historia.</p></details>
+<details class="quiz"><summary>Co to jest <code>origin</code>?</summary><p>Nazwa zdalnego repozytorium, czyli kopii na GitHubie, z którego sklonowałeś projekt.</p></details>
+<details class="quiz"><summary>Zrobiłeś commit, ale strona na github.io się nie zmieniła. Dlaczego?</summary><p>Commit jest tylko na Twoim komputerze. Wykonaj <code>git push</code>.</p></details>
+
+<nav class="nav"><a href="lekcja1.html">← Lekcja 1</a><a href="../index.html#git">Wszystkie lekcje</a><a href="lekcja3.html">Lekcja 3 →</a></nav>
+</main>
+</body>
+</html>

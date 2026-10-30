@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git, lekcja 4 - Instalacja i pierwsza konfiguracja Gita</title>
+<link rel="stylesheet" href="../opis/styl.css">
+</head>
+<body class="git">
+<main>
+<nav class="nav"><a href="lekcja3.html">← Lekcja 3</a><a href="../index.html#git">Wszystkie lekcje</a><a href="lekcja5.html">Lekcja 5 →</a></nav>
+<p class="eyebrow"><span class="pill">Dodatek: Git i GitHub</span> Lekcja 4 z 8</p>
+<h1>Instalacja i pierwsza konfiguracja Gita</h1>
+<p>Git trzeba zainstalować i raz skonfigurować. Konfiguracja na danym komputerze zostaje na zawsze.</p>
+
+<h2>Instalacja</h2>
+<ul>
+<li><b>Windows:</b> pobierz instalator z <a href="https://git-scm.com/downloads">git-scm.com/downloads</a>. W instalatorze zostaw ustawienia domyślne i klikaj <b>Next</b>. Na jednym ekranie możesz wybrać edytor. Wybierz <b>Notepad</b> lub <b>Visual Studio Code</b> zamiast domyślnego <b>Vim</b>.</li>
+<li><b>macOS:</b> w Terminalu wpisz <code>git --version</code>. Jeśli Gita nie ma, system sam zaproponuje instalację narzędzi (<i>Command Line Tools</i>).</li>
+<li><b>Linux:</b> <code>sudo apt install git</code> (Ubuntu, Debian).</li>
+</ul>
+<p>Na komputerze szkolnym Git może już być. Sprawdź to poleceniem <code>git --version</code>.</p>
+
+<h2>Kim jesteś: imię i e-mail</h2>
+<p>Każdy commit zapisuje autora. Git musi wiedzieć, jak się nazywasz. Bez tego nie zrobi commita. Podaj ten sam e-mail, co na koncie GitHub. Wtedy GitHub połączy commity z Twoim kontem i pokaże przy nich Twój awatar.</p>
+<pre class="term"><span class="t-prompt">~ $</span> <span class="t-cmd">git --version</span>
+git version 2.51.0.windows.1
+<span class="t-prompt">~ $</span> <span class="t-cmd">git config --global user.name &quot;John Doe&quot;</span>
+<span class="t-prompt">~ $</span> <span class="t-cmd">git config --global user.email &quot;john.doe@example.com&quot;</span>
+<span class="t-prompt">~ $</span> <span class="t-cmd">git config --global pull.rebase true</span>
+<span class="t-prompt">~ $</span> <span class="t-cmd">git config --global --list</span>
+user.name=John Doe
+user.email=john.doe@example.com
+pull.rebase=true</pre>
+<p>Co znaczą te polecenia:</p>
+<ul>
+<li><code>git config</code> zmienia ustawienia Gita. <code>--global</code> oznacza: dla wszystkich repozytoriów tego użytkownika na tym komputerze.</li>
+<li><code>user.name</code> i <code>user.email</code> to autor commitów. Cudzysłów jest potrzebny, bo w <code>John Doe</code> jest spacja.</li>
+<li><code>pull.rebase true</code> ustala, jak <code>git pull</code> łączy Twoje commity z commitami z GitHuba. Lekcja 8 pokazuje, kiedy to ma znaczenie. Bez tego ustawienia Git czasem otwiera edytor albo wypisuje długie ostrzeżenie.</li>
+<li><code>--list</code> pokazuje wszystkie ustawienia. Tak sprawdzisz, czy nie ma literówki.</li>
+</ul>
+
+<div class="ostrzezenie"><b>Komputer szkolny jest wspólny.</b> Jeśli po Tobie pracuje inna osoba, jej commity zapiszą się z Twoim imieniem. Na koniec lekcji usuń swoje dane:
+<pre class="term"><span class="t-prompt">~ $</span> <span class="t-cmd">git config --global --unset user.name</span>
+<span class="t-prompt">~ $</span> <span class="t-cmd">git config --global --unset user.email</span></pre></div>
+
+<h2>Gdy otworzy się dziwny edytor</h2>
+<p>Jeśli wpiszesz <code>git commit</code> bez opisu <code>-m "..."</code>, Git otworzy edytor, w którym masz napisać opis. Domyślny edytor to <b>Vim</b>. Wygląda jak czarny ekran z falkami <code>~</code> i nie reaguje normalnie na klawisze.</p>
+<p>Jak wyjść z Vima:</p>
+<ol>
+<li>Naciśnij <kbd>i</kbd>. Teraz możesz pisać. Wpisz opis commita w pierwszej linii.</li>
+<li>Naciśnij <kbd>Esc</kbd>.</li>
+<li>Wpisz <code>:wq</code> i naciśnij <kbd>Enter</kbd>. Commit się zapisze.</li>
+</ol>
+<p>Aby zrezygnować z commita, zamiast <code>:wq</code> wpisz <code>:q!</code>. Najprościej jednak zawsze pisać <code>-m "opis"</code>.</p>
+
+<div class="cwiczenie">
+<p><b>Ćwiczenie</b></p>
+<ol>
+<li>Sprawdź wersję Gita.</li>
+<li>Ustaw swoje imię i nazwisko oraz e-mail z konta GitHub.</li>
+<li>Ustaw <code>pull.rebase</code> na <code>true</code>.</li>
+<li>Wyświetl ustawienia i sprawdź, czy nie ma literówek.</li>
+</ol>
+</div>
+
+<h2>Sprawdź się</h2>
+<details class="quiz"><summary>Dlaczego e-mail w Gicie powinien być taki sam jak na GitHubie?</summary><p>GitHub łączy commity z kontem po adresie e-mail. Inny adres oznacza, że commity nie pokażą się jako Twoje.</p></details>
+<details class="quiz"><summary>Co znaczy <code>--global</code>?</summary><p>Ustawienie działa we wszystkich repozytoriach tego użytkownika na tym komputerze.</p></details>
+<details class="quiz"><summary>Otworzył się Vim. Jak zapisać i wyjść?</summary><p><kbd>Esc</kbd>, potem <code>:wq</code> i <kbd>Enter</kbd>.</p></details>
+
+<nav class="nav"><a href="lekcja3.html">← Lekcja 3</a><a href="../index.html#git">Wszystkie lekcje</a><a href="lekcja5.html">Lekcja 5 →</a></nav>
+</main>
+</body>
+</html>

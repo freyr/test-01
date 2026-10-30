@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git, lekcja 8 - git push i git pull: wymiana z GitHubem</title>
+<link rel="stylesheet" href="../opis/styl.css">
+</head>
+<body class="git">
+<main>
+<nav class="nav"><a href="lekcja7.html">← Lekcja 7</a><a href="../index.html#git">Wszystkie lekcje</a><span></span></nav>
+<p class="eyebrow"><span class="pill">Dodatek: Git i GitHub</span> Lekcja 8 z 8</p>
+<h1>git push i git pull: wymiana z GitHubem</h1>
+<p>Commity z zadań 4 i 5 są na Twoim komputerze. W tej lekcji wyślesz je na GitHub, pobierzesz je na drugim komputerze i rozwiążesz najczęstszy problem: odrzucony push.</p>
+
+<h2>git push: wyślij commity na GitHub</h2>
+<pre class="term"><span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git push</span>
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (11/11), 11.36 KiB | 11.36 MiB/s, done.
+Total 11 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+To github.com:johndoe/zadania-html.git
+   cbbd694..12f2637  main -&gt; main
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git status</span>
+On branch main
+Your branch is up to date with &#x27;origin/main&#x27;.
+
+nothing to commit, working tree clean
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git log --oneline</span>
+12f2637 (HEAD -&gt; main, origin/main, origin/HEAD) Zadanie 5: animowane grafiki
+e32ebb1 Zadanie 4: wyliczenia i numerowania
+cbbd694 Add files via upload
+dae89b8 Update index.html
+3d6c131 Add files via upload
+e898b1e Initial commit</pre>
+<p>Najważniejsza linia to <code>cbbd694..12f2637  main -&gt; main</code>. Gałąź <code>main</code> na GitHubie przesunęła się z commita <code>cbbd694</code> (zadanie 3) na <code>12f2637</code> (zadanie 5). Teraz <code>HEAD</code> i <code>origin/main</code> wskazują ten sam commit, a <code>git status</code> pisze <code>up to date</code>.</p>
+<p>Po minucie lub dwóch GitHub Pages publikuje nową wersję strony. Postęp widzisz na GitHubie w karcie <b>Actions</b>.</p>
+<div class="tip">Przy pierwszym <code>git push</code> możesz zobaczyć prośbę o login i hasło. To znaczy, że repozytorium ma adres HTTPS. Sprawdź <code>git remote -v</code> i sklonuj repozytorium jeszcze raz adresem SSH.</div>
+
+<h2>git pull: pobierz commity na innym komputerze</h2>
+<p>John ma repozytorium także w domu. Sklonował je tydzień temu, przed zadaniami 4 i 5. Domowa kopia nie wie jeszcze o nowych commitach:</p>
+<pre class="term"><span class="t-uwaga"># Komputer w domu. Repozytorium jest sklonowane od tygodnia.</span>
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git log --oneline</span>
+cbbd694 (HEAD -&gt; main, origin/main, origin/HEAD) Add files via upload
+dae89b8 Update index.html
+3d6c131 Add files via upload
+e898b1e Initial commit
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git pull</span>
+remote: Enumerating objects: 13, done.
+remote: Counting objects: 100% (13/13), done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 11 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+From github.com:johndoe/zadania-html
+   cbbd694..12f2637  main       -&gt; origin/main
+Updating cbbd694..12f2637
+Fast-forward
+ grafika1.gif | Bin 0 -&gt; 5857 bytes
+ grafika2.gif | Bin 0 -&gt; 1481 bytes
+ grafika3.gif | Bin 0 -&gt; 3024 bytes
+ grafika4.gif | Bin 0 -&gt; 4525 bytes
+ grafika5.gif | Bin 0 -&gt; 2013 bytes
+ index.html   |  74 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 6 files changed, 74 insertions(+)
+ create mode 100644 grafika1.gif
+ create mode 100644 grafika2.gif
+ create mode 100644 grafika3.gif
+ create mode 100644 grafika4.gif
+ create mode 100644 grafika5.gif
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git log --oneline</span>
+12f2637 (HEAD -&gt; main, origin/main, origin/HEAD) Zadanie 5: animowane grafiki
+e32ebb1 Zadanie 4: wyliczenia i numerowania
+cbbd694 Add files via upload
+dae89b8 Update index.html
+3d6c131 Add files via upload
+e898b1e Initial commit</pre>
+<p><code>git pull</code> pobrał dwa commity i przesunął gałąź <code>main</code> do przodu (<code>Fast-forward</code>). Teraz komputer w domu ma te same pliki, co komputer w szkole.</p>
+<p>W domu John dopisuje opis do <code>README.md</code> i od razu go wysyła:</p>
+<pre class="term"><span class="t-uwaga"># Dopisujesz opis do README.md.</span>
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git add README.md</span>
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git commit -m &quot;Opis repozytorium w README&quot;</span>
+[main 9d86af9] Opis repozytorium w README
+ 1 file changed, 4 insertions(+)
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git push</span>
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 398 bytes | 398.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+To github.com:johndoe/zadania-html.git
+   12f2637..9d86af9  main -&gt; main</pre>
+
+<h2>Odrzucony push</h2>
+<p>Następnego dnia w szkole John robi zadanie 6. Zapomina, że wczoraj w domu wysłał commit z README.</p>
+<pre class="term"><span class="t-uwaga"># Następnego dnia w szkole. Robisz zadanie 6, ale zapominasz o git pull.</span>
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git add .</span>
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git commit -m &quot;Zadanie 6: linki i podstrony&quot;</span>
+[main 39f3882] Zadanie 6: linki i podstrony
+ 7 files changed, 84 insertions(+)
+ create mode 100644 formularz_doe.html
+ create mode 100644 plik_doe.html
+ create mode 100644 plik_doe.zip
+ create mode 100644 poczta.gif
+ create mode 100644 poczta_doe.html
+ create mode 100644 tabela_doe.html
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git push</span>
+To github.com:johndoe/zadania-html.git
+<span class="t-del"> ! [rejected]        main -&gt; main (fetch first)</span>
+<span class="t-del">error: failed to push some refs to &#x27;git@github.com:johndoe/zadania-html.git&#x27;</span>
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: &#x27;git pull&#x27; before pushing again.
+hint: See the &#x27;Note about fast-forwards&#x27; in &#x27;git push --help&#x27; for details.</pre>
+<p>GitHub odrzucił push (<code>rejected</code>). Na GitHubie jest commit z README, którego nie ma na szkolnym komputerze. Git nie nadpisze cudzej pracy, nawet jeśli to Twoja praca z innego komputera. Podpowiedź <code>hint:</code> mówi, co zrobić: <code>git pull</code>, potem znowu <code>git push</code>.</p>
+<pre class="term"><span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git pull</span>
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+From github.com:johndoe/zadania-html
+   12f2637..9d86af9  main       -&gt; origin/main
+Successfully rebased and updated refs/heads/main.
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git push</span>
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 3.79 KiB | 3.79 MiB/s, done.
+Total 9 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+To github.com:johndoe/zadania-html.git
+   9d86af9..d0d7e0c  main -&gt; main
+<span class="t-prompt">~/zadania-html (main) $</span> <span class="t-cmd">git log --oneline</span>
+d0d7e0c (HEAD -&gt; main, origin/main, origin/HEAD) Zadanie 6: linki i podstrony
+9d86af9 Opis repozytorium w README
+12f2637 Zadanie 5: animowane grafiki
+e32ebb1 Zadanie 4: wyliczenia i numerowania
+cbbd694 Add files via upload
+dae89b8 Update index.html
+3d6c131 Add files via upload
+e898b1e Initial commit</pre>
+<p><code>git pull</code> pobrał commit z README i <b>przełożył</b> commit z zadaniem 6 na koniec historii (<code>Successfully rebased</code>). Tak działa ustawienie <code>pull.rebase true</code> z lekcji 4. Historia jest prosta: README, a po nim zadanie 6. Commit z zadaniem 6 dostał nowy hash, <code>d0d7e0c</code> zamiast <code>39f3882</code>, bo ma teraz innego rodzica.</p>
+
+<figure class="schemat">
+<svg viewBox="0 0 760 230" role="img" aria-label="Historia przed i po git pull z rebase">
+<text class="s-t" x="20" y="30">Przed git pull</text>
+<line class="s-l" x1="60" y1="70" x2="300" y2="70"/>
+<circle class="s-dot" cx="80" cy="70" r="10"/><text class="s-m" x="80" y="100" text-anchor="middle">12f2637</text><text class="s-m" x="80" y="117" text-anchor="middle">zad. 5</text>
+<line class="s-l" x1="80" y1="70" x2="280" y2="35"/>
+<circle class="s-dot" cx="280" cy="35" r="10"/><text class="s-m" x="320" y="40">9d86af9 README (GitHub)</text>
+<circle class="s-dot" cx="280" cy="70" r="10"/><text class="s-m" x="320" y="75">39f3882 zad. 6 (szkoła)</text>
+<text class="s-t" x="20" y="160">Po git pull</text>
+<line class="s-l" x1="60" y1="195" x2="560" y2="195"/>
+<circle class="s-dot" cx="80" cy="195" r="10"/><text class="s-m" x="80" y="222" text-anchor="middle">12f2637</text>
+<circle class="s-dot" cx="280" cy="195" r="10"/><text class="s-m" x="280" y="222" text-anchor="middle">9d86af9 README</text>
+<circle class="s-dot" cx="500" cy="195" r="10"/><text class="s-a" x="500" y="222" text-anchor="middle">d0d7e0c zad. 6</text>
+</svg>
+<figcaption>Rebase przekłada Twój commit na koniec historii z GitHuba.</figcaption>
+</figure>
+
+<div class="tip"><b>Zasada:</b> zacznij pracę od <code>git pull</code>, zakończ pracę <code>git push</code>. Wtedy odrzucony push zdarza się rzadko.</div>
+
+<h2>Konflikt</h2>
+<p>Czasem w obu commitach zmieniła się <b>ta sama linia</b> tego samego pliku. Wtedy Git nie wie, którą wersję wybrać, i zgłasza konflikt (<code>CONFLICT</code>). W pliku zobaczysz znaczniki:</p>
+<pre class="code">&lt;&lt;&lt;&lt;&lt;&lt;&lt; ...
+wersja z GitHuba
+=======
+Twoja wersja
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; ...</pre>
+<p>Zostaw właściwą wersję, usuń znaczniki i zapisz plik. Potem wykonaj <code>git add plik</code> i <code>git rebase --continue</code>. Aby zrezygnować i wrócić do stanu przed <code>git pull</code>, wykonaj <code>git rebase --abort</code>. Gdy pracujesz sam i zaczynasz od <code>git pull</code>, konflikt prawie się nie zdarza.</p>
+
+<h2>Ściąga</h2>
+<table class="req">
+<tr><th>Kiedy</th><th>Polecenie</th></tr>
+<tr><td>raz na komputerze</td><td><code>git config --global user.name "Imię Nazwisko"</code><br><code>git config --global user.email "adres@z.githuba"</code><br><code>git config --global pull.rebase true</code><br><code>ssh-keygen -t ed25519 -C "adres@z.githuba"</code></td></tr>
+<tr><td>raz na repozytorium</td><td><code>git clone git@github.com:login/repozytorium.git</code></td></tr>
+<tr><td>na początku pracy</td><td><code>git pull</code></td></tr>
+<tr><td>po każdym kroku</td><td><code>git status</code><br><code>git diff</code><br><code>git add .</code><br><code>git commit -m "Co zmieniłem"</code></td></tr>
+<tr><td>na końcu pracy</td><td><code>git push</code></td></tr>
+<tr><td>gdy nie wiesz, co dalej</td><td><code>git status</code> (i przeczytaj podpowiedzi)</td></tr>
+<tr><td>historia</td><td><code>git log --oneline</code></td></tr>
+</table>
+
+<div class="cwiczenie">
+<p><b>Ćwiczenie</b></p>
+<ol>
+<li>Wyślij commity z zadań 4 i 5 przez <code>git push</code>.</li>
+<li>Na GitHubie sprawdź listę commitów i stronę na github.io.</li>
+<li>Na GitHubie zmień <code>README.md</code> przez stronę WWW (ikona ołówka) i zrób commit.</li>
+<li>Na komputerze zrób zadanie 6 i commit, <b>bez</b> <code>git pull</code>. Spróbuj <code>git push</code>. Przeczytaj błąd.</li>
+<li>Napraw sytuację przez <code>git pull</code> i <code>git push</code>. Sprawdź historię.</li>
+</ol>
+</div>
+
+<h2>Sprawdź się</h2>
+<details class="quiz"><summary>Co znaczy <code>cbbd694..12f2637  main -&gt; main</code>?</summary><p>Gałąź <code>main</code> na GitHubie przesunęła się z commita <code>cbbd694</code> na <code>12f2637</code>.</p></details>
+<details class="quiz"><summary>Push został odrzucony z napisem <code>fetch first</code>. Co robisz?</summary><p><code>git pull</code>, a potem znowu <code>git push</code>.</p></details>
+<details class="quiz"><summary>Dlaczego po rebase commit z zadaniem 6 ma inny hash?</summary><p>Hash zależy także od rodzica commita. Po rebase rodzicem jest commit z README, więc hash jest nowy.</p></details>
+<details class="quiz"><summary>Jaka zasada chroni przed odrzuconym pushem?</summary><p>Zaczynaj pracę od <code>git pull</code>, kończ <code>git push</code>.</p></details>
+
+<nav class="nav"><a href="lekcja7.html">← Lekcja 7</a><a href="../index.html#git">Wszystkie lekcje</a><span></span></nav>
+</main>
+</body>
+</html>
