@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="John Doe">
+		<title>Formularz - John Doe</title>
+	</head>
+	<!-- Autor: Doe John, szkoła: ZSE Gdańsk, klasa: 2F grupa 1 -->
+@1-2|	<body style="background-color: #CCFFCC;">
+@1-2|		<h1>Formularz - John Doe</h1>
+@3|	<body style="background-color: #E8F4FD;">
+@3|		<h1 style="text-align: center; font-size: 40px; color: #1F4E79;">Formularz zapisu na Kółko Robotyki</h1>
+@1-1|		<form>
+@2|		<form action="mailto:nauczyciel@example.com?subject=Doe" method="post" enctype="text/plain">
+			<table style="border-collapse: collapse;">
+				<tr style="height: 300px;">
+@1-2|					<td style="width: 380px;">komórka 1</td>
+@3|					<td style="width: 380px; vertical-align: top; padding: 10px;">
+@3|						<p><b>Twoje dane</b></p>
+@3|						<label for="imie" style="display: inline-block; width: 130px;">Imię</label> <input id="imie" name="imie" size="20"><br><br>
+@3|						<label for="szkola" style="display: inline-block; width: 130px;">Szkoła</label> <input id="szkola" name="szkola" size="20" value="ZSE Gdańsk"><br><br>
+@3|						<label for="login" style="display: inline-block; width: 130px;">Login (max 12)</label> <input id="login" name="login" size="20" maxlength="12"><br><br>
+@3|						<label for="haslo" style="display: inline-block; width: 130px;">Hasło</label> <input id="haslo" name="haslo" size="20" type="password"><br><br>
+@3|						<label for="email" style="display: inline-block; width: 130px;">E-mail</label> <input id="email" name="email" size="20">
+@3|					</td>
+@1-3|					<td style="width: 300px;">komórka 2</td>
+@4|					<td style="width: 300px; vertical-align: top; padding: 10px;">
+@4|						<p><b>Klasa</b><br>
+@4|						<select name="klasa">
+@4|							<option>klasa 1</option>
+@4|							<option selected>klasa 2</option>
+@4|							<option>klasa 3</option>
+@4|							<option>klasa 4</option>
+@4|							<option>klasa 5</option>
+@4|						</select></p>
+@4|						<p><b>Ulubiony język programowania</b><br>
+@4|						<select name="jezyk">
+@4|							<option>Python</option>
+@4|							<option>C++</option>
+@4|							<option>JavaScript</option>
+@4|							<option>Java</option>
+@4|						</select></p>
+@4|						<p><b>Godzina zajęć</b><br>
+@4|						<select name="godzina">
+@4|							<option>14:30</option>
+@4|							<option selected>15:30</option>
+@4|							<option>16:30</option>
+@4|						</select></p>
+@4|					</td>
+@1-4|					<td style="width: 320px;">komórka 3</td>
+@5|					<td style="width: 320px; vertical-align: top; padding: 10px;">
+@5|						<p><b>Co chcesz budować?</b></p>
+@5|						<input type="checkbox" name="budowa" value="pojazdy"> Roboty jeżdżące<br><br>
+@5|						<input type="checkbox" name="budowa" value="drony"> Drony<br><br>
+@5|						<input type="checkbox" name="budowa" value="ramiona"> Ramiona robotyczne<br><br>
+@5|						<input type="checkbox" name="budowa" value="dom"> Inteligentny dom
+@5|					</td>
+				</tr>
+				<tr style="height: 200px;">
+@1-5|					<td>komórka 4</td>
+@6|					<td style="vertical-align: top; padding: 10px;">
+@6|						<p><b>Czy umiesz programować?</b></p>
+@6|						<input type="radio" name="programowanie" value="tak"> Tak<br><br>
+@6|						<input type="radio" name="programowanie" value="troche"> Trochę<br><br>
+@6|						<input type="radio" name="programowanie" value="nie"> Nie
+@6|					</td>
+@1-4|					<td>komórka 5</td>
+@5|					<td style="vertical-align: top; padding: 10px;">
+@5|						<p><b>Co masz w domu?</b></p>
+@5|						<input type="checkbox" name="sprzet" value="komputer"> Komputer<br><br>
+@5|						<input type="checkbox" name="sprzet" value="arduino"> Arduino<br><br>
+@5|						<input type="checkbox" name="sprzet" value="drukarka"> Drukarka 3D
+@5|					</td>
+@1-6|					<td>komórka 6</td>
+@7|					<td style="vertical-align: top; padding: 10px;">
+@7|						<p><b>Nowe pola HTML5</b></p>
+@7|						<label for="data" style="display: inline-block; width: 150px;">Data urodzenia</label> <input id="data" name="data" type="date"><br><br>
+@7|						<label for="czas" style="display: inline-block; width: 150px;">Godzina przyjścia</label> <input id="czas" name="czas" type="time"><br><br>
+@7|						<label for="kolor" style="display: inline-block; width: 150px;">Kolor robota</label> <input id="kolor" name="kolor" type="color" value="#2E75B6"><br><br>
+@7|						<label for="zapal" style="display: inline-block; width: 150px;">Zapał (0-10)</label> <input id="zapal" name="zapal" type="range" min="0" max="10"><br><br>
+@7|						<label for="postep" style="display: inline-block; width: 150px;">Wypełnienie</label> <progress id="postep" max="100" value="80">80%</progress>
+@7|					</td>
+				</tr>
+				<tr style="height: 80px;">
+@1-5|					<td colspan="3">wiersz 3</td>
+@6|					<td colspan="3" style="padding: 10px;">
+@6|						<b>Skąd wiesz o kółku?</b>
+@6|						<input type="radio" name="skad" value="nauczyciel" checked> Od nauczyciela
+@6|						<input type="radio" name="skad" value="kolega"> Od kolegi
+@6|						<input type="radio" name="skad" value="gazetka"> Z gazetki
+@6|						<input type="radio" name="skad" value="internet"> Z internetu
+@6|						<br><br>
+@6|						<b>Oceń swoją znajomość elektroniki:</b>
+@6|						<input type="radio" name="elektronika" value="1"> 1
+@6|						<input type="radio" name="elektronika" value="2"> 2
+@6|						<input type="radio" name="elektronika" value="3"> 3
+@6|						<input type="radio" name="elektronika" value="4"> 4
+@6|						<input type="radio" name="elektronika" value="5"> 5
+@6|					</td>
+				</tr>
+				<tr style="height: 60px;">
+@1-4|					<td colspan="3">wiersz 4</td>
+@5|					<td colspan="3" style="padding: 10px;">
+@5|						<b>W które dni możesz przychodzić?</b>
+@5|						<input type="checkbox" name="dni" value="pon" checked> poniedziałek
+@5|						<input type="checkbox" name="dni" value="wt"> wtorek
+@5|						<input type="checkbox" name="dni" value="sr"> środa
+@5|						<input type="checkbox" name="dni" value="czw"> czwartek
+@5|						<input type="checkbox" name="dni" value="pt"> piątek
+@5|					</td>
+				</tr>
+				<tr style="height: 140px;">
+@1-6|					<td colspan="3">wiersz 5</td>
+@7|					<td colspan="3" style="padding: 10px;">
+@7|						<label for="opis"><b>Napisz, jakiego robota chcesz zbudować:</b></label><br>
+@7|						<textarea id="opis" name="opis" rows="4" cols="80"></textarea>
+@7|					</td>
+				</tr>
+				<tr style="height: 80px;">
+@1-7|					<td>komórka 7</td>
+@1-7|					<td>komórka 8</td>
+@1-7|					<td>komórka 9</td>
+@8|					<td style="padding: 10px;">
+@8|						<button type="button" onclick="alert('Cześć! Do zobaczenia na kółku.')">Powitanie</button>
+@8|						<button type="button" onclick="document.body.style.backgroundColor = '#FFF2CC';">Zmień tło</button>
+@8|					</td>
+@8|					<td style="padding: 10px; text-align: center;"><input type="reset" value="CZYŚĆ"></td>
+@8|					<td style="padding: 10px; text-align: center;"><input type="submit" value="WYŚLIJ"></td>
+				</tr>
+			</table>
+		</form>
+		<p><a href="index.html">wróć</a></p>
+	</body>
+</html>

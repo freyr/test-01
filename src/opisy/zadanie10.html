@@ -1,0 +1,37 @@
+<p class="tip"><b>To zadanie nie zmienia strony.</b> Formularz projektujesz ołówkiem i linijką na kartce A4. Zrób zdjęcie projektu: w zadaniu 11 zbudujesz z niego formularz w HTML. Folder <code>zadanie10</code> ma tylko dodatkowo zdjęcie projektu.</p>
+
+<h2>Co trzeba zrobić</h2>
+<ol class="req">
+<li>Narysuj projekt na <b>jednej kartce A4</b>, ołówkiem i linijką. Podpisz: nazwisko, klasa, grupa i data.</li>
+<li>Temat musi być <b>inny niż przykłady</b> z instrukcji.</li>
+<li>Tytuł: „Formularz …”, na przykład „Formularz zapisu na Kółko Robotyki”.</li>
+<li>Kolor tła jako napis w kodzie szesnastkowym, na przykład „Kolor tła: #E8F4FD”.</li>
+<li><b>5 pól tekstowych</b> INPUT: puste, z tekstem początkowym, z limitem znaków, z hasłem i drugie puste.</li>
+<li><b>3 listy SELECT</b>: 5 opcji z domyślną, 4 opcje bez domyślnej, 3 opcje z domyślną.</li>
+<li><b>3 grupy checkbox</b>: 4 pionowo, 3 pionowo, 5 poziomo z jednym zaznaczonym.</li>
+<li><b>3 grupy radio</b>: 4 poziomo z jednym zaznaczonym, 3 pionowo, 5 poziomo.</li>
+<li>Pole <b>TEXTAREA</b> na dłuższy tekst.</li>
+<li>Co najmniej <b>2 przyciski BUTTON</b> z dowolną akcją.</li>
+<li>Przycisk <b>reset</b> z napisem CZYŚĆ i przycisk <b>submit</b> z napisem WYŚLIJ. Wysyła dane na adres nauczyciela, temat to nazwisko ucznia.</li>
+</ol>
+
+<h2>Gotowy projekt</h2>
+<p><a class="btn" href="../zadanie10/projekt_formularza_doe.png">Otwórz rysunek projektu</a></p>
+<p><img src="../zadanie10/projekt_formularza_doe.png" alt="Projekt formularza zapisu na Kółko Robotyki, narysowany ołówkiem" style="max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px;"></p>
+
+<h2>Jak projekt spełnia wymagania</h2>
+<table class="req" style="border-collapse: collapse; width: 100%;">
+<tr><th>Wymaganie</th><th>W projekcie</th></tr>
+<tr><td>Podpis</td><td>„Doe John 2F g1” i data w górnej linii kartki.</td></tr>
+<tr><td>Tytuł i tło</td><td>„Formularz zapisu na Kółko Robotyki”, „Kolor tła: #E8F4FD”.</td></tr>
+<tr><td>5 pól INPUT</td><td>Imię (puste), Szkoła („ZSE Gdańsk”), Login (max 12 znaków), Hasło, E-mail (puste).</td></tr>
+<tr><td>3 listy SELECT</td><td>Klasa (5 opcji, domyślnie „klasa 2”), Ulubiony język (4 opcje), Godzina zajęć (3 opcje, domyślnie 15:30).</td></tr>
+<tr><td>3 grupy checkbox</td><td>„Co chcesz budować?” 4 pionowo, „Co masz w domu?” 3 pionowo, „Dni” 5 poziomo z zaznaczonym poniedziałkiem.</td></tr>
+<tr><td>3 grupy radio</td><td>„Skąd wiesz o kółku?” 4 poziomo z zaznaczonym „Od nauczyciela”, „Czy umiesz programować?” 3 pionowo, „Znajomość elektroniki” 1–5 poziomo.</td></tr>
+<tr><td>TEXTAREA</td><td>„Napisz, jakiego robota chcesz zbudować”, 4 wiersze.</td></tr>
+<tr><td>2 przyciski BUTTON</td><td>„Powitanie” pokazuje okienko, „Zmień tło” zmienia kolor strony.</td></tr>
+<tr><td>reset i submit</td><td>CZYŚĆ i WYŚLIJ. Wysyłanie: mailto, temat „Doe”.</td></tr>
+</table>
+
+<p class="tip"><b>Rysuj od razu siatkę tabeli.</b> W zadaniu 11 formularz stoi w tabeli. Gdy na kartce są już wiersze i kolumny, w HTML przepisujesz je komórka po komórce. Ten projekt ma 3 kolumny i 6 wierszy, a wiersze 3–5 zajmują całą szerokość (<code>colspan="3"</code>).</p>
+<p class="tip"><b>Pola HTML5</b> (data, godzina, kolor, suwak, pasek postępu) nie są wymagane w projekcie. Etap 7 zadania 11 ich wymaga, więc warto zostawić na nie miejsce.</p>

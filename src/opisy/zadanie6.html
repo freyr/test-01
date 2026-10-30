@@ -1,0 +1,20 @@
+<h2>Co trzeba zrobić</h2>
+<ul class="req">
+<li><b>Cztery nowe strony</b>: <code>poczta_doe.html</code>, <code>plik_doe.html</code>, <code>tabela_doe.html</code>, <code>formularz_doe.html</code>. Każda ma pełny szkielet HTML i link „wróć” do <code>index.html</code>.</li>
+<li><b>Poczta</b>: działający link do e-maila (<code>mailto:</code>) i grafika związana z pocztą.</li>
+<li><b>Plik</b>: link do pobrania małego pliku ZIP.</li>
+<li><b>Tabela i formularz</b>: na razie tylko napis „Tutaj będzie tabela/formularz”. Wypełnią je zadania 8-9 i 10-11.</li>
+<li><b>Trzy menu</b> na <code>index.html</code>: na górze, w środku i na dole. Każde ma 6 linków. Menu nie linkuje do miejsca, w którym samo jest (np. górne nie ma „Link początek tekstu”).</li>
+<li><b>Kotwice</b>: skoki do początku, środka i końca strony.</li>
+</ul>
+<h2>Jak to działa</h2>
+<p>Są trzy rodzaje linków:</p>
+<pre class="code">&lt;a href="poczta_doe.html"&gt;Link do poczty&lt;/a&gt;           ← do innej strony (pliku)
+&lt;a href="#srodek"&gt;Link do środka tekstu&lt;/a&gt;            ← do miejsca na tej samej stronie
+&lt;a href="mailto:john.doe@example.com"&gt;Napisz&lt;/a&gt;      ← otwiera program pocztowy</pre>
+<p>Skok do miejsca wymaga <b>kotwicy</b>, czyli znacznika z nazwą w miejscu docelowym:</p>
+<pre class="code">&lt;a name="srodek"&gt;&lt;/a&gt;           ← tu jest cel
+…
+&lt;a href="#srodek"&gt;…&lt;/a&gt;         ← # i ta sama nazwa</pre>
+<p>Pobieranie pliku: <code>&lt;a href="plik_doe.zip" download&gt;</code>. Atrybut <code>download</code> każe przeglądarce zapisać plik zamiast go otwierać.</p>
+<p class="tip"><b>Nazwy plików.</b> Link musi mieć dokładnie tę samą nazwę co plik, z tymi samymi małymi literami. Instrukcja specjalnie o tym przypomina.</p>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zadanie 11 - wyjaśnienie</title>
+<link rel="stylesheet" href="styl.css">
+</head>
+<body>
+<main>
+<nav class="nav"><a href="zadanie10.html">← Zadanie 10</a><a href="../index.html">Wszystkie zadania</a><span></span></nav>
+<p class="eyebrow">Zadanie 11 z 11</p>
+<h1>Formularz w HTML</h1>
+<p><a class="btn" href="../zadanie11/formularz_doe.html">Otwórz stronę po zadaniu 11 ↗</a></p>
+<p class="tip"><b>Strona główna się nie zmienia.</b> Formularz z projektu (zadanie 10) trafia do pliku <code>formularz_doe.html</code>, do którego prowadzi link z zadania 5. Budujesz go w 8 etapach, tak jak w instrukcji. Poniżej każdy etap ma swój podgląd i listę zmian.</p>
+
+<h2>Co trzeba zrobić</h2>
+<ol class="req">
+<li>Zbuduj formularz z projektu na kartce. Wygląd ma być taki jak na rysunku.</li>
+<li>Pola rozmieść w tabeli, tak jak w projekcie.</li>
+<li>Wszystkie elementy z zadania 10: 5 pól INPUT, 3 listy SELECT, 3 grupy checkbox, 3 grupy radio, TEXTAREA, 2 BUTTON, reset CZYŚĆ i submit WYŚLIJ.</li>
+<li>Etap 7: nowe pola HTML5: data, kolor, suwak <code>range</code> i pasek <code>&lt;progress&gt;</code>.</li>
+<li>Submit wysyła dane e-mailem na adres nauczyciela, temat to nazwisko.</li>
+</ol>
+
+<p class="tip"><b>Adres e-mail.</b> Na tej stronie jest przykładowy adres <code>nauczyciel@example.com</code>. W swoim formularzu wpisz adres nauczyciela z instrukcji, a w temacie swoje nazwisko: <code>action="mailto:adres?subject=Nazwisko"</code>.</p>
+<p class="tip"><b>Przykłady w instrukcji używają starych znaczników</b>: <code>bgcolor</code>, <code>&lt;center&gt;</code>, <code>&lt;font&gt;</code>. W zadaniu 7 walidator ich nie przepuszcza, więc tutaj tło, wyśrodkowanie i kolor tekstu robi CSS.</p>
+<p class="tip"><b>Grupa radio = ten sam <code>name</code>.</b> Gdy przyciski radio mają różne nazwy, można zaznaczyć wszystkie naraz. Checkbox może mieć wspólną nazwę, ale każdy zaznacza się osobno.</p>
+<p class="tip"><b>Pionowo czy poziomo?</b> Po każdym polu <code>&lt;br&gt;</code>: pola stoją jedno pod drugim. Bez <code>&lt;br&gt;</code>: pola stoją obok siebie w jednej linii.</p>
+
+<h2>Co się zmieniło w kodzie</h2>
+<p>Plik <code>index.html</code> jest taki sam jak po zadaniu 10.</p>
+<h2>Etapy budowy pliku formularz_doe.html</h2>
+<p>Każdy etap pokazuje zmiany względem poprzedniego. Etap 1 porównuje plik z wersją z zadania 10.</p>
+<h3>Etap 1: Formularz i tabela</h3><p>Znaczniki <code>&lt;form&gt;</code> i <code>&lt;table&gt;</code>. Tabela rozkłada pola równo na stronie. Szerokość i wysokość komórek są zaplanowane od razu, w komórkach są na razie napisy zastępcze.</p>
+<p><a href="etapy/zadanie11_etap1.html">Otwórz stronę po etapie 1 ↗</a></p>
+<pre class="diff"><span class="d-hunk">… od linii 9 …</span><span class="d-ctx"> 	&lt;body style=&quot;background-color: #CCFFCC;&quot;&gt;</span><span class="d-ctx"> 		&lt;h1&gt;Formularz - John Doe&lt;/h1&gt;</span><span class="d-del">-		&lt;p&gt;Tutaj będzie formularz.&lt;/p&gt;</span><span class="d-add">+		&lt;form&gt;</span><span class="d-add">+			&lt;table style=&quot;border-collapse: collapse;&quot;&gt;</span><span class="d-add">+				&lt;tr style=&quot;height: 300px;&quot;&gt;</span><span class="d-add">+					&lt;td style=&quot;width: 380px;&quot;&gt;komórka 1&lt;/td&gt;</span><span class="d-add">+					&lt;td style=&quot;width: 300px;&quot;&gt;komórka 2&lt;/td&gt;</span><span class="d-add">+					&lt;td style=&quot;width: 320px;&quot;&gt;komórka 3&lt;/td&gt;</span><span class="d-add">+				&lt;/tr&gt;</span><span class="d-add">+				&lt;tr style=&quot;height: 200px;&quot;&gt;</span><span class="d-add">+					&lt;td&gt;komórka 4&lt;/td&gt;</span><span class="d-add">+					&lt;td&gt;komórka 5&lt;/td&gt;</span><span class="d-add">+					&lt;td&gt;komórka 6&lt;/td&gt;</span><span class="d-add">+				&lt;/tr&gt;</span><span class="d-add">+				&lt;tr style=&quot;height: 80px;&quot;&gt;</span><span class="d-add">+					&lt;td colspan=&quot;3&quot;&gt;wiersz 3&lt;/td&gt;</span><span class="d-add">+				&lt;/tr&gt;</span><span class="d-add">+				&lt;tr style=&quot;height: 60px;&quot;&gt;</span><span class="d-add">+					&lt;td colspan=&quot;3&quot;&gt;wiersz 4&lt;/td&gt;</span><span class="d-add">+				&lt;/tr&gt;</span><span class="d-add">+				&lt;tr style=&quot;height: 140px;&quot;&gt;</span><span class="d-add">+					&lt;td colspan=&quot;3&quot;&gt;wiersz 5&lt;/td&gt;</span><span class="d-add">+				&lt;/tr&gt;</span><span class="d-add">+				&lt;tr style=&quot;height: 80px;&quot;&gt;</span><span class="d-add">+					&lt;td&gt;komórka 7&lt;/td&gt;</span><span class="d-add">+					&lt;td&gt;komórka 8&lt;/td&gt;</span><span class="d-add">+					&lt;td&gt;komórka 9&lt;/td&gt;</span><span class="d-add">+				&lt;/tr&gt;</span><span class="d-add">+			&lt;/table&gt;</span><span class="d-add">+		&lt;/form&gt;</span><span class="d-ctx"> 		&lt;p&gt;&lt;a href=&quot;index.html&quot;&gt;wróć&lt;/a&gt;&lt;/p&gt;</span><span class="d-ctx"> 	&lt;/body&gt;</span></pre>
+<h3>Etap 2: Wysyłanie formularza</h3><p><code>action="mailto:…?subject=Doe"</code> wysyła dane e-mailem, temat to nazwisko. Wpisz adres nauczyciela z instrukcji.</p>
+<p><a href="etapy/zadanie11_etap2.html">Otwórz stronę po etapie 2 ↗</a></p>
+<pre class="diff"><span class="d-hunk">… od linii 9 …</span><span class="d-ctx"> 	&lt;body style=&quot;background-color: #CCFFCC;&quot;&gt;</span><span class="d-ctx"> 		&lt;h1&gt;Formularz - John Doe&lt;/h1&gt;</span><span class="d-del">-		&lt;form&gt;</span><span class="d-add">+		&lt;form action=&quot;mailto:nauczyciel@example.com?subject=Doe&quot; method=&quot;post&quot; enctype=&quot;text/plain&quot;&gt;</span><span class="d-ctx"> 			&lt;table style=&quot;border-collapse: collapse;&quot;&gt;</span><span class="d-ctx"> 				&lt;tr style=&quot;height: 300px;&quot;&gt;</span></pre>
+<h3>Etap 3: Tło, tytuł i pola tekstowe</h3><p>Tło w kodzie szesnastkowym, duży tytuł i pięć pól <code>&lt;input&gt;</code>: puste, z tekstem (<code>value</code>), z limitem (<code>maxlength</code>), hasło (<code>type="password"</code>) i drugie puste. Etykiety mają stałą szerokość, więc pola stoją w jednej linii pionowej.</p>
+<p><a href="etapy/zadanie11_etap3.html">Otwórz stronę po etapie 3 ↗</a></p>
+<pre class="diff"><span class="d-hunk">… od linii 7 …</span><span class="d-ctx"> 	&lt;/head&gt;</span><span class="d-ctx"> 	&lt;!-- Autor: Doe John, szkoła: ZSE Gdańsk, klasa: 2F grupa 1 --&gt;</span><span class="d-del">-	&lt;body style=&quot;background-color: #CCFFCC;&quot;&gt;</span><span class="d-del">-		&lt;h1&gt;Formularz - John Doe&lt;/h1&gt;</span><span class="d-add">+	&lt;body style=&quot;background-color: #E8F4FD;&quot;&gt;</span><span class="d-add">+		&lt;h1 style=&quot;text-align: center; font-size: 40px; color: #1F4E79;&quot;&gt;Formularz zapisu na Kółko Robotyki&lt;/h1&gt;</span><span class="d-ctx"> 		&lt;form action=&quot;mailto:nauczyciel@example.com?subject=Doe&quot; method=&quot;post&quot; enctype=&quot;text/plain&quot;&gt;</span><span class="d-ctx"> 			&lt;table style=&quot;border-collapse: collapse;&quot;&gt;</span><span class="d-ctx"> 				&lt;tr style=&quot;height: 300px;&quot;&gt;</span><span class="d-del">-					&lt;td style=&quot;width: 380px;&quot;&gt;komórka 1&lt;/td&gt;</span><span class="d-add">+					&lt;td style=&quot;width: 380px; vertical-align: top; padding: 10px;&quot;&gt;</span><span class="d-add">+						&lt;p&gt;&lt;b&gt;Twoje dane&lt;/b&gt;&lt;/p&gt;</span><span class="d-add">+						&lt;label for=&quot;imie&quot; style=&quot;display: inline-block; width: 130px;&quot;&gt;Imię&lt;/label&gt; &lt;input id=&quot;imie&quot; name=&quot;imie&quot; size=&quot;20&quot;&gt;&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;label for=&quot;szkola&quot; style=&quot;display: inline-block; width: 130px;&quot;&gt;Szkoła&lt;/label&gt; &lt;input id=&quot;szkola&quot; name=&quot;szkola&quot; size=&quot;20&quot; value=&quot;ZSE Gdańsk&quot;&gt;&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;label for=&quot;login&quot; style=&quot;display: inline-block; width: 130px;&quot;&gt;Login (max 12)&lt;/label&gt; &lt;input id=&quot;login&quot; name=&quot;login&quot; size=&quot;20&quot; maxlength=&quot;12&quot;&gt;&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;label for=&quot;haslo&quot; style=&quot;display: inline-block; width: 130px;&quot;&gt;Hasło&lt;/label&gt; &lt;input id=&quot;haslo&quot; name=&quot;haslo&quot; size=&quot;20&quot; type=&quot;password&quot;&gt;&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;label for=&quot;email&quot; style=&quot;display: inline-block; width: 130px;&quot;&gt;E-mail&lt;/label&gt; &lt;input id=&quot;email&quot; name=&quot;email&quot; size=&quot;20&quot;&gt;</span><span class="d-add">+					&lt;/td&gt;</span><span class="d-ctx"> 					&lt;td style=&quot;width: 300px;&quot;&gt;komórka 2&lt;/td&gt;</span><span class="d-ctx"> 					&lt;td style=&quot;width: 320px;&quot;&gt;komórka 3&lt;/td&gt;</span></pre>
+<h3>Etap 4: Listy rozwijalne</h3><p>Trzy <code>&lt;select&gt;</code>: 5 opcji z domyślną, 4 opcje bez domyślnej, 3 opcje z domyślną. Opcję domyślną ustawia <code>selected</code>.</p>
+<p><a href="etapy/zadanie11_etap4.html">Otwórz stronę po etapie 4 ↗</a></p>
+<pre class="diff"><span class="d-hunk">… od linii 20 …</span><span class="d-ctx"> 						&lt;label for=&quot;email&quot; style=&quot;display: inline-block; width: 130px;&quot;&gt;E-mail&lt;/label&gt; &lt;input id=&quot;email&quot; name=&quot;email&quot; size=&quot;20&quot;&gt;</span><span class="d-ctx"> 					&lt;/td&gt;</span><span class="d-del">-					&lt;td style=&quot;width: 300px;&quot;&gt;komórka 2&lt;/td&gt;</span><span class="d-add">+					&lt;td style=&quot;width: 300px; vertical-align: top; padding: 10px;&quot;&gt;</span><span class="d-add">+						&lt;p&gt;&lt;b&gt;Klasa&lt;/b&gt;&lt;br&gt;</span><span class="d-add">+						&lt;select name=&quot;klasa&quot;&gt;</span><span class="d-add">+							&lt;option&gt;klasa 1&lt;/option&gt;</span><span class="d-add">+							&lt;option selected&gt;klasa 2&lt;/option&gt;</span><span class="d-add">+							&lt;option&gt;klasa 3&lt;/option&gt;</span><span class="d-add">+							&lt;option&gt;klasa 4&lt;/option&gt;</span><span class="d-add">+							&lt;option&gt;klasa 5&lt;/option&gt;</span><span class="d-add">+						&lt;/select&gt;&lt;/p&gt;</span><span class="d-add">+						&lt;p&gt;&lt;b&gt;Ulubiony język programowania&lt;/b&gt;&lt;br&gt;</span><span class="d-add">+						&lt;select name=&quot;jezyk&quot;&gt;</span><span class="d-add">+							&lt;option&gt;Python&lt;/option&gt;</span><span class="d-add">+							&lt;option&gt;C++&lt;/option&gt;</span><span class="d-add">+							&lt;option&gt;JavaScript&lt;/option&gt;</span><span class="d-add">+							&lt;option&gt;Java&lt;/option&gt;</span><span class="d-add">+						&lt;/select&gt;&lt;/p&gt;</span><span class="d-add">+						&lt;p&gt;&lt;b&gt;Godzina zajęć&lt;/b&gt;&lt;br&gt;</span><span class="d-add">+						&lt;select name=&quot;godzina&quot;&gt;</span><span class="d-add">+							&lt;option&gt;14:30&lt;/option&gt;</span><span class="d-add">+							&lt;option selected&gt;15:30&lt;/option&gt;</span><span class="d-add">+							&lt;option&gt;16:30&lt;/option&gt;</span><span class="d-add">+						&lt;/select&gt;&lt;/p&gt;</span><span class="d-add">+					&lt;/td&gt;</span><span class="d-ctx"> 					&lt;td style=&quot;width: 320px;&quot;&gt;komórka 3&lt;/td&gt;</span><span class="d-ctx"> 				&lt;/tr&gt;</span></pre>
+<h3>Etap 5: Pola wyboru checkbox</h3><p>Trzy grupy <code>type="checkbox"</code>: 4 pionowo, 3 pionowo, 5 poziomo z jednym zaznaczonym (<code>checked</code>). Pionowo, gdy po każdym polu jest <code>&lt;br&gt;</code>.</p>
+<p><a href="etapy/zadanie11_etap5.html">Otwórz stronę po etapie 5 ↗</a></p>
+<pre class="diff"><span class="d-hunk">… od linii 43 …</span><span class="d-ctx"> 						&lt;/select&gt;&lt;/p&gt;</span><span class="d-ctx"> 					&lt;/td&gt;</span><span class="d-del">-					&lt;td style=&quot;width: 320px;&quot;&gt;komórka 3&lt;/td&gt;</span><span class="d-add">+					&lt;td style=&quot;width: 320px; vertical-align: top; padding: 10px;&quot;&gt;</span><span class="d-add">+						&lt;p&gt;&lt;b&gt;Co chcesz budować?&lt;/b&gt;&lt;/p&gt;</span><span class="d-add">+						&lt;input type=&quot;checkbox&quot; name=&quot;budowa&quot; value=&quot;pojazdy&quot;&gt; Roboty jeżdżące&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;input type=&quot;checkbox&quot; name=&quot;budowa&quot; value=&quot;drony&quot;&gt; Drony&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;input type=&quot;checkbox&quot; name=&quot;budowa&quot; value=&quot;ramiona&quot;&gt; Ramiona robotyczne&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;input type=&quot;checkbox&quot; name=&quot;budowa&quot; value=&quot;dom&quot;&gt; Inteligentny dom</span><span class="d-add">+					&lt;/td&gt;</span><span class="d-ctx"> 				&lt;/tr&gt;</span><span class="d-ctx"> 				&lt;tr style=&quot;height: 200px;&quot;&gt;</span><span class="d-ctx"> 					&lt;td&gt;komórka 4&lt;/td&gt;</span><span class="d-del">-					&lt;td&gt;komórka 5&lt;/td&gt;</span><span class="d-add">+					&lt;td style=&quot;vertical-align: top; padding: 10px;&quot;&gt;</span><span class="d-add">+						&lt;p&gt;&lt;b&gt;Co masz w domu?&lt;/b&gt;&lt;/p&gt;</span><span class="d-add">+						&lt;input type=&quot;checkbox&quot; name=&quot;sprzet&quot; value=&quot;komputer&quot;&gt; Komputer&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;input type=&quot;checkbox&quot; name=&quot;sprzet&quot; value=&quot;arduino&quot;&gt; Arduino&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;input type=&quot;checkbox&quot; name=&quot;sprzet&quot; value=&quot;drukarka&quot;&gt; Drukarka 3D</span><span class="d-add">+					&lt;/td&gt;</span><span class="d-ctx"> 					&lt;td&gt;komórka 6&lt;/td&gt;</span><span class="d-ctx"> 				&lt;/tr&gt;</span><span class="d-hunk">… od linii 65 …</span><span class="d-ctx"> 				&lt;/tr&gt;</span><span class="d-ctx"> 				&lt;tr style=&quot;height: 60px;&quot;&gt;</span><span class="d-del">-					&lt;td colspan=&quot;3&quot;&gt;wiersz 4&lt;/td&gt;</span><span class="d-add">+					&lt;td colspan=&quot;3&quot; style=&quot;padding: 10px;&quot;&gt;</span><span class="d-add">+						&lt;b&gt;W które dni możesz przychodzić?&lt;/b&gt;</span><span class="d-add">+						&lt;input type=&quot;checkbox&quot; name=&quot;dni&quot; value=&quot;pon&quot; checked&gt; poniedziałek</span><span class="d-add">+						&lt;input type=&quot;checkbox&quot; name=&quot;dni&quot; value=&quot;wt&quot;&gt; wtorek</span><span class="d-add">+						&lt;input type=&quot;checkbox&quot; name=&quot;dni&quot; value=&quot;sr&quot;&gt; środa</span><span class="d-add">+						&lt;input type=&quot;checkbox&quot; name=&quot;dni&quot; value=&quot;czw&quot;&gt; czwartek</span><span class="d-add">+						&lt;input type=&quot;checkbox&quot; name=&quot;dni&quot; value=&quot;pt&quot;&gt; piątek</span><span class="d-add">+					&lt;/td&gt;</span><span class="d-ctx"> 				&lt;/tr&gt;</span><span class="d-ctx"> 				&lt;tr style=&quot;height: 140px;&quot;&gt;</span></pre>
+<h3>Etap 6: Przyciski opcji radio</h3><p>Trzy grupy <code>type="radio"</code>: 3 pionowo, 4 poziomo z jedną zaznaczoną, 5 poziomo. Przyciski z tym samym <code>name</code> tworzą grupę: można wybrać tylko jeden.</p>
+<p><a href="etapy/zadanie11_etap6.html">Otwórz stronę po etapie 6 ↗</a></p>
+<pre class="diff"><span class="d-hunk">… od linii 52 …</span><span class="d-ctx"> 				&lt;/tr&gt;</span><span class="d-ctx"> 				&lt;tr style=&quot;height: 200px;&quot;&gt;</span><span class="d-del">-					&lt;td&gt;komórka 4&lt;/td&gt;</span><span class="d-add">+					&lt;td style=&quot;vertical-align: top; padding: 10px;&quot;&gt;</span><span class="d-add">+						&lt;p&gt;&lt;b&gt;Czy umiesz programować?&lt;/b&gt;&lt;/p&gt;</span><span class="d-add">+						&lt;input type=&quot;radio&quot; name=&quot;programowanie&quot; value=&quot;tak&quot;&gt; Tak&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;input type=&quot;radio&quot; name=&quot;programowanie&quot; value=&quot;troche&quot;&gt; Trochę&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;input type=&quot;radio&quot; name=&quot;programowanie&quot; value=&quot;nie&quot;&gt; Nie</span><span class="d-add">+					&lt;/td&gt;</span><span class="d-ctx"> 					&lt;td style=&quot;vertical-align: top; padding: 10px;&quot;&gt;</span><span class="d-ctx"> 						&lt;p&gt;&lt;b&gt;Co masz w domu?&lt;/b&gt;&lt;/p&gt;</span><span class="d-hunk">… od linii 67 …</span><span class="d-ctx"> 				&lt;/tr&gt;</span><span class="d-ctx"> 				&lt;tr style=&quot;height: 80px;&quot;&gt;</span><span class="d-del">-					&lt;td colspan=&quot;3&quot;&gt;wiersz 3&lt;/td&gt;</span><span class="d-add">+					&lt;td colspan=&quot;3&quot; style=&quot;padding: 10px;&quot;&gt;</span><span class="d-add">+						&lt;b&gt;Skąd wiesz o kółku?&lt;/b&gt;</span><span class="d-add">+						&lt;input type=&quot;radio&quot; name=&quot;skad&quot; value=&quot;nauczyciel&quot; checked&gt; Od nauczyciela</span><span class="d-add">+						&lt;input type=&quot;radio&quot; name=&quot;skad&quot; value=&quot;kolega&quot;&gt; Od kolegi</span><span class="d-add">+						&lt;input type=&quot;radio&quot; name=&quot;skad&quot; value=&quot;gazetka&quot;&gt; Z gazetki</span><span class="d-add">+						&lt;input type=&quot;radio&quot; name=&quot;skad&quot; value=&quot;internet&quot;&gt; Z internetu</span><span class="d-add">+						&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;b&gt;Oceń swoją znajomość elektroniki:&lt;/b&gt;</span><span class="d-add">+						&lt;input type=&quot;radio&quot; name=&quot;elektronika&quot; value=&quot;1&quot;&gt; 1</span><span class="d-add">+						&lt;input type=&quot;radio&quot; name=&quot;elektronika&quot; value=&quot;2&quot;&gt; 2</span><span class="d-add">+						&lt;input type=&quot;radio&quot; name=&quot;elektronika&quot; value=&quot;3&quot;&gt; 3</span><span class="d-add">+						&lt;input type=&quot;radio&quot; name=&quot;elektronika&quot; value=&quot;4&quot;&gt; 4</span><span class="d-add">+						&lt;input type=&quot;radio&quot; name=&quot;elektronika&quot; value=&quot;5&quot;&gt; 5</span><span class="d-add">+					&lt;/td&gt;</span><span class="d-ctx"> 				&lt;/tr&gt;</span><span class="d-ctx"> 				&lt;tr style=&quot;height: 60px;&quot;&gt;</span></pre>
+<h3>Etap 7: Pola HTML5 i textarea</h3><p>Data, godzina, kolor, suwak (<code>range</code>) i pasek postępu (<code>&lt;progress&gt;</code>). Pod spodem duże pole <code>&lt;textarea&gt;</code> na dłuższy tekst.</p>
+<p><a href="etapy/zadanie11_etap7.html">Otwórz stronę po etapie 7 ↗</a></p>
+<pre class="diff"><span class="d-hunk">… od linii 64 …</span><span class="d-ctx"> 						&lt;input type=&quot;checkbox&quot; name=&quot;sprzet&quot; value=&quot;drukarka&quot;&gt; Drukarka 3D</span><span class="d-ctx"> 					&lt;/td&gt;</span><span class="d-del">-					&lt;td&gt;komórka 6&lt;/td&gt;</span><span class="d-add">+					&lt;td style=&quot;vertical-align: top; padding: 10px;&quot;&gt;</span><span class="d-add">+						&lt;p&gt;&lt;b&gt;Nowe pola HTML5&lt;/b&gt;&lt;/p&gt;</span><span class="d-add">+						&lt;label for=&quot;data&quot; style=&quot;display: inline-block; width: 150px;&quot;&gt;Data urodzenia&lt;/label&gt; &lt;input id=&quot;data&quot; name=&quot;data&quot; type=&quot;date&quot;&gt;&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;label for=&quot;czas&quot; style=&quot;display: inline-block; width: 150px;&quot;&gt;Godzina przyjścia&lt;/label&gt; &lt;input id=&quot;czas&quot; name=&quot;czas&quot; type=&quot;time&quot;&gt;&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;label for=&quot;kolor&quot; style=&quot;display: inline-block; width: 150px;&quot;&gt;Kolor robota&lt;/label&gt; &lt;input id=&quot;kolor&quot; name=&quot;kolor&quot; type=&quot;color&quot; value=&quot;#2E75B6&quot;&gt;&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;label for=&quot;zapal&quot; style=&quot;display: inline-block; width: 150px;&quot;&gt;Zapał (0-10)&lt;/label&gt; &lt;input id=&quot;zapal&quot; name=&quot;zapal&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;10&quot;&gt;&lt;br&gt;&lt;br&gt;</span><span class="d-add">+						&lt;label for=&quot;postep&quot; style=&quot;display: inline-block; width: 150px;&quot;&gt;Wypełnienie&lt;/label&gt; &lt;progress id=&quot;postep&quot; max=&quot;100&quot; value=&quot;80&quot;&gt;80%&lt;/progress&gt;</span><span class="d-add">+					&lt;/td&gt;</span><span class="d-ctx"> 				&lt;/tr&gt;</span><span class="d-ctx"> 				&lt;tr style=&quot;height: 80px;&quot;&gt;</span><span class="d-hunk">… od linii 100 …</span><span class="d-ctx"> 				&lt;/tr&gt;</span><span class="d-ctx"> 				&lt;tr style=&quot;height: 140px;&quot;&gt;</span><span class="d-del">-					&lt;td colspan=&quot;3&quot;&gt;wiersz 5&lt;/td&gt;</span><span class="d-add">+					&lt;td colspan=&quot;3&quot; style=&quot;padding: 10px;&quot;&gt;</span><span class="d-add">+						&lt;label for=&quot;opis&quot;&gt;&lt;b&gt;Napisz, jakiego robota chcesz zbudować:&lt;/b&gt;&lt;/label&gt;&lt;br&gt;</span><span class="d-add">+						&lt;textarea id=&quot;opis&quot; name=&quot;opis&quot; rows=&quot;4&quot; cols=&quot;80&quot;&gt;&lt;/textarea&gt;</span><span class="d-add">+					&lt;/td&gt;</span><span class="d-ctx"> 				&lt;/tr&gt;</span><span class="d-ctx"> 				&lt;tr style=&quot;height: 80px;&quot;&gt;</span></pre>
+<h3>Etap 8: Przyciski</h3><p>Dwa <code>&lt;button&gt;</code> z akcją <code>onclick</code>, <code>reset</code> z napisem CZYŚĆ i <code>submit</code> z napisem WYŚLIJ.</p>
+<p><a href="etapy/zadanie11_etap8.html">Otwórz stronę po etapie 8 ↗</a></p>
+<pre class="diff"><span class="d-hunk">… od linii 106 …</span><span class="d-ctx"> 				&lt;/tr&gt;</span><span class="d-ctx"> 				&lt;tr style=&quot;height: 80px;&quot;&gt;</span><span class="d-del">-					&lt;td&gt;komórka 7&lt;/td&gt;</span><span class="d-del">-					&lt;td&gt;komórka 8&lt;/td&gt;</span><span class="d-del">-					&lt;td&gt;komórka 9&lt;/td&gt;</span><span class="d-add">+					&lt;td style=&quot;padding: 10px;&quot;&gt;</span><span class="d-add">+						&lt;button type=&quot;button&quot; onclick=&quot;alert(&#x27;Cześć! Do zobaczenia na kółku.&#x27;)&quot;&gt;Powitanie&lt;/button&gt;</span><span class="d-add">+						&lt;button type=&quot;button&quot; onclick=&quot;document.body.style.backgroundColor = &#x27;#FFF2CC&#x27;;&quot;&gt;Zmień tło&lt;/button&gt;</span><span class="d-add">+					&lt;/td&gt;</span><span class="d-add">+					&lt;td style=&quot;padding: 10px; text-align: center;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;CZYŚĆ&quot;&gt;&lt;/td&gt;</span><span class="d-add">+					&lt;td style=&quot;padding: 10px; text-align: center;&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;WYŚLIJ&quot;&gt;&lt;/td&gt;</span><span class="d-ctx"> 				&lt;/tr&gt;</span><span class="d-ctx"> 			&lt;/table&gt;</span></pre>
+<h2>Pełny kod formularz_doe.html po zadaniu 11</h2>
+<details><summary>Pokaż kod</summary><pre class="code">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pl&quot;&gt;
+	&lt;head&gt;
+		&lt;meta charset=&quot;UTF-8&quot;&gt;
+		&lt;meta name=&quot;author&quot; content=&quot;John Doe&quot;&gt;
+		&lt;title&gt;Formularz - John Doe&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;!-- Autor: Doe John, szkoła: ZSE Gdańsk, klasa: 2F grupa 1 --&gt;
+	&lt;body style=&quot;background-color: #E8F4FD;&quot;&gt;
+		&lt;h1 style=&quot;text-align: center; font-size: 40px; color: #1F4E79;&quot;&gt;Formularz zapisu na Kółko Robotyki&lt;/h1&gt;
+		&lt;form action=&quot;mailto:nauczyciel@example.com?subject=Doe&quot; method=&quot;post&quot; enctype=&quot;text/plain&quot;&gt;
+			&lt;table style=&quot;border-collapse: collapse;&quot;&gt;
+				&lt;tr style=&quot;height: 300px;&quot;&gt;
+					&lt;td style=&quot;width: 380px; vertical-align: top; padding: 10px;&quot;&gt;
+						&lt;p&gt;&lt;b&gt;Twoje dane&lt;/b&gt;&lt;/p&gt;
+						&lt;label for=&quot;imie&quot; style=&quot;display: inline-block; width: 130px;&quot;&gt;Imię&lt;/label&gt; &lt;input id=&quot;imie&quot; name=&quot;imie&quot; size=&quot;20&quot;&gt;&lt;br&gt;&lt;br&gt;
+						&lt;label for=&quot;szkola&quot; style=&quot;display: inline-block; width: 130px;&quot;&gt;Szkoła&lt;/label&gt; &lt;input id=&quot;szkola&quot; name=&quot;szkola&quot; size=&quot;20&quot; value=&quot;ZSE Gdańsk&quot;&gt;&lt;br&gt;&lt;br&gt;
+						&lt;label for=&quot;login&quot; style=&quot;display: inline-block; width: 130px;&quot;&gt;Login (max 12)&lt;/label&gt; &lt;input id=&quot;login&quot; name=&quot;login&quot; size=&quot;20&quot; maxlength=&quot;12&quot;&gt;&lt;br&gt;&lt;br&gt;
+						&lt;label for=&quot;haslo&quot; style=&quot;display: inline-block; width: 130px;&quot;&gt;Hasło&lt;/label&gt; &lt;input id=&quot;haslo&quot; name=&quot;haslo&quot; size=&quot;20&quot; type=&quot;password&quot;&gt;&lt;br&gt;&lt;br&gt;
+						&lt;label for=&quot;email&quot; style=&quot;display: inline-block; width: 130px;&quot;&gt;E-mail&lt;/label&gt; &lt;input id=&quot;email&quot; name=&quot;email&quot; size=&quot;20&quot;&gt;
+					&lt;/td&gt;
+					&lt;td style=&quot;width: 300px; vertical-align: top; padding: 10px;&quot;&gt;
+						&lt;p&gt;&lt;b&gt;Klasa&lt;/b&gt;&lt;br&gt;
+						&lt;select name=&quot;klasa&quot;&gt;
+							&lt;option&gt;klasa 1&lt;/option&gt;
+							&lt;option selected&gt;klasa 2&lt;/option&gt;
+							&lt;option&gt;klasa 3&lt;/option&gt;
+							&lt;option&gt;klasa 4&lt;/option&gt;
+							&lt;option&gt;klasa 5&lt;/option&gt;
+						&lt;/select&gt;&lt;/p&gt;
+						&lt;p&gt;&lt;b&gt;Ulubiony język programowania&lt;/b&gt;&lt;br&gt;
+						&lt;select name=&quot;jezyk&quot;&gt;
+							&lt;option&gt;Python&lt;/option&gt;
+							&lt;option&gt;C++&lt;/option&gt;
+							&lt;option&gt;JavaScript&lt;/option&gt;
+							&lt;option&gt;Java&lt;/option&gt;
+						&lt;/select&gt;&lt;/p&gt;
+						&lt;p&gt;&lt;b&gt;Godzina zajęć&lt;/b&gt;&lt;br&gt;
+						&lt;select name=&quot;godzina&quot;&gt;
+							&lt;option&gt;14:30&lt;/option&gt;
+							&lt;option selected&gt;15:30&lt;/option&gt;
+							&lt;option&gt;16:30&lt;/option&gt;
+						&lt;/select&gt;&lt;/p&gt;
+					&lt;/td&gt;
+					&lt;td style=&quot;width: 320px; vertical-align: top; padding: 10px;&quot;&gt;
+						&lt;p&gt;&lt;b&gt;Co chcesz budować?&lt;/b&gt;&lt;/p&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;budowa&quot; value=&quot;pojazdy&quot;&gt; Roboty jeżdżące&lt;br&gt;&lt;br&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;budowa&quot; value=&quot;drony&quot;&gt; Drony&lt;br&gt;&lt;br&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;budowa&quot; value=&quot;ramiona&quot;&gt; Ramiona robotyczne&lt;br&gt;&lt;br&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;budowa&quot; value=&quot;dom&quot;&gt; Inteligentny dom
+					&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr style=&quot;height: 200px;&quot;&gt;
+					&lt;td style=&quot;vertical-align: top; padding: 10px;&quot;&gt;
+						&lt;p&gt;&lt;b&gt;Czy umiesz programować?&lt;/b&gt;&lt;/p&gt;
+						&lt;input type=&quot;radio&quot; name=&quot;programowanie&quot; value=&quot;tak&quot;&gt; Tak&lt;br&gt;&lt;br&gt;
+						&lt;input type=&quot;radio&quot; name=&quot;programowanie&quot; value=&quot;troche&quot;&gt; Trochę&lt;br&gt;&lt;br&gt;
+						&lt;input type=&quot;radio&quot; name=&quot;programowanie&quot; value=&quot;nie&quot;&gt; Nie
+					&lt;/td&gt;
+					&lt;td style=&quot;vertical-align: top; padding: 10px;&quot;&gt;
+						&lt;p&gt;&lt;b&gt;Co masz w domu?&lt;/b&gt;&lt;/p&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;sprzet&quot; value=&quot;komputer&quot;&gt; Komputer&lt;br&gt;&lt;br&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;sprzet&quot; value=&quot;arduino&quot;&gt; Arduino&lt;br&gt;&lt;br&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;sprzet&quot; value=&quot;drukarka&quot;&gt; Drukarka 3D
+					&lt;/td&gt;
+					&lt;td style=&quot;vertical-align: top; padding: 10px;&quot;&gt;
+						&lt;p&gt;&lt;b&gt;Nowe pola HTML5&lt;/b&gt;&lt;/p&gt;
+						&lt;label for=&quot;data&quot; style=&quot;display: inline-block; width: 150px;&quot;&gt;Data urodzenia&lt;/label&gt; &lt;input id=&quot;data&quot; name=&quot;data&quot; type=&quot;date&quot;&gt;&lt;br&gt;&lt;br&gt;
+						&lt;label for=&quot;czas&quot; style=&quot;display: inline-block; width: 150px;&quot;&gt;Godzina przyjścia&lt;/label&gt; &lt;input id=&quot;czas&quot; name=&quot;czas&quot; type=&quot;time&quot;&gt;&lt;br&gt;&lt;br&gt;
+						&lt;label for=&quot;kolor&quot; style=&quot;display: inline-block; width: 150px;&quot;&gt;Kolor robota&lt;/label&gt; &lt;input id=&quot;kolor&quot; name=&quot;kolor&quot; type=&quot;color&quot; value=&quot;#2E75B6&quot;&gt;&lt;br&gt;&lt;br&gt;
+						&lt;label for=&quot;zapal&quot; style=&quot;display: inline-block; width: 150px;&quot;&gt;Zapał (0-10)&lt;/label&gt; &lt;input id=&quot;zapal&quot; name=&quot;zapal&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;10&quot;&gt;&lt;br&gt;&lt;br&gt;
+						&lt;label for=&quot;postep&quot; style=&quot;display: inline-block; width: 150px;&quot;&gt;Wypełnienie&lt;/label&gt; &lt;progress id=&quot;postep&quot; max=&quot;100&quot; value=&quot;80&quot;&gt;80%&lt;/progress&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr style=&quot;height: 80px;&quot;&gt;
+					&lt;td colspan=&quot;3&quot; style=&quot;padding: 10px;&quot;&gt;
+						&lt;b&gt;Skąd wiesz o kółku?&lt;/b&gt;
+						&lt;input type=&quot;radio&quot; name=&quot;skad&quot; value=&quot;nauczyciel&quot; checked&gt; Od nauczyciela
+						&lt;input type=&quot;radio&quot; name=&quot;skad&quot; value=&quot;kolega&quot;&gt; Od kolegi
+						&lt;input type=&quot;radio&quot; name=&quot;skad&quot; value=&quot;gazetka&quot;&gt; Z gazetki
+						&lt;input type=&quot;radio&quot; name=&quot;skad&quot; value=&quot;internet&quot;&gt; Z internetu
+						&lt;br&gt;&lt;br&gt;
+						&lt;b&gt;Oceń swoją znajomość elektroniki:&lt;/b&gt;
+						&lt;input type=&quot;radio&quot; name=&quot;elektronika&quot; value=&quot;1&quot;&gt; 1
+						&lt;input type=&quot;radio&quot; name=&quot;elektronika&quot; value=&quot;2&quot;&gt; 2
+						&lt;input type=&quot;radio&quot; name=&quot;elektronika&quot; value=&quot;3&quot;&gt; 3
+						&lt;input type=&quot;radio&quot; name=&quot;elektronika&quot; value=&quot;4&quot;&gt; 4
+						&lt;input type=&quot;radio&quot; name=&quot;elektronika&quot; value=&quot;5&quot;&gt; 5
+					&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr style=&quot;height: 60px;&quot;&gt;
+					&lt;td colspan=&quot;3&quot; style=&quot;padding: 10px;&quot;&gt;
+						&lt;b&gt;W które dni możesz przychodzić?&lt;/b&gt;
+						&lt;input type=&quot;checkbox&quot; name=&quot;dni&quot; value=&quot;pon&quot; checked&gt; poniedziałek
+						&lt;input type=&quot;checkbox&quot; name=&quot;dni&quot; value=&quot;wt&quot;&gt; wtorek
+						&lt;input type=&quot;checkbox&quot; name=&quot;dni&quot; value=&quot;sr&quot;&gt; środa
+						&lt;input type=&quot;checkbox&quot; name=&quot;dni&quot; value=&quot;czw&quot;&gt; czwartek
+						&lt;input type=&quot;checkbox&quot; name=&quot;dni&quot; value=&quot;pt&quot;&gt; piątek
+					&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr style=&quot;height: 140px;&quot;&gt;
+					&lt;td colspan=&quot;3&quot; style=&quot;padding: 10px;&quot;&gt;
+						&lt;label for=&quot;opis&quot;&gt;&lt;b&gt;Napisz, jakiego robota chcesz zbudować:&lt;/b&gt;&lt;/label&gt;&lt;br&gt;
+						&lt;textarea id=&quot;opis&quot; name=&quot;opis&quot; rows=&quot;4&quot; cols=&quot;80&quot;&gt;&lt;/textarea&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+				&lt;tr style=&quot;height: 80px;&quot;&gt;
+					&lt;td style=&quot;padding: 10px;&quot;&gt;
+						&lt;button type=&quot;button&quot; onclick=&quot;alert(&#x27;Cześć! Do zobaczenia na kółku.&#x27;)&quot;&gt;Powitanie&lt;/button&gt;
+						&lt;button type=&quot;button&quot; onclick=&quot;document.body.style.backgroundColor = &#x27;#FFF2CC&#x27;;&quot;&gt;Zmień tło&lt;/button&gt;
+					&lt;/td&gt;
+					&lt;td style=&quot;padding: 10px; text-align: center;&quot;&gt;&lt;input type=&quot;reset&quot; value=&quot;CZYŚĆ&quot;&gt;&lt;/td&gt;
+					&lt;td style=&quot;padding: 10px; text-align: center;&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;WYŚLIJ&quot;&gt;&lt;/td&gt;
+				&lt;/tr&gt;
+			&lt;/table&gt;
+		&lt;/form&gt;
+		&lt;p&gt;&lt;a href=&quot;index.html&quot;&gt;wróć&lt;/a&gt;&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</pre></details>
+<nav class="nav"><a href="zadanie10.html">← Zadanie 10</a><a href="../index.html">Wszystkie zadania</a><span></span></nav>
+</main>
+</body>
+</html>

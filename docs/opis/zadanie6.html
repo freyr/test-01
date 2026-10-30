@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zadanie 6 - wyjaśnienie</title>
+<link rel="stylesheet" href="styl.css">
+</head>
+<body>
+<main>
+<nav class="nav"><a href="zadanie5.html">← Zadanie 5</a><a href="../index.html">Wszystkie zadania</a><a href="zadanie7.html">Zadanie 7 →</a></nav>
+<p class="eyebrow">Zadanie 6 z 11</p>
+<h1>Linki i podstrony</h1>
+<p><a class="btn" href="../zadanie6/index.html">Otwórz stronę po zadaniu 6 ↗</a></p>
+<h2>Co trzeba zrobić</h2>
+<ul class="req">
+<li><b>Cztery nowe strony</b>: <code>poczta_doe.html</code>, <code>plik_doe.html</code>, <code>tabela_doe.html</code>, <code>formularz_doe.html</code>. Każda ma pełny szkielet HTML i link „wróć” do <code>index.html</code>.</li>
+<li><b>Poczta</b>: działający link do e-maila (<code>mailto:</code>) i grafika związana z pocztą.</li>
+<li><b>Plik</b>: link do pobrania małego pliku ZIP.</li>
+<li><b>Tabela i formularz</b>: na razie tylko napis „Tutaj będzie tabela/formularz”. Wypełnią je zadania 8-9 i 10-11.</li>
+<li><b>Trzy menu</b> na <code>index.html</code>: na górze, w środku i na dole. Każde ma 6 linków. Menu nie linkuje do miejsca, w którym samo jest (np. górne nie ma „Link początek tekstu”).</li>
+<li><b>Kotwice</b>: skoki do początku, środka i końca strony.</li>
+</ul>
+<h2>Jak to działa</h2>
+<p>Są trzy rodzaje linków:</p>
+<pre class="code">&lt;a href="poczta_doe.html"&gt;Link do poczty&lt;/a&gt;           ← do innej strony (pliku)
+&lt;a href="#srodek"&gt;Link do środka tekstu&lt;/a&gt;            ← do miejsca na tej samej stronie
+&lt;a href="mailto:john.doe@example.com"&gt;Napisz&lt;/a&gt;      ← otwiera program pocztowy</pre>
+<p>Skok do miejsca wymaga <b>kotwicy</b>, czyli znacznika z nazwą w miejscu docelowym:</p>
+<pre class="code">&lt;a name="srodek"&gt;&lt;/a&gt;           ← tu jest cel
+…
+&lt;a href="#srodek"&gt;…&lt;/a&gt;         ← # i ta sama nazwa</pre>
+<p>Pobieranie pliku: <code>&lt;a href="plik_doe.zip" download&gt;</code>. Atrybut <code>download</code> każe przeglądarce zapisać plik zamiast go otwierać.</p>
+<p class="tip"><b>Nazwy plików.</b> Link musi mieć dokładnie tę samą nazwę co plik, z tymi samymi małymi literami. Instrukcja specjalnie o tym przypomina.</p>
+
+<h2>Co się zmieniło w kodzie</h2>
+<p>Porównanie <code>index.html</code> z zadaniem 5. <span class="d-add-t">Zielone linie (+)</span> są dodane, <span class="d-del-t">czerwone linie (−)</span> są usunięte lub zmienione.</p><pre class="diff"><span class="d-hunk">… od linii 11 …</span><span class="d-ctx"> 	&lt;body bgcolor=&quot;#CCFFCC&quot;&gt;</span><span class="d-ctx"> </span><span class="d-add">+		&lt;a name=&quot;poczatek&quot;&gt;&lt;/a&gt;</span><span class="d-add">+		&lt;p&gt;&lt;b&gt;Menu - góra strony&lt;/b&gt;&lt;/p&gt;</span><span class="d-add">+		&lt;a href=&quot;poczta_doe.html&quot;&gt;Link do poczty&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;plik_doe.html&quot;&gt;Link do ściągania pliku&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;#srodek&quot;&gt;Link do środka tekstu&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;#koniec&quot;&gt;Link do końca tekstu&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;tabela_doe.html&quot;&gt;Link do strony zawierającej tabelę&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;formularz_doe.html&quot;&gt;Link do strony zawierającej formularz&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+</span><span class="d-ctx"> 		&lt;!-- imię 7 razy; numer w dzienniku 7 (nieparzysty), więc od size 7 do size 1 --&gt;</span><span class="d-ctx"> 		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;7&quot; face=&quot;Arial&quot;&gt;&lt;b&gt;John&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-hunk">… od linii 55 …</span><span class="d-ctx"> 		&lt;!-- zadanie 3: 10 spacji niełamliwych między nazwiskiem a imieniem --&gt;</span><span class="d-ctx"> 		&lt;p&gt;Doe&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;John&lt;/p&gt;</span><span class="d-add">+</span><span class="d-add">+		&lt;a name=&quot;srodek&quot;&gt;&lt;/a&gt;</span><span class="d-add">+		&lt;p&gt;&lt;b&gt;Menu - środek strony&lt;/b&gt;&lt;/p&gt;</span><span class="d-add">+		&lt;a href=&quot;poczta_doe.html&quot;&gt;Link do poczty&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;plik_doe.html&quot;&gt;Link do ściągania pliku&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;#poczatek&quot;&gt;Link początek tekstu&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;#koniec&quot;&gt;Link do końca tekstu&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;tabela_doe.html&quot;&gt;Link do strony zawierającej tabelę&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;formularz_doe.html&quot;&gt;Link do strony zawierającej formularz&lt;/a&gt;&lt;br&gt;</span><span class="d-ctx"> </span><span class="d-ctx"> 		&lt;!-- zadanie 3: dowcipy w obramowaniu z legendą --&gt;</span><span class="d-hunk">… od linii 186 …</span><span class="d-ctx"> 		&lt;/ol&gt;</span><span class="d-ctx"> </span><span class="d-add">+		&lt;a name=&quot;koniec&quot;&gt;&lt;/a&gt;</span><span class="d-add">+		&lt;p&gt;&lt;b&gt;Menu - dół strony&lt;/b&gt;&lt;/p&gt;</span><span class="d-add">+		&lt;a href=&quot;poczta_doe.html&quot;&gt;Link do poczty&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;plik_doe.html&quot;&gt;Link do ściągania pliku&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;#poczatek&quot;&gt;Link początek tekstu&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;#srodek&quot;&gt;Link do środka tekstu&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;tabela_doe.html&quot;&gt;Link do strony zawierającej tabelę&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+		&lt;a href=&quot;formularz_doe.html&quot;&gt;Link do strony zawierającej formularz&lt;/a&gt;&lt;br&gt;</span><span class="d-add">+</span><span class="d-ctx"> 		&lt;!-- zadanie 3: 7 znaków specjalnych na końcu strony --&gt;</span><span class="d-ctx"> 		&lt;p&gt;&amp;copy; &amp;reg; &amp;trade; &amp;euro; &amp;sect; &amp;hearts; &amp;para;&lt;/p&gt;</span></pre><h3>Nowe pliki w folderze</h3><ul><li><code>formularz_doe.html</code></li><li><code>plik_doe.html</code></li><li><code>plik_doe.zip</code></li><li><code>poczta.gif</code></li><li><code>poczta_doe.html</code></li><li><code>tabela_doe.html</code></li></ul>
+
+<h2>Pełny kod index.html po zadaniu 6</h2>
+<details><summary>Pokaż kod</summary><pre class="code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset=&quot;UTF-8&quot;&gt;
+		&lt;meta name=&quot;author&quot; content=&quot;John Doe&quot;&gt;
+		&lt;meta name=&quot;description&quot; content=&quot;Strona ucznia John Doe - zadania HTML&quot;&gt;
+		&lt;title&gt;John Doe - zadania HTML&lt;/title&gt;
+	&lt;/head&gt;
+
+	&lt;!-- Autor: Doe John, szkoła: ZSE Gdańsk, klasa: 2F grupa 1 --&gt;
+	&lt;body bgcolor=&quot;#CCFFCC&quot;&gt;
+
+		&lt;a name=&quot;poczatek&quot;&gt;&lt;/a&gt;
+		&lt;p&gt;&lt;b&gt;Menu - góra strony&lt;/b&gt;&lt;/p&gt;
+		&lt;a href=&quot;poczta_doe.html&quot;&gt;Link do poczty&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;plik_doe.html&quot;&gt;Link do ściągania pliku&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;#srodek&quot;&gt;Link do środka tekstu&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;#koniec&quot;&gt;Link do końca tekstu&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;tabela_doe.html&quot;&gt;Link do strony zawierającej tabelę&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;formularz_doe.html&quot;&gt;Link do strony zawierającej formularz&lt;/a&gt;&lt;br&gt;
+
+		&lt;!-- imię 7 razy; numer w dzienniku 7 (nieparzysty), więc od size 7 do size 1 --&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;7&quot; face=&quot;Arial&quot;&gt;&lt;b&gt;John&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;6&quot; face=&quot;Verdana&quot;&gt;&lt;i&gt;John&lt;/i&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;navy&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;&lt;u&gt;John&lt;/u&gt;&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;purple&quot; size=&quot;4&quot; face=&quot;Courier New&quot;&gt;&lt;s&gt;John&lt;/s&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;teal&quot; size=&quot;3&quot; face=&quot;Arial&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;maroon&quot; size=&quot;2&quot; face=&quot;Verdana&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;olive&quot; size=&quot;1&quot; face=&quot;Times New Roman&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;
+
+		&lt;!-- nazwisko 6 razy; numer nieparzysty, więc od H6 do H1 --&gt;
+		&lt;h6&gt;Doe&lt;/h6&gt;&lt;br&gt;
+		&lt;h5&gt;Doe&lt;/h5&gt;&lt;br&gt;
+		&lt;h4&gt;Doe&lt;/h4&gt;&lt;br&gt;
+		&lt;h3&gt;Doe&lt;/h3&gt;&lt;br&gt;
+		&lt;h2&gt;Doe&lt;/h2&gt;&lt;br&gt;
+		&lt;h1&gt;Doe&lt;/h1&gt;&lt;br&gt;
+
+		&lt;!-- sześć emotikonów: każdy inny kolor, wielkość i czcionka --&gt;
+		&lt;p&gt;&lt;font color=&quot;orange&quot; size=&quot;6&quot; face=&quot;Courier New&quot;&gt;:-) uśmiech, jestem zadowolony&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;red&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;:-( smutek, coś poszło źle&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;green&quot; size=&quot;4&quot; face=&quot;Verdana&quot;&gt;;-) mrugnięcie, to był żart&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;blue&quot; size=&quot;3&quot; face=&quot;Courier New&quot;&gt;:-D głośny śmiech&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;purple&quot; size=&quot;5&quot; face=&quot;Verdana&quot;&gt;:-P pokazuję język&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;brown&quot; size=&quot;4&quot; face=&quot;Times New Roman&quot;&gt;:-O zdziwienie&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+
+		&lt;!-- zadanie 2: dane ucznia (fałszywe, ale prawdopodobne) --&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;red&quot; size=&quot;3&quot; face=&quot;Arial&quot;&gt;&lt;u&gt;80-188 Gdańsk, ul. Długa 12/5&lt;/u&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;4&quot; face=&quot;Verdana&quot;&gt;&lt;b&gt;Ulubiony aktor: Tom Hanks&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;green&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;&lt;i&gt;Ulubiony zespół: Queen&lt;/i&gt;&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;purple&quot; size=&quot;3&quot; face=&quot;Courier New&quot;&gt;&lt;s&gt;Data urodzenia: 14 marca 2009&lt;/s&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;black&quot; size=&quot;4&quot; face=&quot;Arial&quot;&gt;Wzór kwasu: H&lt;sub&gt;2&lt;/sub&gt;SO&lt;sub&gt;4&lt;/sub&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;black&quot; size=&quot;4&quot; face=&quot;Arial&quot;&gt;Potęga: x*x=x&lt;sup&gt;2&lt;/sup&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+
+		&lt;!-- zadanie 3: 10 spacji niełamliwych między nazwiskiem a imieniem --&gt;
+		&lt;p&gt;Doe&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;John&lt;/p&gt;
+
+		&lt;a name=&quot;srodek&quot;&gt;&lt;/a&gt;
+		&lt;p&gt;&lt;b&gt;Menu - środek strony&lt;/b&gt;&lt;/p&gt;
+		&lt;a href=&quot;poczta_doe.html&quot;&gt;Link do poczty&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;plik_doe.html&quot;&gt;Link do ściągania pliku&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;#poczatek&quot;&gt;Link początek tekstu&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;#koniec&quot;&gt;Link do końca tekstu&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;tabela_doe.html&quot;&gt;Link do strony zawierającej tabelę&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;formularz_doe.html&quot;&gt;Link do strony zawierającej formularz&lt;/a&gt;&lt;br&gt;
+
+		&lt;!-- zadanie 3: dowcipy w obramowaniu z legendą --&gt;
+		&lt;h1 align=&quot;right&quot;&gt;Dowcipy o informatykach&lt;/h1&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Programista w sklepie&lt;/legend&gt;
+			&lt;img src=&quot;grafika1.gif&quot; align=&quot;right&quot; border=&quot;24&quot; width=&quot;114&quot; height=&quot;107&quot; alt=&quot;grafika1-Doe&quot;&gt;
+			Żona mówi do programisty:&lt;br&gt;
+			- Kup chleb, a jak będą jajka, to weź dziesięć.&lt;br&gt;
+			Programista wraca z dziesięcioma chlebami.&lt;br&gt;
+			- Dlaczego tyle chleba?&lt;br&gt;
+			- Bo były jajka.&lt;br&gt;
+		&lt;/fieldset&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Restart&lt;/legend&gt;
+			&lt;img src=&quot;grafika2.gif&quot; align=&quot;left&quot; border=&quot;13&quot; width=&quot;103&quot; height=&quot;103&quot; alt=&quot;grafika2-Doe&quot;&gt;
+			Uczeń pyta informatyka:&lt;br&gt;
+			- Co robić, gdy komputer nie działa?&lt;br&gt;
+			- Wyłącz i włącz.&lt;br&gt;
+			- A jak dalej nie działa?&lt;br&gt;
+			- Wyłącz i idź na spacer.&lt;br&gt;
+		&lt;/fieldset&gt;
+
+		&lt;hr size=&quot;2&quot; width=&quot;80%&quot; color=&quot;red&quot;&gt;
+
+		&lt;h2 align=&quot;left&quot;&gt;Dowcipy o szkole&lt;/h2&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Klasówka&lt;/legend&gt;
+			&lt;img src=&quot;grafika3.gif&quot; align=&quot;right&quot; border=&quot;17&quot; width=&quot;107&quot; height=&quot;114&quot; alt=&quot;grafika3-Doe&quot;&gt;
+			Nauczyciel:&lt;br&gt;
+			- Jasiu, dlaczego masz pustą kartkę?&lt;br&gt;
+			- Bo nie lubię ściągać.&lt;br&gt;
+		&lt;/fieldset&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Zadanie domowe&lt;/legend&gt;
+			&lt;img src=&quot;grafika4.gif&quot; align=&quot;left&quot; border=&quot;13&quot; width=&quot;103&quot; height=&quot;103&quot; alt=&quot;grafika4-Doe&quot;&gt;
+			- Gdzie jest twoje zadanie domowe?&lt;br&gt;
+			- Zjadł je mój pies.&lt;br&gt;
+			- Przecież nie masz psa.&lt;br&gt;
+			- To był pies kolegi.&lt;br&gt;
+		&lt;/fieldset&gt;
+
+		&lt;hr size=&quot;6&quot; width=&quot;50%&quot; color=&quot;blue&quot;&gt;
+
+		&lt;h3 align=&quot;center&quot;&gt;Dowcipy o zwierzętach&lt;/h3&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Kot i mysz&lt;/legend&gt;
+			&lt;img src=&quot;grafika5.gif&quot; align=&quot;right&quot; border=&quot;14&quot; width=&quot;104&quot; height=&quot;104&quot; alt=&quot;grafika5-Doe&quot;&gt;
+			Dlaczego kot siedzi przy komputerze?&lt;br&gt;
+			Bo pilnuje myszy.&lt;br&gt;
+		&lt;/fieldset&gt;
+
+		&lt;hr size=&quot;10&quot; width=&quot;30%&quot; color=&quot;green&quot;&gt;
+
+		&lt;!-- zadanie 4: wyliczenia i numerowania o informatyce --&gt;
+		&lt;br&gt;&lt;br&gt;&lt;br&gt;
+		&lt;h1&gt;Poniżej są trzy wyliczenia z różnymi znakami wyliczenia&lt;/h1&gt;
+		&lt;ul type=&quot;square&quot;&gt;
+			&lt;li&gt;procesor&lt;/li&gt;
+			&lt;li&gt;pamięć RAM&lt;/li&gt;
+			&lt;li&gt;dysk SSD&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;ul type=&quot;disc&quot;&gt;
+			&lt;li&gt;klawiatura&lt;/li&gt;
+			&lt;li&gt;mysz&lt;/li&gt;
+			&lt;li&gt;monitor&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;ul type=&quot;circle&quot;&gt;
+			&lt;li&gt;Windows&lt;/li&gt;
+			&lt;li&gt;Linux&lt;/li&gt;
+			&lt;li&gt;macOS&lt;/li&gt;
+		&lt;/ul&gt;
+
+		&lt;br&gt;&lt;br&gt;&lt;br&gt;
+		&lt;h2&gt;Poniżej są trzy numerowania z różnymi znakami numerowania&lt;/h2&gt;
+		&lt;!-- numeracja zaczyna się od numeru w dzienniku: 7 --&gt;
+		&lt;ol type=&quot;1&quot; start=&quot;7&quot;&gt;
+			&lt;li&gt;HTML&lt;/li&gt;
+			&lt;li&gt;CSS&lt;/li&gt;
+			&lt;li&gt;JavaScript&lt;/li&gt;
+		&lt;/ol&gt;
+		&lt;ol type=&quot;A&quot; start=&quot;7&quot;&gt;
+			&lt;li&gt;router&lt;/li&gt;
+			&lt;li&gt;switch&lt;/li&gt;
+			&lt;li&gt;serwer&lt;/li&gt;
+		&lt;/ol&gt;
+		&lt;ol type=&quot;I&quot; start=&quot;7&quot;&gt;
+			&lt;li&gt;Chrome&lt;/li&gt;
+			&lt;li&gt;Firefox&lt;/li&gt;
+			&lt;li&gt;Edge&lt;/li&gt;
+		&lt;/ol&gt;
+
+		&lt;br&gt;&lt;br&gt;&lt;br&gt;
+		&lt;h3&gt;Poniżej są trzy poziomy numerowania/wyliczenia&lt;/h3&gt;
+		&lt;ol type=&quot;1&quot;&gt;
+			&lt;li&gt;Sprzęt
+				&lt;ul type=&quot;square&quot;&gt;
+					&lt;li&gt;Podzespoły
+						&lt;ol type=&quot;a&quot;&gt;
+							&lt;li&gt;płyta główna&lt;/li&gt;
+							&lt;li&gt;karta graficzna&lt;/li&gt;
+						&lt;/ol&gt;
+					&lt;/li&gt;
+					&lt;li&gt;Urządzenia peryferyjne
+						&lt;ol type=&quot;a&quot;&gt;
+							&lt;li&gt;drukarka&lt;/li&gt;
+							&lt;li&gt;skaner&lt;/li&gt;
+						&lt;/ol&gt;
+					&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+			&lt;li&gt;Oprogramowanie
+				&lt;ul type=&quot;square&quot;&gt;
+					&lt;li&gt;Systemy operacyjne
+						&lt;ol type=&quot;a&quot;&gt;
+							&lt;li&gt;Windows&lt;/li&gt;
+							&lt;li&gt;Linux&lt;/li&gt;
+						&lt;/ol&gt;
+					&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+		&lt;/ol&gt;
+
+		&lt;a name=&quot;koniec&quot;&gt;&lt;/a&gt;
+		&lt;p&gt;&lt;b&gt;Menu - dół strony&lt;/b&gt;&lt;/p&gt;
+		&lt;a href=&quot;poczta_doe.html&quot;&gt;Link do poczty&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;plik_doe.html&quot;&gt;Link do ściągania pliku&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;#poczatek&quot;&gt;Link początek tekstu&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;#srodek&quot;&gt;Link do środka tekstu&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;tabela_doe.html&quot;&gt;Link do strony zawierającej tabelę&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;formularz_doe.html&quot;&gt;Link do strony zawierającej formularz&lt;/a&gt;&lt;br&gt;
+
+		&lt;!-- zadanie 3: 7 znaków specjalnych na końcu strony --&gt;
+		&lt;p&gt;&amp;copy; &amp;reg; &amp;trade; &amp;euro; &amp;sect; &amp;hearts; &amp;para;&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</pre></details>
+<nav class="nav"><a href="zadanie5.html">← Zadanie 5</a><a href="../index.html">Wszystkie zadania</a><a href="zadanie7.html">Zadanie 7 →</a></nav>
+</main>
+</body>
+</html>

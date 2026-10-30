@@ -1,0 +1,46 @@
+<p class="tip"><b>To zadanie nie zmienia strony.</b> Tabelę projektujesz w Wordzie albo w OpenOffice. Strona w folderze <code>zadanie8</code> jest taka sama jak po zadaniu 7, doszedł tylko plik <code>.docx</code>. W zadaniu 9 zbudujesz tę samą tabelę w HTML.</p>
+
+<h2>Co trzeba zrobić</h2>
+<ol class="req">
+<li>Wymyśl tabelę na temat informatyczny i zaprojektuj ją w edytorze tekstu (Word lub OpenOffice), <b>nie w HTML</b>.</li>
+<li>Zapisz plik jako <code>nazwisko_klasa_grupa.docx</code>, na przykład <code>doe_2F_g1.docx</code>.</li>
+<li>Tabela ma mieć <b>co najmniej 30 komórek</b>. Komórka scalona liczy się jako jedna, wiersz nagłówka też się liczy.</li>
+<li>Nad tabelą: tytuł z treścią tabeli oraz nazwisko, imię i klasa.</li>
+<li>Pierwszy wiersz to nagłówek kolumn, pozostałe wiersze to dane. W zadaniu 9 będą to <code>&lt;thead&gt;</code> i <code>&lt;tbody&gt;</code>.</li>
+<li>Scal w poziomie <b>co najmniej 3 komórki</b> i w pionie <b>2 komórki</b>.</li>
+<li>Użyj <b>co najmniej 4 kolorów</b> tła wierszy.</li>
+<li>Ramka: kolor inny niż czarny, wybrany rodzaj linii i grubość. <b>Ramka zewnętrzna 4 razy grubsza</b> niż ramki wewnętrzne.</li>
+<li>W kolumnach: <b>co najmniej 3 kolory</b> tekstu, <b>2 rozmiary</b> czcionki, <b>2 kroje</b> czcionki, wyrównanie do lewej, do prawej i do środka.</li>
+<li>Pod tabelą: źródło danych, kursywą, podkreślone, czerwone, rozmiar 6 z 7 (w Wordzie 24 pkt).</li>
+</ol>
+
+<h2>Gotowy projekt</h2>
+<p><a class="btn" href="../zadanie8/doe_2F_g1.docx">Pobierz doe_2F_g1.docx</a></p>
+<p><img src="projekt_tabeli_podglad.png" alt="Podgląd projektu tabeli: cennik laptopów z 44 komórkami" style="max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px;"></p>
+
+<h2>Jak projekt spełnia wymagania</h2>
+<table class="req" style="border-collapse: collapse; width: 100%;">
+<tr><th>Wymaganie</th><th>W projekcie</th></tr>
+<tr><td>30 komórek</td><td>44 komórki: 6 w nagłówku i 38 w danych. Policz każdą scaloną komórkę raz.</td></tr>
+<tr><td>Tytuł</td><td><i>Cennik laptopów - Doe John 2Fg1</i>: treść, nazwisko, imię, klasa i grupa.</td></tr>
+<tr><td>Scalenie w pionie</td><td>„Lenovo” i „Dell”: każda z tych komórek zajmuje 2 wiersze, bo producent ma 2 modele.</td></tr>
+<tr><td>Scalenie w poziomie</td><td>Wiersz Apple: „Apple M2, 8 GB RAM, 256 GB SSD” zajmuje 3 kolumny (procesor, RAM, dysk).</td></tr>
+<tr><td>4 kolory wierszy</td><td>6 kolorów: granatowy nagłówek oraz niebieski, żółty, zielony, różowy i pomarańczowy dla producentów.</td></tr>
+<tr><td>Ramka</td><td>Niebieska (<code>#2E75B6</code>). Zewnętrzna: podwójna linia 3 pkt. Wewnętrzne: pojedyncza linia 0,75 pkt. 3 = 4 × 0,75.</td></tr>
+<tr><td>3 kolory tekstu</td><td>Producent granatowy, model zielony, cena bordowa, reszta ciemnoszara.</td></tr>
+<tr><td>2 rozmiary</td><td>12 pkt (producent, cena) i 11 pkt (pozostałe kolumny).</td></tr>
+<tr><td>2 kroje</td><td>Arial (producent, model, cena) i Times New Roman (procesor, RAM, dysk).</td></tr>
+<tr><td>Wyrównanie</td><td>Model i procesor do lewej, producent, RAM i dysk do środka, cena do prawej.</td></tr>
+<tr><td>Źródło</td><td>„Źródło: własne (ceny przykładowe)”: kursywa, podkreślenie, czerwony, 24 pkt.</td></tr>
+</table>
+
+<h2>Jak to zrobić w Wordzie</h2>
+<ul>
+<li><b>Wstaw tabelę:</b> Wstawianie → Tabela. Najpierw policz wiersze i kolumny przed scaleniem: tu 8 wierszy i 6 kolumn.</li>
+<li><b>Scal komórki:</b> zaznacz komórki → prawy przycisk myszy → Scal komórki.</li>
+<li><b>Kolor tła:</b> zaznacz wiersz → Projektowanie tabeli → Cieniowanie.</li>
+<li><b>Ramka:</b> zaznacz tabelę → Projektowanie tabeli → Obramowania → Obramowanie i cieniowanie. Ustaw osobno „Wewnątrz” i „Krawędź zewnętrzna”.</li>
+<li><b>Kolor, krój i rozmiar tekstu:</b> zaznacz kolumnę (kliknij nad nią, gdy kursor zmieni się w strzałkę) i ustaw na karcie Narzędzia główne.</li>
+</ul>
+<p class="tip"><b>Rozmiar 6 z 7.</b> HTML ma 7 rozmiarów czcionki (zobacz zadanie 7). Rozmiar 6 to 32 piksele, czyli około 24 punktów w Wordzie.</p>
+<p class="tip"><b>Wybierz tabelę, którą łatwo zbudujesz w HTML.</b> W zadaniu 9 każdy kolor, każde scalenie i każda ramka z projektu musi się znaleźć w kodzie. Scalenie w pionie to <code>rowspan</code>, a w poziomie <code>colspan</code>.</p>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="John Doe">
+		<title>Formularz - John Doe</title>
+	</head>
+	<!-- Autor: Doe John, szkoła: ZSE Gdańsk, klasa: 2F grupa 1 -->
+	<body style="background-color: #E8F4FD;">
+		<h1 style="text-align: center; font-size: 40px; color: #1F4E79;">Formularz zapisu na Kółko Robotyki</h1>
+		<form action="mailto:nauczyciel@example.com?subject=Doe" method="post" enctype="text/plain">
+			<table style="border-collapse: collapse;">
+				<tr style="height: 300px;">
+					<td style="width: 380px; vertical-align: top; padding: 10px;">
+						<p><b>Twoje dane</b></p>
+						<label for="imie" style="display: inline-block; width: 130px;">Imię</label> <input id="imie" name="imie" size="20"><br><br>
+						<label for="szkola" style="display: inline-block; width: 130px;">Szkoła</label> <input id="szkola" name="szkola" size="20" value="ZSE Gdańsk"><br><br>
+						<label for="login" style="display: inline-block; width: 130px;">Login (max 12)</label> <input id="login" name="login" size="20" maxlength="12"><br><br>
+						<label for="haslo" style="display: inline-block; width: 130px;">Hasło</label> <input id="haslo" name="haslo" size="20" type="password"><br><br>
+						<label for="email" style="display: inline-block; width: 130px;">E-mail</label> <input id="email" name="email" size="20">
+					</td>
+					<td style="width: 300px; vertical-align: top; padding: 10px;">
+						<p><b>Klasa</b><br>
+						<select name="klasa">
+							<option>klasa 1</option>
+							<option selected>klasa 2</option>
+							<option>klasa 3</option>
+							<option>klasa 4</option>
+							<option>klasa 5</option>
+						</select></p>
+						<p><b>Ulubiony język programowania</b><br>
+						<select name="jezyk">
+							<option>Python</option>
+							<option>C++</option>
+							<option>JavaScript</option>
+							<option>Java</option>
+						</select></p>
+						<p><b>Godzina zajęć</b><br>
+						<select name="godzina">
+							<option>14:30</option>
+							<option selected>15:30</option>
+							<option>16:30</option>
+						</select></p>
+					</td>
+					<td style="width: 320px; vertical-align: top; padding: 10px;">
+						<p><b>Co chcesz budować?</b></p>
+						<input type="checkbox" name="budowa" value="pojazdy"> Roboty jeżdżące<br><br>
+						<input type="checkbox" name="budowa" value="drony"> Drony<br><br>
+						<input type="checkbox" name="budowa" value="ramiona"> Ramiona robotyczne<br><br>
+						<input type="checkbox" name="budowa" value="dom"> Inteligentny dom
+					</td>
+				</tr>
+				<tr style="height: 200px;">
+					<td style="vertical-align: top; padding: 10px;">
+						<p><b>Czy umiesz programować?</b></p>
+						<input type="radio" name="programowanie" value="tak"> Tak<br><br>
+						<input type="radio" name="programowanie" value="troche"> Trochę<br><br>
+						<input type="radio" name="programowanie" value="nie"> Nie
+					</td>
+					<td style="vertical-align: top; padding: 10px;">
+						<p><b>Co masz w domu?</b></p>
+						<input type="checkbox" name="sprzet" value="komputer"> Komputer<br><br>
+						<input type="checkbox" name="sprzet" value="arduino"> Arduino<br><br>
+						<input type="checkbox" name="sprzet" value="drukarka"> Drukarka 3D
+					</td>
+					<td style="vertical-align: top; padding: 10px;">
+						<p><b>Nowe pola HTML5</b></p>
+						<label for="data" style="display: inline-block; width: 150px;">Data urodzenia</label> <input id="data" name="data" type="date"><br><br>
+						<label for="czas" style="display: inline-block; width: 150px;">Godzina przyjścia</label> <input id="czas" name="czas" type="time"><br><br>
+						<label for="kolor" style="display: inline-block; width: 150px;">Kolor robota</label> <input id="kolor" name="kolor" type="color" value="#2E75B6"><br><br>
+						<label for="zapal" style="display: inline-block; width: 150px;">Zapał (0-10)</label> <input id="zapal" name="zapal" type="range" min="0" max="10"><br><br>
+						<label for="postep" style="display: inline-block; width: 150px;">Wypełnienie</label> <progress id="postep" max="100" value="80">80%</progress>
+					</td>
+				</tr>
+				<tr style="height: 80px;">
+					<td colspan="3" style="padding: 10px;">
+						<b>Skąd wiesz o kółku?</b>
+						<input type="radio" name="skad" value="nauczyciel" checked> Od nauczyciela
+						<input type="radio" name="skad" value="kolega"> Od kolegi
+						<input type="radio" name="skad" value="gazetka"> Z gazetki
+						<input type="radio" name="skad" value="internet"> Z internetu
+						<br><br>
+						<b>Oceń swoją znajomość elektroniki:</b>
+						<input type="radio" name="elektronika" value="1"> 1
+						<input type="radio" name="elektronika" value="2"> 2
+						<input type="radio" name="elektronika" value="3"> 3
+						<input type="radio" name="elektronika" value="4"> 4
+						<input type="radio" name="elektronika" value="5"> 5
+					</td>
+				</tr>
+				<tr style="height: 60px;">
+					<td colspan="3" style="padding: 10px;">
+						<b>W które dni możesz przychodzić?</b>
+						<input type="checkbox" name="dni" value="pon" checked> poniedziałek
+						<input type="checkbox" name="dni" value="wt"> wtorek
+						<input type="checkbox" name="dni" value="sr"> środa
+						<input type="checkbox" name="dni" value="czw"> czwartek
+						<input type="checkbox" name="dni" value="pt"> piątek
+					</td>
+				</tr>
+				<tr style="height: 140px;">
+					<td colspan="3" style="padding: 10px;">
+						<label for="opis"><b>Napisz, jakiego robota chcesz zbudować:</b></label><br>
+						<textarea id="opis" name="opis" rows="4" cols="80"></textarea>
+					</td>
+				</tr>
+				<tr style="height: 80px;">
+					<td style="padding: 10px;">
+						<button type="button" onclick="alert('Cześć! Do zobaczenia na kółku.')">Powitanie</button>
+						<button type="button" onclick="document.body.style.backgroundColor = '#FFF2CC';">Zmień tło</button>
+					</td>
+					<td style="padding: 10px; text-align: center;"><input type="reset" value="CZYŚĆ"></td>
+					<td style="padding: 10px; text-align: center;"><input type="submit" value="WYŚLIJ"></td>
+				</tr>
+			</table>
+		</form>
+		<p><a href="../../zadanie11/index.html">wróć</a></p>
+	</body>
+</html>

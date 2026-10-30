@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zadanie 2 - wyjaśnienie</title>
+<link rel="stylesheet" href="styl.css">
+</head>
+<body>
+<main>
+<nav class="nav"><a href="zadanie1.html">← Zadanie 1</a><a href="../index.html">Wszystkie zadania</a><a href="zadanie3.html">Zadanie 3 →</a></nav>
+<p class="eyebrow">Zadanie 2 z 11</p>
+<h1>Akapity i formatowanie tekstu</h1>
+<p><a class="btn" href="../zadanie2/index.html">Otwórz stronę po zadaniu 2 ↗</a></p>
+<h2>Co trzeba zrobić</h2>
+<ul class="req">
+<li><b>Dopisz dane ucznia</b> (fałszywe, ale prawdopodobne), każde w nowej linii: adres (kod, miasto, ulica, numer domu i mieszkania), ulubiony aktor, ulubiony zespół, pełna data urodzenia z miesiącem słownie.</li>
+<li><b>Każda wyświetlana linia jest akapitem</b>: <code>&lt;p&gt;</code> … <code>&lt;/p&gt;</code>. Dotyczy to też imion i emotikonów z zadania 1.</li>
+<li><b>Wyrównanie akapitów</b>: co najmniej jeden do prawej (<code>align="right"</code>), do lewej (<code>align="left"</code>) i do środka (<code>&lt;center&gt;</code>).</li>
+<li><b>Formatowanie tekstu</b>: podkreślenie <code>&lt;u&gt;</code>, przekreślenie <code>&lt;s&gt;</code>, kursywa <code>&lt;i&gt;</code>, pogrubienie <code>&lt;b&gt;</code>.</li>
+<li><b>Indeksy</b>: dolny <code>&lt;sub&gt;</code> w H<sub>2</sub>SO<sub>4</sub> i górny <code>&lt;sup&gt;</code> w x*x=x<sup>2</sup>.</li>
+<li>Co najmniej trzy czcionki, trzy wielkości i trzy kolory tekstu.</li>
+</ul>
+<h2>Jak to działa</h2>
+<p>Akapit „opakowuje” tekst. Znaczniki formatowania wkładamy jeden w drugi jak pudełka. Zamykamy je w odwrotnej kolejności: najpierw <code>&lt;/b&gt;</code>, potem <code>&lt;/font&gt;</code>, na końcu <code>&lt;/p&gt;</code>.</p>
+<pre class="code">&lt;p align="right"&gt;&lt;font color="blue" size="7" face="Arial"&gt;&lt;b&gt;John&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</pre>
+<p>Środek strony robi znacznik <code>&lt;center&gt;</code> wokół akapitu: <code>&lt;center&gt;&lt;p&gt;…&lt;/p&gt;&lt;/center&gt;</code>.</p>
+<p>W porównaniu kodu poniżej widać, że linie z imieniem i emotikonami z zadania 1 są czerwone (usunięte), a w ich miejsce są zielone linie z <code>&lt;p&gt;</code>. Tekst jest ten sam, zmieniło się tylko „opakowanie”.</p>
+<p class="tip"><b>Struktura folderów.</b> Instrukcja pozwala trzymać każde zadanie w osobnym folderze (np. <code>ZAD2_Doe</code>). Ta strona robi tak samo: każde zadanie ma swój folder <code>zadanieN</code>.</p>
+
+<h2>Co się zmieniło w kodzie</h2>
+<p>Porównanie <code>index.html</code> z zadaniem 1. <span class="d-add-t">Zielone linie (+)</span> są dodane, <span class="d-del-t">czerwone linie (−)</span> są usunięte lub zmienione.</p><pre class="diff"><span class="d-hunk">… od linii 8 …</span><span class="d-ctx"> </span><span class="d-ctx"> 		&lt;!-- imię 7 razy; numer w dzienniku 7 (nieparzysty), więc od size 7 do size 1 --&gt;</span><span class="d-del">-		&lt;font color=&quot;blue&quot; size=&quot;7&quot; face=&quot;Arial&quot;&gt;John&lt;/font&gt;&lt;br&gt;</span><span class="d-del">-		&lt;font color=&quot;blue&quot; size=&quot;6&quot; face=&quot;Verdana&quot;&gt;John&lt;/font&gt;&lt;br&gt;</span><span class="d-del">-		&lt;font color=&quot;navy&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;John&lt;/font&gt;&lt;br&gt;</span><span class="d-del">-		&lt;font color=&quot;purple&quot; size=&quot;4&quot; face=&quot;Courier New&quot;&gt;John&lt;/font&gt;&lt;br&gt;</span><span class="d-del">-		&lt;font color=&quot;teal&quot; size=&quot;3&quot; face=&quot;Arial&quot;&gt;John&lt;/font&gt;&lt;br&gt;</span><span class="d-del">-		&lt;font color=&quot;maroon&quot; size=&quot;2&quot; face=&quot;Verdana&quot;&gt;John&lt;/font&gt;&lt;br&gt;</span><span class="d-del">-		&lt;font color=&quot;olive&quot; size=&quot;1&quot; face=&quot;Times New Roman&quot;&gt;John&lt;/font&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;7&quot; face=&quot;Arial&quot;&gt;&lt;b&gt;John&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;6&quot; face=&quot;Verdana&quot;&gt;&lt;i&gt;John&lt;/i&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;navy&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;&lt;u&gt;John&lt;/u&gt;&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;purple&quot; size=&quot;4&quot; face=&quot;Courier New&quot;&gt;&lt;s&gt;John&lt;/s&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;teal&quot; size=&quot;3&quot; face=&quot;Arial&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;maroon&quot; size=&quot;2&quot; face=&quot;Verdana&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;olive&quot; size=&quot;1&quot; face=&quot;Times New Roman&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;</span><span class="d-ctx"> </span><span class="d-ctx"> 		&lt;!-- nazwisko 6 razy; numer nieparzysty, więc od H6 do H1 --&gt;</span><span class="d-hunk">… od linii 25 …</span><span class="d-ctx"> </span><span class="d-ctx"> 		&lt;!-- sześć emotikonów: każdy inny kolor, wielkość i czcionka --&gt;</span><span class="d-del">-		&lt;font color=&quot;orange&quot; size=&quot;6&quot; face=&quot;Courier New&quot;&gt;:-) uśmiech, jestem zadowolony&lt;/font&gt;&lt;br&gt;</span><span class="d-del">-		&lt;font color=&quot;red&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;:-( smutek, coś poszło źle&lt;/font&gt;&lt;br&gt;</span><span class="d-del">-		&lt;font color=&quot;green&quot; size=&quot;4&quot; face=&quot;Verdana&quot;&gt;;-) mrugnięcie, to był żart&lt;/font&gt;&lt;br&gt;</span><span class="d-del">-		&lt;font color=&quot;blue&quot; size=&quot;3&quot; face=&quot;Courier New&quot;&gt;:-D głośny śmiech&lt;/font&gt;&lt;br&gt;</span><span class="d-del">-		&lt;font color=&quot;purple&quot; size=&quot;5&quot; face=&quot;Verdana&quot;&gt;:-P pokazuję język&lt;/font&gt;&lt;br&gt;</span><span class="d-del">-		&lt;font color=&quot;brown&quot; size=&quot;4&quot; face=&quot;Times New Roman&quot;&gt;:-O zdziwienie&lt;/font&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p&gt;&lt;font color=&quot;orange&quot; size=&quot;6&quot; face=&quot;Courier New&quot;&gt;:-) uśmiech, jestem zadowolony&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p&gt;&lt;font color=&quot;red&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;:-( smutek, coś poszło źle&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p&gt;&lt;font color=&quot;green&quot; size=&quot;4&quot; face=&quot;Verdana&quot;&gt;;-) mrugnięcie, to był żart&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p&gt;&lt;font color=&quot;blue&quot; size=&quot;3&quot; face=&quot;Courier New&quot;&gt;:-D głośny śmiech&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p&gt;&lt;font color=&quot;purple&quot; size=&quot;5&quot; face=&quot;Verdana&quot;&gt;:-P pokazuję język&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p&gt;&lt;font color=&quot;brown&quot; size=&quot;4&quot; face=&quot;Times New Roman&quot;&gt;:-O zdziwienie&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+</span><span class="d-add">+		&lt;!-- zadanie 2: dane ucznia (fałszywe, ale prawdopodobne) --&gt;</span><span class="d-add">+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;red&quot; size=&quot;3&quot; face=&quot;Arial&quot;&gt;&lt;u&gt;80-188 Gdańsk, ul. Długa 12/5&lt;/u&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;4&quot; face=&quot;Verdana&quot;&gt;&lt;b&gt;Ulubiony aktor: Tom Hanks&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;green&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;&lt;i&gt;Ulubiony zespół: Queen&lt;/i&gt;&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;purple&quot; size=&quot;3&quot; face=&quot;Courier New&quot;&gt;&lt;s&gt;Data urodzenia: 14 marca 2009&lt;/s&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;black&quot; size=&quot;4&quot; face=&quot;Arial&quot;&gt;Wzór kwasu: H&lt;sub&gt;2&lt;/sub&gt;SO&lt;sub&gt;4&lt;/sub&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;black&quot; size=&quot;4&quot; face=&quot;Arial&quot;&gt;Potęga: x*x=x&lt;sup&gt;2&lt;/sup&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-ctx"> 	&lt;/body&gt;</span><span class="d-ctx"> &lt;/html&gt;</span></pre>
+
+<h2>Pełny kod index.html po zadaniu 2</h2>
+<details><summary>Pokaż kod</summary><pre class="code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;John Doe - zadania HTML&lt;/title&gt;
+	&lt;/head&gt;
+
+	&lt;body&gt;
+
+		&lt;!-- imię 7 razy; numer w dzienniku 7 (nieparzysty), więc od size 7 do size 1 --&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;7&quot; face=&quot;Arial&quot;&gt;&lt;b&gt;John&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;6&quot; face=&quot;Verdana&quot;&gt;&lt;i&gt;John&lt;/i&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;navy&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;&lt;u&gt;John&lt;/u&gt;&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;purple&quot; size=&quot;4&quot; face=&quot;Courier New&quot;&gt;&lt;s&gt;John&lt;/s&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;teal&quot; size=&quot;3&quot; face=&quot;Arial&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;maroon&quot; size=&quot;2&quot; face=&quot;Verdana&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;olive&quot; size=&quot;1&quot; face=&quot;Times New Roman&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;
+
+		&lt;!-- nazwisko 6 razy; numer nieparzysty, więc od H6 do H1 --&gt;
+		&lt;h6&gt;Doe&lt;/h6&gt;&lt;br&gt;
+		&lt;h5&gt;Doe&lt;/h5&gt;&lt;br&gt;
+		&lt;h4&gt;Doe&lt;/h4&gt;&lt;br&gt;
+		&lt;h3&gt;Doe&lt;/h3&gt;&lt;br&gt;
+		&lt;h2&gt;Doe&lt;/h2&gt;&lt;br&gt;
+		&lt;h1&gt;Doe&lt;/h1&gt;&lt;br&gt;
+
+		&lt;!-- sześć emotikonów: każdy inny kolor, wielkość i czcionka --&gt;
+		&lt;p&gt;&lt;font color=&quot;orange&quot; size=&quot;6&quot; face=&quot;Courier New&quot;&gt;:-) uśmiech, jestem zadowolony&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;red&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;:-( smutek, coś poszło źle&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;green&quot; size=&quot;4&quot; face=&quot;Verdana&quot;&gt;;-) mrugnięcie, to był żart&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;blue&quot; size=&quot;3&quot; face=&quot;Courier New&quot;&gt;:-D głośny śmiech&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;purple&quot; size=&quot;5&quot; face=&quot;Verdana&quot;&gt;:-P pokazuję język&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;brown&quot; size=&quot;4&quot; face=&quot;Times New Roman&quot;&gt;:-O zdziwienie&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+
+		&lt;!-- zadanie 2: dane ucznia (fałszywe, ale prawdopodobne) --&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;red&quot; size=&quot;3&quot; face=&quot;Arial&quot;&gt;&lt;u&gt;80-188 Gdańsk, ul. Długa 12/5&lt;/u&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;4&quot; face=&quot;Verdana&quot;&gt;&lt;b&gt;Ulubiony aktor: Tom Hanks&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;green&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;&lt;i&gt;Ulubiony zespół: Queen&lt;/i&gt;&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;purple&quot; size=&quot;3&quot; face=&quot;Courier New&quot;&gt;&lt;s&gt;Data urodzenia: 14 marca 2009&lt;/s&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;black&quot; size=&quot;4&quot; face=&quot;Arial&quot;&gt;Wzór kwasu: H&lt;sub&gt;2&lt;/sub&gt;SO&lt;sub&gt;4&lt;/sub&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;black&quot; size=&quot;4&quot; face=&quot;Arial&quot;&gt;Potęga: x*x=x&lt;sup&gt;2&lt;/sup&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</pre></details>
+<nav class="nav"><a href="zadanie1.html">← Zadanie 1</a><a href="../index.html">Wszystkie zadania</a><a href="zadanie3.html">Zadanie 3 →</a></nav>
+</main>
+</body>
+</html>

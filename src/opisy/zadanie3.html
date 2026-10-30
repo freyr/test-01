@@ -1,0 +1,20 @@
+<h2>Co trzeba zrobić</h2>
+<p>Nauczyciel sprawdza 8 elementów. Każdy jest na stronie:</p>
+<ol class="req">
+<li><b>Trzy ramki z legendą</b> z dowcipami: <code>&lt;fieldset&gt;</code> i <code>&lt;legend&gt;Nazwa dowcipu&lt;/legend&gt;</code>. Strona ma 5 ramek w trzech grupach.</li>
+<li><b>Trzy nagłówki przed ramkami</b>, każdy innej wielkości i inaczej wyrównany: <code>&lt;h1 align="right"&gt;</code>, <code>&lt;h2 align="left"&gt;</code>, <code>&lt;h3 align="center"&gt;</code>.</li>
+<li><b>Komentarz</b> z nazwiskiem, imieniem, szkołą i klasą: <code>&lt;!-- … --&gt;</code>. Przeglądarka go nie pokazuje.</li>
+<li><b>Spacje niełamliwe</b>: 10 razy <code>&amp;nbsp;</code> między nazwiskiem a imieniem. Zwykłe spacje przeglądarka skleja w jedną.</li>
+<li><b>Meta w <code>&lt;head&gt;</code></b>: <code>charset="UTF-8"</code> (polskie litery), <code>author</code> (autor), <code>description</code> (opis strony).</li>
+<li><b>Kolor tła</b>: <code>&lt;body bgcolor="#CCFFCC"&gt;</code> (jasnozielony).</li>
+<li><b>Trzy linie</b> <code>&lt;hr&gt;</code> między grupami dowcipów, każda o innej grubości (<code>size</code>), długości (<code>width</code>) i kolorze (<code>color</code>).</li>
+<li><b>7 znaków specjalnych</b> na końcu strony: &copy; &reg; &trade; &euro; &sect; &hearts; &para; (<code>&amp;copy;</code>, <code>&amp;reg;</code> itd.).</li>
+</ol>
+<h2>Jak to działa</h2>
+<pre class="code">&lt;fieldset&gt;
+	&lt;legend&gt;Programista w sklepie&lt;/legend&gt;
+	Żona mówi do programisty:&lt;br&gt;
+	…
+&lt;/fieldset&gt;</pre>
+<p>Znaki specjalne zaczynają się od <code>&amp;</code> i kończą średnikiem. Dzięki nim można pokazać znak, którego nie ma na klawiaturze, albo znak, który HTML traktuje specjalnie (np. <code>&amp;lt;</code> daje „&lt;”).</p>
+<p class="tip"><b>Od teraz Notepad++ z kodowaniem UTF-8.</b> Meta <code>charset</code> mówi przeglądarce, jak czytać plik. Plik musi być naprawdę zapisany w UTF-8, inaczej polskie litery dalej będą złe.</p>

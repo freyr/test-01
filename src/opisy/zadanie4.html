@@ -1,0 +1,27 @@
+<h2>Co trzeba zrobić</h2>
+<ul class="req">
+<li><b>Trzy wyliczenia</b> (listy z kropkami) związane z informatyką, każde innym znakiem: kwadrat <code>type="square"</code>, koło <code>type="disc"</code>, okrąg <code>type="circle"</code>.</li>
+<li><b>Trzy numerowania</b> (listy z numerami), każde innym rodzajem: <code>1</code>, <code>A</code>, <code>a</code>, <code>I</code> lub <code>i</code>. Każde zaczyna się od numeru w dzienniku: <code>start="7"</code>.</li>
+<li><b>Lista zagnieżdżona na 3 poziomy</b> z różnymi rodzajami numerowania i wyliczenia.</li>
+<li>Przed każdą grupą: trzy <code>&lt;br&gt;</code> i nagłówek h1, h2 lub h3 z instrukcji.</li>
+</ul>
+<h2>Jak to działa</h2>
+<p><code>&lt;ul&gt;</code> to lista bez numerów, <code>&lt;ol&gt;</code> to lista z numerami. Każdy punkt to <code>&lt;li&gt;</code>.</p>
+<pre class="code">&lt;ol type="A" start="7"&gt;
+	&lt;li&gt;router&lt;/li&gt;     → G. router
+	&lt;li&gt;switch&lt;/li&gt;     → H. switch
+&lt;/ol&gt;</pre>
+<p>Przy <code>type="A"</code> i <code>start="7"</code> lista zaczyna się od siódmej litery, czyli G. Przy <code>type="I"</code> zaczyna się od VII.</p>
+<p>Zagnieżdżenie: nową listę wkładamy <b>do środka</b> punktu <code>&lt;li&gt;</code>, przed jego <code>&lt;/li&gt;</code>:</p>
+<pre class="code">&lt;ol type="1"&gt;
+	&lt;li&gt;Sprzęt                    ← poziom 1
+		&lt;ul type="square"&gt;
+			&lt;li&gt;Podzespoły        ← poziom 2
+				&lt;ol type="a"&gt;
+					&lt;li&gt;płyta główna&lt;/li&gt;   ← poziom 3
+				&lt;/ol&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ol&gt;</pre>
+<p class="tip">Wcięcia nie zmieniają wyglądu strony, ale bez nich łatwo zgubić, który <code>&lt;/li&gt;</code> zamyka który punkt.</p>

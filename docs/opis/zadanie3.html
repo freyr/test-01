@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zadanie 3 - wyjaśnienie</title>
+<link rel="stylesheet" href="styl.css">
+</head>
+<body>
+<main>
+<nav class="nav"><a href="zadanie2.html">← Zadanie 2</a><a href="../index.html">Wszystkie zadania</a><a href="zadanie4.html">Zadanie 4 →</a></nav>
+<p class="eyebrow">Zadanie 3 z 11</p>
+<h1>Dowcipy w ramkach, meta i tło</h1>
+<p><a class="btn" href="../zadanie3/index.html">Otwórz stronę po zadaniu 3 ↗</a></p>
+<h2>Co trzeba zrobić</h2>
+<p>Nauczyciel sprawdza 8 elementów. Każdy jest na stronie:</p>
+<ol class="req">
+<li><b>Trzy ramki z legendą</b> z dowcipami: <code>&lt;fieldset&gt;</code> i <code>&lt;legend&gt;Nazwa dowcipu&lt;/legend&gt;</code>. Strona ma 5 ramek w trzech grupach.</li>
+<li><b>Trzy nagłówki przed ramkami</b>, każdy innej wielkości i inaczej wyrównany: <code>&lt;h1 align="right"&gt;</code>, <code>&lt;h2 align="left"&gt;</code>, <code>&lt;h3 align="center"&gt;</code>.</li>
+<li><b>Komentarz</b> z nazwiskiem, imieniem, szkołą i klasą: <code>&lt;!-- … --&gt;</code>. Przeglądarka go nie pokazuje.</li>
+<li><b>Spacje niełamliwe</b>: 10 razy <code>&amp;nbsp;</code> między nazwiskiem a imieniem. Zwykłe spacje przeglądarka skleja w jedną.</li>
+<li><b>Meta w <code>&lt;head&gt;</code></b>: <code>charset="UTF-8"</code> (polskie litery), <code>author</code> (autor), <code>description</code> (opis strony).</li>
+<li><b>Kolor tła</b>: <code>&lt;body bgcolor="#CCFFCC"&gt;</code> (jasnozielony).</li>
+<li><b>Trzy linie</b> <code>&lt;hr&gt;</code> między grupami dowcipów, każda o innej grubości (<code>size</code>), długości (<code>width</code>) i kolorze (<code>color</code>).</li>
+<li><b>7 znaków specjalnych</b> na końcu strony: &copy; &reg; &trade; &euro; &sect; &hearts; &para; (<code>&amp;copy;</code>, <code>&amp;reg;</code> itd.).</li>
+</ol>
+<h2>Jak to działa</h2>
+<pre class="code">&lt;fieldset&gt;
+	&lt;legend&gt;Programista w sklepie&lt;/legend&gt;
+	Żona mówi do programisty:&lt;br&gt;
+	…
+&lt;/fieldset&gt;</pre>
+<p>Znaki specjalne zaczynają się od <code>&amp;</code> i kończą średnikiem. Dzięki nim można pokazać znak, którego nie ma na klawiaturze, albo znak, który HTML traktuje specjalnie (np. <code>&amp;lt;</code> daje „&lt;”).</p>
+<p class="tip"><b>Od teraz Notepad++ z kodowaniem UTF-8.</b> Meta <code>charset</code> mówi przeglądarce, jak czytać plik. Plik musi być naprawdę zapisany w UTF-8, inaczej polskie litery dalej będą złe.</p>
+
+<h2>Co się zmieniło w kodzie</h2>
+<p>Porównanie <code>index.html</code> z zadaniem 2. <span class="d-add-t">Zielone linie (+)</span> są dodane, <span class="d-del-t">czerwone linie (−)</span> są usunięte lub zmienione.</p><pre class="diff"><span class="d-hunk">… od linii 2 …</span><span class="d-ctx"> &lt;html&gt;</span><span class="d-ctx"> 	&lt;head&gt;</span><span class="d-add">+		&lt;meta charset=&quot;UTF-8&quot;&gt;</span><span class="d-add">+		&lt;meta name=&quot;author&quot; content=&quot;John Doe&quot;&gt;</span><span class="d-add">+		&lt;meta name=&quot;description&quot; content=&quot;Strona ucznia John Doe - zadania HTML&quot;&gt;</span><span class="d-ctx"> 		&lt;title&gt;John Doe - zadania HTML&lt;/title&gt;</span><span class="d-ctx"> 	&lt;/head&gt;</span><span class="d-ctx"> </span><span class="d-del">-	&lt;body&gt;</span><span class="d-add">+	&lt;!-- Autor: Doe John, szkoła: ZSE Gdańsk, klasa: 2F grupa 1 --&gt;</span><span class="d-add">+	&lt;body bgcolor=&quot;#CCFFCC&quot;&gt;</span><span class="d-ctx"> </span><span class="d-ctx"> 		&lt;!-- imię 7 razy; numer w dzienniku 7 (nieparzysty), więc od size 7 do size 1 --&gt;</span><span class="d-hunk">… od linii 43 …</span><span class="d-ctx"> 		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;black&quot; size=&quot;4&quot; face=&quot;Arial&quot;&gt;Wzór kwasu: H&lt;sub&gt;2&lt;/sub&gt;SO&lt;sub&gt;4&lt;/sub&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-ctx"> 		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;black&quot; size=&quot;4&quot; face=&quot;Arial&quot;&gt;Potęga: x*x=x&lt;sup&gt;2&lt;/sup&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+</span><span class="d-add">+		&lt;!-- zadanie 3: 10 spacji niełamliwych między nazwiskiem a imieniem --&gt;</span><span class="d-add">+		&lt;p&gt;Doe&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;John&lt;/p&gt;</span><span class="d-add">+</span><span class="d-add">+		&lt;!-- zadanie 3: dowcipy w obramowaniu z legendą --&gt;</span><span class="d-add">+		&lt;h1 align=&quot;right&quot;&gt;Dowcipy o informatykach&lt;/h1&gt;</span><span class="d-add">+		&lt;fieldset&gt;</span><span class="d-add">+			&lt;legend&gt;Programista w sklepie&lt;/legend&gt;</span><span class="d-add">+			Żona mówi do programisty:&lt;br&gt;</span><span class="d-add">+			- Kup chleb, a jak będą jajka, to weź dziesięć.&lt;br&gt;</span><span class="d-add">+			Programista wraca z dziesięcioma chlebami.&lt;br&gt;</span><span class="d-add">+			- Dlaczego tyle chleba?&lt;br&gt;</span><span class="d-add">+			- Bo były jajka.&lt;br&gt;</span><span class="d-add">+		&lt;/fieldset&gt;</span><span class="d-add">+		&lt;fieldset&gt;</span><span class="d-add">+			&lt;legend&gt;Restart&lt;/legend&gt;</span><span class="d-add">+			Uczeń pyta informatyka:&lt;br&gt;</span><span class="d-add">+			- Co robić, gdy komputer nie działa?&lt;br&gt;</span><span class="d-add">+			- Wyłącz i włącz.&lt;br&gt;</span><span class="d-add">+			- A jak dalej nie działa?&lt;br&gt;</span><span class="d-add">+			- Wyłącz i idź na spacer.&lt;br&gt;</span><span class="d-add">+		&lt;/fieldset&gt;</span><span class="d-add">+</span><span class="d-add">+		&lt;hr size=&quot;2&quot; width=&quot;80%&quot; color=&quot;red&quot;&gt;</span><span class="d-add">+</span><span class="d-add">+		&lt;h2 align=&quot;left&quot;&gt;Dowcipy o szkole&lt;/h2&gt;</span><span class="d-add">+		&lt;fieldset&gt;</span><span class="d-add">+			&lt;legend&gt;Klasówka&lt;/legend&gt;</span><span class="d-add">+			Nauczyciel:&lt;br&gt;</span><span class="d-add">+			- Jasiu, dlaczego masz pustą kartkę?&lt;br&gt;</span><span class="d-add">+			- Bo nie lubię ściągać.&lt;br&gt;</span><span class="d-add">+		&lt;/fieldset&gt;</span><span class="d-add">+		&lt;fieldset&gt;</span><span class="d-add">+			&lt;legend&gt;Zadanie domowe&lt;/legend&gt;</span><span class="d-add">+			- Gdzie jest twoje zadanie domowe?&lt;br&gt;</span><span class="d-add">+			- Zjadł je mój pies.&lt;br&gt;</span><span class="d-add">+			- Przecież nie masz psa.&lt;br&gt;</span><span class="d-add">+			- To był pies kolegi.&lt;br&gt;</span><span class="d-add">+		&lt;/fieldset&gt;</span><span class="d-add">+</span><span class="d-add">+		&lt;hr size=&quot;6&quot; width=&quot;50%&quot; color=&quot;blue&quot;&gt;</span><span class="d-add">+</span><span class="d-add">+		&lt;h3 align=&quot;center&quot;&gt;Dowcipy o zwierzętach&lt;/h3&gt;</span><span class="d-add">+		&lt;fieldset&gt;</span><span class="d-add">+			&lt;legend&gt;Kot i mysz&lt;/legend&gt;</span><span class="d-add">+			Dlaczego kot siedzi przy komputerze?&lt;br&gt;</span><span class="d-add">+			Bo pilnuje myszy.&lt;br&gt;</span><span class="d-add">+		&lt;/fieldset&gt;</span><span class="d-add">+</span><span class="d-add">+		&lt;hr size=&quot;10&quot; width=&quot;30%&quot; color=&quot;green&quot;&gt;</span><span class="d-add">+</span><span class="d-add">+		&lt;!-- zadanie 3: 7 znaków specjalnych na końcu strony --&gt;</span><span class="d-add">+		&lt;p&gt;&amp;copy; &amp;reg; &amp;trade; &amp;euro; &amp;sect; &amp;hearts; &amp;para;&lt;/p&gt;</span><span class="d-ctx"> 	&lt;/body&gt;</span><span class="d-ctx"> &lt;/html&gt;</span></pre>
+
+<h2>Pełny kod index.html po zadaniu 3</h2>
+<details><summary>Pokaż kod</summary><pre class="code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset=&quot;UTF-8&quot;&gt;
+		&lt;meta name=&quot;author&quot; content=&quot;John Doe&quot;&gt;
+		&lt;meta name=&quot;description&quot; content=&quot;Strona ucznia John Doe - zadania HTML&quot;&gt;
+		&lt;title&gt;John Doe - zadania HTML&lt;/title&gt;
+	&lt;/head&gt;
+
+	&lt;!-- Autor: Doe John, szkoła: ZSE Gdańsk, klasa: 2F grupa 1 --&gt;
+	&lt;body bgcolor=&quot;#CCFFCC&quot;&gt;
+
+		&lt;!-- imię 7 razy; numer w dzienniku 7 (nieparzysty), więc od size 7 do size 1 --&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;7&quot; face=&quot;Arial&quot;&gt;&lt;b&gt;John&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;6&quot; face=&quot;Verdana&quot;&gt;&lt;i&gt;John&lt;/i&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;navy&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;&lt;u&gt;John&lt;/u&gt;&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;purple&quot; size=&quot;4&quot; face=&quot;Courier New&quot;&gt;&lt;s&gt;John&lt;/s&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;teal&quot; size=&quot;3&quot; face=&quot;Arial&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;maroon&quot; size=&quot;2&quot; face=&quot;Verdana&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;olive&quot; size=&quot;1&quot; face=&quot;Times New Roman&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;
+
+		&lt;!-- nazwisko 6 razy; numer nieparzysty, więc od H6 do H1 --&gt;
+		&lt;h6&gt;Doe&lt;/h6&gt;&lt;br&gt;
+		&lt;h5&gt;Doe&lt;/h5&gt;&lt;br&gt;
+		&lt;h4&gt;Doe&lt;/h4&gt;&lt;br&gt;
+		&lt;h3&gt;Doe&lt;/h3&gt;&lt;br&gt;
+		&lt;h2&gt;Doe&lt;/h2&gt;&lt;br&gt;
+		&lt;h1&gt;Doe&lt;/h1&gt;&lt;br&gt;
+
+		&lt;!-- sześć emotikonów: każdy inny kolor, wielkość i czcionka --&gt;
+		&lt;p&gt;&lt;font color=&quot;orange&quot; size=&quot;6&quot; face=&quot;Courier New&quot;&gt;:-) uśmiech, jestem zadowolony&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;red&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;:-( smutek, coś poszło źle&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;green&quot; size=&quot;4&quot; face=&quot;Verdana&quot;&gt;;-) mrugnięcie, to był żart&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;blue&quot; size=&quot;3&quot; face=&quot;Courier New&quot;&gt;:-D głośny śmiech&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;purple&quot; size=&quot;5&quot; face=&quot;Verdana&quot;&gt;:-P pokazuję język&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;font color=&quot;brown&quot; size=&quot;4&quot; face=&quot;Times New Roman&quot;&gt;:-O zdziwienie&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+
+		&lt;!-- zadanie 2: dane ucznia (fałszywe, ale prawdopodobne) --&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;red&quot; size=&quot;3&quot; face=&quot;Arial&quot;&gt;&lt;u&gt;80-188 Gdańsk, ul. Długa 12/5&lt;/u&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;4&quot; face=&quot;Verdana&quot;&gt;&lt;b&gt;Ulubiony aktor: Tom Hanks&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;green&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;&lt;i&gt;Ulubiony zespół: Queen&lt;/i&gt;&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;
+		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;purple&quot; size=&quot;3&quot; face=&quot;Courier New&quot;&gt;&lt;s&gt;Data urodzenia: 14 marca 2009&lt;/s&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;black&quot; size=&quot;4&quot; face=&quot;Arial&quot;&gt;Wzór kwasu: H&lt;sub&gt;2&lt;/sub&gt;SO&lt;sub&gt;4&lt;/sub&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;black&quot; size=&quot;4&quot; face=&quot;Arial&quot;&gt;Potęga: x*x=x&lt;sup&gt;2&lt;/sup&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;
+
+		&lt;!-- zadanie 3: 10 spacji niełamliwych między nazwiskiem a imieniem --&gt;
+		&lt;p&gt;Doe&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;John&lt;/p&gt;
+
+		&lt;!-- zadanie 3: dowcipy w obramowaniu z legendą --&gt;
+		&lt;h1 align=&quot;right&quot;&gt;Dowcipy o informatykach&lt;/h1&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Programista w sklepie&lt;/legend&gt;
+			Żona mówi do programisty:&lt;br&gt;
+			- Kup chleb, a jak będą jajka, to weź dziesięć.&lt;br&gt;
+			Programista wraca z dziesięcioma chlebami.&lt;br&gt;
+			- Dlaczego tyle chleba?&lt;br&gt;
+			- Bo były jajka.&lt;br&gt;
+		&lt;/fieldset&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Restart&lt;/legend&gt;
+			Uczeń pyta informatyka:&lt;br&gt;
+			- Co robić, gdy komputer nie działa?&lt;br&gt;
+			- Wyłącz i włącz.&lt;br&gt;
+			- A jak dalej nie działa?&lt;br&gt;
+			- Wyłącz i idź na spacer.&lt;br&gt;
+		&lt;/fieldset&gt;
+
+		&lt;hr size=&quot;2&quot; width=&quot;80%&quot; color=&quot;red&quot;&gt;
+
+		&lt;h2 align=&quot;left&quot;&gt;Dowcipy o szkole&lt;/h2&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Klasówka&lt;/legend&gt;
+			Nauczyciel:&lt;br&gt;
+			- Jasiu, dlaczego masz pustą kartkę?&lt;br&gt;
+			- Bo nie lubię ściągać.&lt;br&gt;
+		&lt;/fieldset&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Zadanie domowe&lt;/legend&gt;
+			- Gdzie jest twoje zadanie domowe?&lt;br&gt;
+			- Zjadł je mój pies.&lt;br&gt;
+			- Przecież nie masz psa.&lt;br&gt;
+			- To był pies kolegi.&lt;br&gt;
+		&lt;/fieldset&gt;
+
+		&lt;hr size=&quot;6&quot; width=&quot;50%&quot; color=&quot;blue&quot;&gt;
+
+		&lt;h3 align=&quot;center&quot;&gt;Dowcipy o zwierzętach&lt;/h3&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Kot i mysz&lt;/legend&gt;
+			Dlaczego kot siedzi przy komputerze?&lt;br&gt;
+			Bo pilnuje myszy.&lt;br&gt;
+		&lt;/fieldset&gt;
+
+		&lt;hr size=&quot;10&quot; width=&quot;30%&quot; color=&quot;green&quot;&gt;
+
+		&lt;!-- zadanie 3: 7 znaków specjalnych na końcu strony --&gt;
+		&lt;p&gt;&amp;copy; &amp;reg; &amp;trade; &amp;euro; &amp;sect; &amp;hearts; &amp;para;&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</pre></details>
+<nav class="nav"><a href="zadanie2.html">← Zadanie 2</a><a href="../index.html">Wszystkie zadania</a><a href="zadanie4.html">Zadanie 4 →</a></nav>
+</main>
+</body>
+</html>

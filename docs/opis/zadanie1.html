@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zadanie 1 - wyjaśnienie</title>
+<link rel="stylesheet" href="styl.css">
+</head>
+<body>
+<main>
+<nav class="nav"><span></span><a href="../index.html">Wszystkie zadania</a><a href="zadanie2.html">Zadanie 2 →</a></nav>
+<p class="eyebrow">Zadanie 1 z 11</p>
+<h1>Pierwsza strona i publikacja na GitHub</h1>
+<p><a class="btn" href="../zadanie1/index.html">Otwórz stronę po zadaniu 1 ↗</a></p>
+<h2>Co trzeba zrobić</h2>
+<ul class="req">
+<li><b>Szkielet strony HTML</b>: <code>&lt;!DOCTYPE html&gt;</code>, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code> z <code>&lt;title&gt;</code> oraz <code>&lt;body&gt;</code>. Pilnuj wcięć: każdy znacznik wewnątrz innego jest przesunięty o jeden tabulator.</li>
+<li><b>Imię 7 razy</b>, każde w nowej linii (<code>&lt;br&gt;</code> na końcu), w innym kolorze i rozmiarze. Rozmiar to <code>size</code> od 1 do 7.<br>
+Numer w dzienniku decyduje o kolejności: <b>parzysty</b> = od size 1 do 7, <b>nieparzysty</b> = od size 7 do 1. John ma numer 7, więc zaczyna od 7.</li>
+<li><b>Nazwisko 6 razy</b> w nagłówkach <code>&lt;h1&gt;</code>…<code>&lt;h6&gt;</code>. Parzysty numer = od H1 do H6, nieparzysty = od H6 do H1.</li>
+<li><b>Sześć emotikonów</b> z wyjaśnieniem, każdy w nowej linii, innym kolorem, wielkością i czcionką (Arial, Courier New, Times New Roman, Verdana).</li>
+<li>Plik nazywa się <code>index.html</code>. Przeglądarka zawsze otwiera ten plik jako pierwszy.</li>
+<li><b>Publikacja</b>: strona trafia na GitHub Pages i działa pod adresem <code>https://login.github.io/repozytorium/</code>.</li>
+</ul>
+<h2>Jak to działa</h2>
+<p>Znacznik <code>&lt;font&gt;</code> ma trzy atrybuty: <code>color</code> (kolor), <code>size</code> (rozmiar 1-7) i <code>face</code> (czcionka). Przykład z tej strony:</p>
+<pre class="code">&lt;font color="blue" size="7" face="Arial"&gt;John&lt;/font&gt;&lt;br&gt;</pre>
+<p>Każdy otwarty znacznik trzeba zamknąć: <code>&lt;font&gt;</code> … <code>&lt;/font&gt;</code>. Wyjątkiem jest <code>&lt;br&gt;</code>, który nie ma zamknięcia.</p>
+<p class="tip"><b>Uwaga na polskie litery.</b> W tym zadaniu nie ma jeszcze <code>&lt;meta charset="UTF-8"&gt;</code> (dochodzi w zadaniu 3). Po dwukrotnym kliknięciu pliku na dysku litery „ś” czy „ę” mogą wyglądać źle. Na GitHub Pages wyświetlą się dobrze, bo serwer sam podaje kodowanie UTF-8.</p>
+<p class="tip"><b>Ciekawostka.</b> <code>&lt;font&gt;</code> to bardzo stary znacznik. W zadaniu 7 walidator pokaże go jako błąd i zamienimy go na CSS.</p>
+
+<h2>Co się zmieniło w kodzie</h2>
+<p>To pierwsze zadanie, więc cały kod jest nowy. Zobacz pełny kod poniżej.</p>
+
+<h2>Pełny kod index.html po zadaniu 1</h2>
+<details><summary>Pokaż kod</summary><pre class="code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;John Doe - zadania HTML&lt;/title&gt;
+	&lt;/head&gt;
+
+	&lt;body&gt;
+
+		&lt;!-- imię 7 razy; numer w dzienniku 7 (nieparzysty), więc od size 7 do size 1 --&gt;
+		&lt;font color=&quot;blue&quot; size=&quot;7&quot; face=&quot;Arial&quot;&gt;John&lt;/font&gt;&lt;br&gt;
+		&lt;font color=&quot;blue&quot; size=&quot;6&quot; face=&quot;Verdana&quot;&gt;John&lt;/font&gt;&lt;br&gt;
+		&lt;font color=&quot;navy&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;John&lt;/font&gt;&lt;br&gt;
+		&lt;font color=&quot;purple&quot; size=&quot;4&quot; face=&quot;Courier New&quot;&gt;John&lt;/font&gt;&lt;br&gt;
+		&lt;font color=&quot;teal&quot; size=&quot;3&quot; face=&quot;Arial&quot;&gt;John&lt;/font&gt;&lt;br&gt;
+		&lt;font color=&quot;maroon&quot; size=&quot;2&quot; face=&quot;Verdana&quot;&gt;John&lt;/font&gt;&lt;br&gt;
+		&lt;font color=&quot;olive&quot; size=&quot;1&quot; face=&quot;Times New Roman&quot;&gt;John&lt;/font&gt;&lt;br&gt;
+
+		&lt;!-- nazwisko 6 razy; numer nieparzysty, więc od H6 do H1 --&gt;
+		&lt;h6&gt;Doe&lt;/h6&gt;&lt;br&gt;
+		&lt;h5&gt;Doe&lt;/h5&gt;&lt;br&gt;
+		&lt;h4&gt;Doe&lt;/h4&gt;&lt;br&gt;
+		&lt;h3&gt;Doe&lt;/h3&gt;&lt;br&gt;
+		&lt;h2&gt;Doe&lt;/h2&gt;&lt;br&gt;
+		&lt;h1&gt;Doe&lt;/h1&gt;&lt;br&gt;
+
+		&lt;!-- sześć emotikonów: każdy inny kolor, wielkość i czcionka --&gt;
+		&lt;font color=&quot;orange&quot; size=&quot;6&quot; face=&quot;Courier New&quot;&gt;:-) uśmiech, jestem zadowolony&lt;/font&gt;&lt;br&gt;
+		&lt;font color=&quot;red&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;:-( smutek, coś poszło źle&lt;/font&gt;&lt;br&gt;
+		&lt;font color=&quot;green&quot; size=&quot;4&quot; face=&quot;Verdana&quot;&gt;;-) mrugnięcie, to był żart&lt;/font&gt;&lt;br&gt;
+		&lt;font color=&quot;blue&quot; size=&quot;3&quot; face=&quot;Courier New&quot;&gt;:-D głośny śmiech&lt;/font&gt;&lt;br&gt;
+		&lt;font color=&quot;purple&quot; size=&quot;5&quot; face=&quot;Verdana&quot;&gt;:-P pokazuję język&lt;/font&gt;&lt;br&gt;
+		&lt;font color=&quot;brown&quot; size=&quot;4&quot; face=&quot;Times New Roman&quot;&gt;:-O zdziwienie&lt;/font&gt;&lt;br&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</pre></details>
+<nav class="nav"><span></span><a href="../index.html">Wszystkie zadania</a><a href="zadanie2.html">Zadanie 2 →</a></nav>
+</main>
+</body>
+</html>

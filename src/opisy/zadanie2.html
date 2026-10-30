@@ -1,0 +1,15 @@
+<h2>Co trzeba zrobić</h2>
+<ul class="req">
+<li><b>Dopisz dane ucznia</b> (fałszywe, ale prawdopodobne), każde w nowej linii: adres (kod, miasto, ulica, numer domu i mieszkania), ulubiony aktor, ulubiony zespół, pełna data urodzenia z miesiącem słownie.</li>
+<li><b>Każda wyświetlana linia jest akapitem</b>: <code>&lt;p&gt;</code> … <code>&lt;/p&gt;</code>. Dotyczy to też imion i emotikonów z zadania 1.</li>
+<li><b>Wyrównanie akapitów</b>: co najmniej jeden do prawej (<code>align="right"</code>), do lewej (<code>align="left"</code>) i do środka (<code>&lt;center&gt;</code>).</li>
+<li><b>Formatowanie tekstu</b>: podkreślenie <code>&lt;u&gt;</code>, przekreślenie <code>&lt;s&gt;</code>, kursywa <code>&lt;i&gt;</code>, pogrubienie <code>&lt;b&gt;</code>.</li>
+<li><b>Indeksy</b>: dolny <code>&lt;sub&gt;</code> w H<sub>2</sub>SO<sub>4</sub> i górny <code>&lt;sup&gt;</code> w x*x=x<sup>2</sup>.</li>
+<li>Co najmniej trzy czcionki, trzy wielkości i trzy kolory tekstu.</li>
+</ul>
+<h2>Jak to działa</h2>
+<p>Akapit „opakowuje” tekst. Znaczniki formatowania wkładamy jeden w drugi jak pudełka. Zamykamy je w odwrotnej kolejności: najpierw <code>&lt;/b&gt;</code>, potem <code>&lt;/font&gt;</code>, na końcu <code>&lt;/p&gt;</code>.</p>
+<pre class="code">&lt;p align="right"&gt;&lt;font color="blue" size="7" face="Arial"&gt;&lt;b&gt;John&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</pre>
+<p>Środek strony robi znacznik <code>&lt;center&gt;</code> wokół akapitu: <code>&lt;center&gt;&lt;p&gt;…&lt;/p&gt;&lt;/center&gt;</code>.</p>
+<p>W porównaniu kodu poniżej widać, że linie z imieniem i emotikonami z zadania 1 są czerwone (usunięte), a w ich miejsce są zielone linie z <code>&lt;p&gt;</code>. Tekst jest ten sam, zmieniło się tylko „opakowanie”.</p>
+<p class="tip"><b>Struktura folderów.</b> Instrukcja pozwala trzymać każde zadanie w osobnym folderze (np. <code>ZAD2_Doe</code>). Ta strona robi tak samo: każde zadanie ma swój folder <code>zadanieN</code>.</p>

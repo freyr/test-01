@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zadanie 7 - wyjaśnienie</title>
+<link rel="stylesheet" href="styl.css">
+</head>
+<body>
+<main>
+<nav class="nav"><a href="zadanie6.html">← Zadanie 6</a><a href="../index.html">Wszystkie zadania</a><a href="zadanie8.html">Zadanie 8 →</a></nav>
+<p class="eyebrow">Zadanie 7 z 11</p>
+<h1>Walidacja i poprawa kodu</h1>
+<p><a class="btn" href="../zadanie7/index.html">Otwórz stronę po zadaniu 7 ↗</a></p>
+<h2>Co trzeba zrobić</h2>
+<ol class="req">
+<li>Utwórz <code>walidacja_doe.html</code> z tytułem <code>Doe-zadanie7</code> i odpowiedziami na 3 pytania: co to jest walidacja, co to jest walidator, czym zajmuje się W3C.</li>
+<li>Sprawdź <code>index.html</code> z zadania 6 w <a href="https://validator.w3.org/">validator.w3.org</a> (zakładka „Validate by File Upload”).</li>
+<li>Zrób zrzut ekranu z błędami, dopisz na nim swoje nazwisko (czerwone, czcionka 20) i zapisz jako <code>blad_poczatek_doe.jpg</code>.</li>
+<li><b>Popraw jak najwięcej błędów.</b></li>
+<li>Sprawdź stronę ponownie, zrób zrzut bez błędów: <code>blad_koniec_doe.jpg</code>.</li>
+<li>Wstaw na stronę walidacji ikonę zgodności z HTML5.</li>
+<li>Dodaj link do <code>walidacja_doe.html</code> jako <b>pierwszą linię pod <code>&lt;body&gt;</code></b> w <code>index.html</code>.</li>
+</ol>
+<h2>Dlaczego walidator zgłasza błędy</h2>
+<p>Zadania 1-6 używają starych znaczników z HTML 4. Przeglądarki dalej je rozumieją, ale standard HTML5 ich nie dopuszcza. Wygląd strony ustawia się teraz stylami CSS w atrybucie <code>style</code>. Wygląd strony się nie zmienia, zmienia się tylko sposób zapisu.</p>
+<table class="req" style="border-collapse: collapse; width: 100%;">
+<tr><th>Było (zadanie 6)</th><th>Jest (zadanie 7)</th></tr>
+<tr><td><code>&lt;html&gt;</code></td><td><code>&lt;html lang="pl"&gt;</code> (język strony)</td></tr>
+<tr><td><code>&lt;body bgcolor="#CCFFCC"&gt;</code></td><td><code>&lt;body style="background-color: #CCFFCC;"&gt;</code></td></tr>
+<tr><td><code>&lt;font color="blue" size="7" face="Arial"&gt;</code></td><td><code>&lt;span style="color: blue; font-size: 48px; font-family: 'Arial';"&gt;</code></td></tr>
+<tr><td><code>&lt;p align="right"&gt;</code></td><td><code>&lt;p style="text-align: right;"&gt;</code></td></tr>
+<tr><td><code>&lt;center&gt;&lt;p&gt;…&lt;/p&gt;&lt;/center&gt;</code></td><td><code>&lt;p style="text-align: center;"&gt;…&lt;/p&gt;</code></td></tr>
+<tr><td><code>&lt;img align="right" border="24"&gt;</code></td><td><code>&lt;img style="float: right; border: 24px solid #336699;"&gt;</code></td></tr>
+<tr><td><code>&lt;hr size="2" width="80%" color="red"&gt;</code></td><td><code>&lt;hr style="height: 2px; width: 80%; background-color: red; border: none;"&gt;</code></td></tr>
+<tr><td><code>&lt;ul type="square"&gt;</code></td><td><code>&lt;ul style="list-style-type: square;"&gt;</code></td></tr>
+<tr><td><code>&lt;a name="srodek"&gt;&lt;/a&gt;</code></td><td><code>&lt;span id="srodek"&gt;&lt;/span&gt;</code> (link <code>#srodek</code> działa tak samo)</td></tr>
+</table>
+<p>Rozmiary <code>size</code> 1-7 zamieniamy na piksele: 1 = 10px, 2 = 13px, 3 = 16px, 4 = 18px, 5 = 24px, 6 = 32px, 7 = 48px.</p>
+<p><code>&lt;ol type="A" start="7"&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code>, <code>&lt;s&gt;</code> zostają: są poprawne w HTML5.</p>
+<p>Te same poprawki dotyczą podstron z zadania 6 (<code>bgcolor</code> i <code>lang</code>).</p>
+<p class="tip"><b>Zrzuty ekranu na tej stronie są przykładowe.</b> Pokazują prawdziwe wyniki walidatora W3C dla tych plików, ale są narysowane jako raport, a nie zrobione na stronie validator.w3.org. Ty zrób prawdziwe zrzuty ze swojej strony.</p>
+
+<h2>Co się zmieniło w kodzie</h2>
+<p>Porównanie <code>index.html</code> z zadaniem 6. <span class="d-add-t">Zielone linie (+)</span> są dodane, <span class="d-del-t">czerwone linie (−)</span> są usunięte lub zmienione.</p><pre class="diff"><span class="d-hunk">… od linii 1 …</span><span class="d-ctx"> &lt;!DOCTYPE html&gt;</span><span class="d-del">-&lt;html&gt;</span><span class="d-add">+&lt;html lang=&quot;pl&quot;&gt;</span><span class="d-ctx"> 	&lt;head&gt;</span><span class="d-ctx"> 		&lt;meta charset=&quot;UTF-8&quot;&gt;</span><span class="d-hunk">… od linii 9 …</span><span class="d-ctx"> </span><span class="d-ctx"> 	&lt;!-- Autor: Doe John, szkoła: ZSE Gdańsk, klasa: 2F grupa 1 --&gt;</span><span class="d-del">-	&lt;body bgcolor=&quot;#CCFFCC&quot;&gt;</span><span class="d-del">-</span><span class="d-del">-		&lt;a name=&quot;poczatek&quot;&gt;&lt;/a&gt;</span><span class="d-add">+	&lt;body style=&quot;background-color: #CCFFCC;&quot;&gt;</span><span class="d-add">+		&lt;a href=&quot;walidacja_doe.html&quot;&gt;Walidacja strony - zadanie 7&lt;/a&gt;</span><span class="d-add">+</span><span class="d-add">+		&lt;span id=&quot;poczatek&quot;&gt;&lt;/span&gt;</span><span class="d-ctx"> 		&lt;p&gt;&lt;b&gt;Menu - góra strony&lt;/b&gt;&lt;/p&gt;</span><span class="d-ctx"> 		&lt;a href=&quot;poczta_doe.html&quot;&gt;Link do poczty&lt;/a&gt;&lt;br&gt;</span><span class="d-hunk">… od linii 22 …</span><span class="d-ctx"> </span><span class="d-ctx"> 		&lt;!-- imię 7 razy; numer w dzienniku 7 (nieparzysty), więc od size 7 do size 1 --&gt;</span><span class="d-del">-		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;7&quot; face=&quot;Arial&quot;&gt;&lt;b&gt;John&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-del">-		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;6&quot; face=&quot;Verdana&quot;&gt;&lt;i&gt;John&lt;/i&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-del">-		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;navy&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;&lt;u&gt;John&lt;/u&gt;&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;</span><span class="d-del">-		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;purple&quot; size=&quot;4&quot; face=&quot;Courier New&quot;&gt;&lt;s&gt;John&lt;/s&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-del">-		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;teal&quot; size=&quot;3&quot; face=&quot;Arial&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-del">-		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;maroon&quot; size=&quot;2&quot; face=&quot;Verdana&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-del">-		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;olive&quot; size=&quot;1&quot; face=&quot;Times New Roman&quot;&gt;John&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: blue; font-size: 48px; font-family: &#x27;Arial&#x27;;&quot;&gt;&lt;b&gt;John&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: blue; font-size: 32px; font-family: &#x27;Verdana&#x27;;&quot;&gt;&lt;i&gt;John&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;color: navy; font-size: 24px; font-family: &#x27;Times New Roman&#x27;;&quot;&gt;&lt;u&gt;John&lt;/u&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: purple; font-size: 18px; font-family: &#x27;Courier New&#x27;;&quot;&gt;&lt;s&gt;John&lt;/s&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: teal; font-size: 16px; font-family: &#x27;Arial&#x27;;&quot;&gt;John&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: maroon; font-size: 13px; font-family: &#x27;Verdana&#x27;;&quot;&gt;John&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;color: olive; font-size: 10px; font-family: &#x27;Times New Roman&#x27;;&quot;&gt;John&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-ctx"> </span><span class="d-ctx"> 		&lt;!-- nazwisko 6 razy; numer nieparzysty, więc od H6 do H1 --&gt;</span><span class="d-hunk">… od linii 39 …</span><span class="d-ctx"> </span><span class="d-ctx"> 		&lt;!-- sześć emotikonów: każdy inny kolor, wielkość i czcionka --&gt;</span><span class="d-del">-		&lt;p&gt;&lt;font color=&quot;orange&quot; size=&quot;6&quot; face=&quot;Courier New&quot;&gt;:-) uśmiech, jestem zadowolony&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-del">-		&lt;p&gt;&lt;font color=&quot;red&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;:-( smutek, coś poszło źle&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-del">-		&lt;p&gt;&lt;font color=&quot;green&quot; size=&quot;4&quot; face=&quot;Verdana&quot;&gt;;-) mrugnięcie, to był żart&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-del">-		&lt;p&gt;&lt;font color=&quot;blue&quot; size=&quot;3&quot; face=&quot;Courier New&quot;&gt;:-D głośny śmiech&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-del">-		&lt;p&gt;&lt;font color=&quot;purple&quot; size=&quot;5&quot; face=&quot;Verdana&quot;&gt;:-P pokazuję język&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-del">-		&lt;p&gt;&lt;font color=&quot;brown&quot; size=&quot;4&quot; face=&quot;Times New Roman&quot;&gt;:-O zdziwienie&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p&gt;&lt;span style=&quot;color: orange; font-size: 32px; font-family: &#x27;Courier New&#x27;;&quot;&gt;:-) uśmiech, jestem zadowolony&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p&gt;&lt;span style=&quot;color: red; font-size: 24px; font-family: &#x27;Times New Roman&#x27;;&quot;&gt;:-( smutek, coś poszło źle&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p&gt;&lt;span style=&quot;color: green; font-size: 18px; font-family: &#x27;Verdana&#x27;;&quot;&gt;;-) mrugnięcie, to był żart&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p&gt;&lt;span style=&quot;color: blue; font-size: 16px; font-family: &#x27;Courier New&#x27;;&quot;&gt;:-D głośny śmiech&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p&gt;&lt;span style=&quot;color: purple; font-size: 24px; font-family: &#x27;Verdana&#x27;;&quot;&gt;:-P pokazuję język&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p&gt;&lt;span style=&quot;color: brown; font-size: 18px; font-family: &#x27;Times New Roman&#x27;;&quot;&gt;:-O zdziwienie&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-ctx"> </span><span class="d-ctx"> 		&lt;!-- zadanie 2: dane ucznia (fałszywe, ale prawdopodobne) --&gt;</span><span class="d-del">-		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;red&quot; size=&quot;3&quot; face=&quot;Arial&quot;&gt;&lt;u&gt;80-188 Gdańsk, ul. Długa 12/5&lt;/u&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-del">-		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;blue&quot; size=&quot;4&quot; face=&quot;Verdana&quot;&gt;&lt;b&gt;Ulubiony aktor: Tom Hanks&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-del">-		&lt;center&gt;&lt;p&gt;&lt;font color=&quot;green&quot; size=&quot;5&quot; face=&quot;Times New Roman&quot;&gt;&lt;i&gt;Ulubiony zespół: Queen&lt;/i&gt;&lt;/font&gt;&lt;/p&gt;&lt;/center&gt;&lt;br&gt;</span><span class="d-del">-		&lt;p align=&quot;right&quot;&gt;&lt;font color=&quot;purple&quot; size=&quot;3&quot; face=&quot;Courier New&quot;&gt;&lt;s&gt;Data urodzenia: 14 marca 2009&lt;/s&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-del">-		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;black&quot; size=&quot;4&quot; face=&quot;Arial&quot;&gt;Wzór kwasu: H&lt;sub&gt;2&lt;/sub&gt;SO&lt;sub&gt;4&lt;/sub&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-del">-		&lt;p align=&quot;left&quot;&gt;&lt;font color=&quot;black&quot; size=&quot;4&quot; face=&quot;Arial&quot;&gt;Potęga: x*x=x&lt;sup&gt;2&lt;/sup&gt;&lt;/font&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: red; font-size: 16px; font-family: &#x27;Arial&#x27;;&quot;&gt;&lt;u&gt;80-188 Gdańsk, ul. Długa 12/5&lt;/u&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: blue; font-size: 18px; font-family: &#x27;Verdana&#x27;;&quot;&gt;&lt;b&gt;Ulubiony aktor: Tom Hanks&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;color: green; font-size: 24px; font-family: &#x27;Times New Roman&#x27;;&quot;&gt;&lt;i&gt;Ulubiony zespół: Queen&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: purple; font-size: 16px; font-family: &#x27;Courier New&#x27;;&quot;&gt;&lt;s&gt;Data urodzenia: 14 marca 2009&lt;/s&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: black; font-size: 18px; font-family: &#x27;Arial&#x27;;&quot;&gt;Wzór kwasu: H&lt;sub&gt;2&lt;/sub&gt;SO&lt;sub&gt;4&lt;/sub&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-add">+		&lt;p style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: black; font-size: 18px; font-family: &#x27;Arial&#x27;;&quot;&gt;Potęga: x*x=x&lt;sup&gt;2&lt;/sup&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;</span><span class="d-ctx"> </span><span class="d-ctx"> 		&lt;!-- zadanie 3: 10 spacji niełamliwych między nazwiskiem a imieniem --&gt;</span><span class="d-ctx"> 		&lt;p&gt;Doe&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;John&lt;/p&gt;</span><span class="d-ctx"> </span><span class="d-del">-		&lt;a name=&quot;srodek&quot;&gt;&lt;/a&gt;</span><span class="d-add">+		&lt;span id=&quot;srodek&quot;&gt;&lt;/span&gt;</span><span class="d-ctx"> 		&lt;p&gt;&lt;b&gt;Menu - środek strony&lt;/b&gt;&lt;/p&gt;</span><span class="d-ctx"> 		&lt;a href=&quot;poczta_doe.html&quot;&gt;Link do poczty&lt;/a&gt;&lt;br&gt;</span><span class="d-hunk">… od linii 67 …</span><span class="d-ctx"> </span><span class="d-ctx"> 		&lt;!-- zadanie 3: dowcipy w obramowaniu z legendą --&gt;</span><span class="d-del">-		&lt;h1 align=&quot;right&quot;&gt;Dowcipy o informatykach&lt;/h1&gt;</span><span class="d-add">+		&lt;h1 style=&quot;text-align: right;&quot;&gt;Dowcipy o informatykach&lt;/h1&gt;</span><span class="d-ctx"> 		&lt;fieldset&gt;</span><span class="d-ctx"> 			&lt;legend&gt;Programista w sklepie&lt;/legend&gt;</span><span class="d-del">-			&lt;img src=&quot;grafika1.gif&quot; align=&quot;right&quot; border=&quot;24&quot; width=&quot;114&quot; height=&quot;107&quot; alt=&quot;grafika1-Doe&quot;&gt;</span><span class="d-add">+			&lt;img src=&quot;grafika1.gif&quot; style=&quot;float: right; border: 24px solid #336699; margin: 4px;&quot; width=&quot;114&quot; height=&quot;107&quot; alt=&quot;grafika1-Doe&quot;&gt;</span><span class="d-ctx"> 			Żona mówi do programisty:&lt;br&gt;</span><span class="d-ctx"> 			- Kup chleb, a jak będą jajka, to weź dziesięć.&lt;br&gt;</span><span class="d-hunk">… od linii 79 …</span><span class="d-ctx"> 		&lt;fieldset&gt;</span><span class="d-ctx"> 			&lt;legend&gt;Restart&lt;/legend&gt;</span><span class="d-del">-			&lt;img src=&quot;grafika2.gif&quot; align=&quot;left&quot; border=&quot;13&quot; width=&quot;103&quot; height=&quot;103&quot; alt=&quot;grafika2-Doe&quot;&gt;</span><span class="d-add">+			&lt;img src=&quot;grafika2.gif&quot; style=&quot;float: left; border: 13px solid #336699; margin: 4px;&quot; width=&quot;103&quot; height=&quot;103&quot; alt=&quot;grafika2-Doe&quot;&gt;</span><span class="d-ctx"> 			Uczeń pyta informatyka:&lt;br&gt;</span><span class="d-ctx"> 			- Co robić, gdy komputer nie działa?&lt;br&gt;</span><span class="d-hunk">… od linii 87 …</span><span class="d-ctx"> 		&lt;/fieldset&gt;</span><span class="d-ctx"> </span><span class="d-del">-		&lt;hr size=&quot;2&quot; width=&quot;80%&quot; color=&quot;red&quot;&gt;</span><span class="d-del">-</span><span class="d-del">-		&lt;h2 align=&quot;left&quot;&gt;Dowcipy o szkole&lt;/h2&gt;</span><span class="d-add">+		&lt;hr style=&quot;height: 2px; width: 80%; background-color: red; border: none;&quot;&gt;</span><span class="d-add">+</span><span class="d-add">+		&lt;h2 style=&quot;text-align: left;&quot;&gt;Dowcipy o szkole&lt;/h2&gt;</span><span class="d-ctx"> 		&lt;fieldset&gt;</span><span class="d-ctx"> 			&lt;legend&gt;Klasówka&lt;/legend&gt;</span><span class="d-del">-			&lt;img src=&quot;grafika3.gif&quot; align=&quot;right&quot; border=&quot;17&quot; width=&quot;107&quot; height=&quot;114&quot; alt=&quot;grafika3-Doe&quot;&gt;</span><span class="d-add">+			&lt;img src=&quot;grafika3.gif&quot; style=&quot;float: right; border: 17px solid #336699; margin: 4px;&quot; width=&quot;107&quot; height=&quot;114&quot; alt=&quot;grafika3-Doe&quot;&gt;</span><span class="d-ctx"> 			Nauczyciel:&lt;br&gt;</span><span class="d-ctx"> 			- Jasiu, dlaczego masz pustą kartkę?&lt;br&gt;</span><span class="d-hunk">… od linii 99 …</span><span class="d-ctx"> 		&lt;fieldset&gt;</span><span class="d-ctx"> 			&lt;legend&gt;Zadanie domowe&lt;/legend&gt;</span><span class="d-del">-			&lt;img src=&quot;grafika4.gif&quot; align=&quot;left&quot; border=&quot;13&quot; width=&quot;103&quot; height=&quot;103&quot; alt=&quot;grafika4-Doe&quot;&gt;</span><span class="d-add">+			&lt;img src=&quot;grafika4.gif&quot; style=&quot;float: left; border: 13px solid #336699; margin: 4px;&quot; width=&quot;103&quot; height=&quot;103&quot; alt=&quot;grafika4-Doe&quot;&gt;</span><span class="d-ctx"> 			- Gdzie jest twoje zadanie domowe?&lt;br&gt;</span><span class="d-ctx"> 			- Zjadł je mój pies.&lt;br&gt;</span><span class="d-hunk">… od linii 106 …</span><span class="d-ctx"> 		&lt;/fieldset&gt;</span><span class="d-ctx"> </span><span class="d-del">-		&lt;hr size=&quot;6&quot; width=&quot;50%&quot; color=&quot;blue&quot;&gt;</span><span class="d-del">-</span><span class="d-del">-		&lt;h3 align=&quot;center&quot;&gt;Dowcipy o zwierzętach&lt;/h3&gt;</span><span class="d-add">+		&lt;hr style=&quot;height: 6px; width: 50%; background-color: blue; border: none;&quot;&gt;</span><span class="d-add">+</span><span class="d-add">+		&lt;h3 style=&quot;text-align: center;&quot;&gt;Dowcipy o zwierzętach&lt;/h3&gt;</span><span class="d-ctx"> 		&lt;fieldset&gt;</span><span class="d-ctx"> 			&lt;legend&gt;Kot i mysz&lt;/legend&gt;</span><span class="d-del">-			&lt;img src=&quot;grafika5.gif&quot; align=&quot;right&quot; border=&quot;14&quot; width=&quot;104&quot; height=&quot;104&quot; alt=&quot;grafika5-Doe&quot;&gt;</span><span class="d-add">+			&lt;img src=&quot;grafika5.gif&quot; style=&quot;float: right; border: 14px solid #336699; margin: 4px;&quot; width=&quot;104&quot; height=&quot;104&quot; alt=&quot;grafika5-Doe&quot;&gt;</span><span class="d-ctx"> 			Dlaczego kot siedzi przy komputerze?&lt;br&gt;</span><span class="d-ctx"> 			Bo pilnuje myszy.&lt;br&gt;</span><span class="d-ctx"> 		&lt;/fieldset&gt;</span><span class="d-ctx"> </span><span class="d-del">-		&lt;hr size=&quot;10&quot; width=&quot;30%&quot; color=&quot;green&quot;&gt;</span><span class="d-add">+		&lt;hr style=&quot;height: 10px; width: 30%; background-color: green; border: none;&quot;&gt;</span><span class="d-ctx"> </span><span class="d-ctx"> 		&lt;!-- zadanie 4: wyliczenia i numerowania o informatyce --&gt;</span><span class="d-ctx"> 		&lt;br&gt;&lt;br&gt;&lt;br&gt;</span><span class="d-ctx"> 		&lt;h1&gt;Poniżej są trzy wyliczenia z różnymi znakami wyliczenia&lt;/h1&gt;</span><span class="d-del">-		&lt;ul type=&quot;square&quot;&gt;</span><span class="d-add">+		&lt;ul style=&quot;list-style-type: square;&quot;&gt;</span><span class="d-ctx"> 			&lt;li&gt;procesor&lt;/li&gt;</span><span class="d-ctx"> 			&lt;li&gt;pamięć RAM&lt;/li&gt;</span><span class="d-ctx"> 			&lt;li&gt;dysk SSD&lt;/li&gt;</span><span class="d-ctx"> 		&lt;/ul&gt;</span><span class="d-del">-		&lt;ul type=&quot;disc&quot;&gt;</span><span class="d-add">+		&lt;ul style=&quot;list-style-type: disc;&quot;&gt;</span><span class="d-ctx"> 			&lt;li&gt;klawiatura&lt;/li&gt;</span><span class="d-ctx"> 			&lt;li&gt;mysz&lt;/li&gt;</span><span class="d-ctx"> 			&lt;li&gt;monitor&lt;/li&gt;</span><span class="d-ctx"> 		&lt;/ul&gt;</span><span class="d-del">-		&lt;ul type=&quot;circle&quot;&gt;</span><span class="d-add">+		&lt;ul style=&quot;list-style-type: circle;&quot;&gt;</span><span class="d-ctx"> 			&lt;li&gt;Windows&lt;/li&gt;</span><span class="d-ctx"> 			&lt;li&gt;Linux&lt;/li&gt;</span><span class="d-hunk">… od linii 160 …</span><span class="d-ctx"> 		&lt;ol type=&quot;1&quot;&gt;</span><span class="d-ctx"> 			&lt;li&gt;Sprzęt</span><span class="d-del">-				&lt;ul type=&quot;square&quot;&gt;</span><span class="d-add">+				&lt;ul style=&quot;list-style-type: square;&quot;&gt;</span><span class="d-ctx"> 					&lt;li&gt;Podzespoły</span><span class="d-ctx"> 						&lt;ol type=&quot;a&quot;&gt;</span><span class="d-hunk">… od linii 176 …</span><span class="d-ctx"> 			&lt;/li&gt;</span><span class="d-ctx"> 			&lt;li&gt;Oprogramowanie</span><span class="d-del">-				&lt;ul type=&quot;square&quot;&gt;</span><span class="d-add">+				&lt;ul style=&quot;list-style-type: square;&quot;&gt;</span><span class="d-ctx"> 					&lt;li&gt;Systemy operacyjne</span><span class="d-ctx"> 						&lt;ol type=&quot;a&quot;&gt;</span><span class="d-hunk">… od linii 187 …</span><span class="d-ctx"> 		&lt;/ol&gt;</span><span class="d-ctx"> </span><span class="d-del">-		&lt;a name=&quot;koniec&quot;&gt;&lt;/a&gt;</span><span class="d-add">+		&lt;span id=&quot;koniec&quot;&gt;&lt;/span&gt;</span><span class="d-ctx"> 		&lt;p&gt;&lt;b&gt;Menu - dół strony&lt;/b&gt;&lt;/p&gt;</span><span class="d-ctx"> 		&lt;a href=&quot;poczta_doe.html&quot;&gt;Link do poczty&lt;/a&gt;&lt;br&gt;</span></pre><h3>Nowe pliki w folderze</h3><ul><li><code>blad_koniec_doe.jpg</code></li><li><code>blad_poczatek_doe.jpg</code></li><li><code>html5_ok.png</code></li><li><code>walidacja_doe.html</code></li></ul>
+
+<h2>Pełny kod index.html po zadaniu 7</h2>
+<details><summary>Pokaż kod</summary><pre class="code">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pl&quot;&gt;
+	&lt;head&gt;
+		&lt;meta charset=&quot;UTF-8&quot;&gt;
+		&lt;meta name=&quot;author&quot; content=&quot;John Doe&quot;&gt;
+		&lt;meta name=&quot;description&quot; content=&quot;Strona ucznia John Doe - zadania HTML&quot;&gt;
+		&lt;title&gt;John Doe - zadania HTML&lt;/title&gt;
+	&lt;/head&gt;
+
+	&lt;!-- Autor: Doe John, szkoła: ZSE Gdańsk, klasa: 2F grupa 1 --&gt;
+	&lt;body style=&quot;background-color: #CCFFCC;&quot;&gt;
+		&lt;a href=&quot;walidacja_doe.html&quot;&gt;Walidacja strony - zadanie 7&lt;/a&gt;
+
+		&lt;span id=&quot;poczatek&quot;&gt;&lt;/span&gt;
+		&lt;p&gt;&lt;b&gt;Menu - góra strony&lt;/b&gt;&lt;/p&gt;
+		&lt;a href=&quot;poczta_doe.html&quot;&gt;Link do poczty&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;plik_doe.html&quot;&gt;Link do ściągania pliku&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;#srodek&quot;&gt;Link do środka tekstu&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;#koniec&quot;&gt;Link do końca tekstu&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;tabela_doe.html&quot;&gt;Link do strony zawierającej tabelę&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;formularz_doe.html&quot;&gt;Link do strony zawierającej formularz&lt;/a&gt;&lt;br&gt;
+
+		&lt;!-- imię 7 razy; numer w dzienniku 7 (nieparzysty), więc od size 7 do size 1 --&gt;
+		&lt;p style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: blue; font-size: 48px; font-family: &#x27;Arial&#x27;;&quot;&gt;&lt;b&gt;John&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: blue; font-size: 32px; font-family: &#x27;Verdana&#x27;;&quot;&gt;&lt;i&gt;John&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;color: navy; font-size: 24px; font-family: &#x27;Times New Roman&#x27;;&quot;&gt;&lt;u&gt;John&lt;/u&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: purple; font-size: 18px; font-family: &#x27;Courier New&#x27;;&quot;&gt;&lt;s&gt;John&lt;/s&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: teal; font-size: 16px; font-family: &#x27;Arial&#x27;;&quot;&gt;John&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: maroon; font-size: 13px; font-family: &#x27;Verdana&#x27;;&quot;&gt;John&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;color: olive; font-size: 10px; font-family: &#x27;Times New Roman&#x27;;&quot;&gt;John&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+
+		&lt;!-- nazwisko 6 razy; numer nieparzysty, więc od H6 do H1 --&gt;
+		&lt;h6&gt;Doe&lt;/h6&gt;&lt;br&gt;
+		&lt;h5&gt;Doe&lt;/h5&gt;&lt;br&gt;
+		&lt;h4&gt;Doe&lt;/h4&gt;&lt;br&gt;
+		&lt;h3&gt;Doe&lt;/h3&gt;&lt;br&gt;
+		&lt;h2&gt;Doe&lt;/h2&gt;&lt;br&gt;
+		&lt;h1&gt;Doe&lt;/h1&gt;&lt;br&gt;
+
+		&lt;!-- sześć emotikonów: każdy inny kolor, wielkość i czcionka --&gt;
+		&lt;p&gt;&lt;span style=&quot;color: orange; font-size: 32px; font-family: &#x27;Courier New&#x27;;&quot;&gt;:-) uśmiech, jestem zadowolony&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;span style=&quot;color: red; font-size: 24px; font-family: &#x27;Times New Roman&#x27;;&quot;&gt;:-( smutek, coś poszło źle&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;span style=&quot;color: green; font-size: 18px; font-family: &#x27;Verdana&#x27;;&quot;&gt;;-) mrugnięcie, to był żart&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;span style=&quot;color: blue; font-size: 16px; font-family: &#x27;Courier New&#x27;;&quot;&gt;:-D głośny śmiech&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;span style=&quot;color: purple; font-size: 24px; font-family: &#x27;Verdana&#x27;;&quot;&gt;:-P pokazuję język&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p&gt;&lt;span style=&quot;color: brown; font-size: 18px; font-family: &#x27;Times New Roman&#x27;;&quot;&gt;:-O zdziwienie&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+
+		&lt;!-- zadanie 2: dane ucznia (fałszywe, ale prawdopodobne) --&gt;
+		&lt;p style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: red; font-size: 16px; font-family: &#x27;Arial&#x27;;&quot;&gt;&lt;u&gt;80-188 Gdańsk, ul. Długa 12/5&lt;/u&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: blue; font-size: 18px; font-family: &#x27;Verdana&#x27;;&quot;&gt;&lt;b&gt;Ulubiony aktor: Tom Hanks&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;color: green; font-size: 24px; font-family: &#x27;Times New Roman&#x27;;&quot;&gt;&lt;i&gt;Ulubiony zespół: Queen&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;color: purple; font-size: 16px; font-family: &#x27;Courier New&#x27;;&quot;&gt;&lt;s&gt;Data urodzenia: 14 marca 2009&lt;/s&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: black; font-size: 18px; font-family: &#x27;Arial&#x27;;&quot;&gt;Wzór kwasu: H&lt;sub&gt;2&lt;/sub&gt;SO&lt;sub&gt;4&lt;/sub&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+		&lt;p style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;color: black; font-size: 18px; font-family: &#x27;Arial&#x27;;&quot;&gt;Potęga: x*x=x&lt;sup&gt;2&lt;/sup&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;
+
+		&lt;!-- zadanie 3: 10 spacji niełamliwych między nazwiskiem a imieniem --&gt;
+		&lt;p&gt;Doe&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;John&lt;/p&gt;
+
+		&lt;span id=&quot;srodek&quot;&gt;&lt;/span&gt;
+		&lt;p&gt;&lt;b&gt;Menu - środek strony&lt;/b&gt;&lt;/p&gt;
+		&lt;a href=&quot;poczta_doe.html&quot;&gt;Link do poczty&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;plik_doe.html&quot;&gt;Link do ściągania pliku&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;#poczatek&quot;&gt;Link początek tekstu&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;#koniec&quot;&gt;Link do końca tekstu&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;tabela_doe.html&quot;&gt;Link do strony zawierającej tabelę&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;formularz_doe.html&quot;&gt;Link do strony zawierającej formularz&lt;/a&gt;&lt;br&gt;
+
+		&lt;!-- zadanie 3: dowcipy w obramowaniu z legendą --&gt;
+		&lt;h1 style=&quot;text-align: right;&quot;&gt;Dowcipy o informatykach&lt;/h1&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Programista w sklepie&lt;/legend&gt;
+			&lt;img src=&quot;grafika1.gif&quot; style=&quot;float: right; border: 24px solid #336699; margin: 4px;&quot; width=&quot;114&quot; height=&quot;107&quot; alt=&quot;grafika1-Doe&quot;&gt;
+			Żona mówi do programisty:&lt;br&gt;
+			- Kup chleb, a jak będą jajka, to weź dziesięć.&lt;br&gt;
+			Programista wraca z dziesięcioma chlebami.&lt;br&gt;
+			- Dlaczego tyle chleba?&lt;br&gt;
+			- Bo były jajka.&lt;br&gt;
+		&lt;/fieldset&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Restart&lt;/legend&gt;
+			&lt;img src=&quot;grafika2.gif&quot; style=&quot;float: left; border: 13px solid #336699; margin: 4px;&quot; width=&quot;103&quot; height=&quot;103&quot; alt=&quot;grafika2-Doe&quot;&gt;
+			Uczeń pyta informatyka:&lt;br&gt;
+			- Co robić, gdy komputer nie działa?&lt;br&gt;
+			- Wyłącz i włącz.&lt;br&gt;
+			- A jak dalej nie działa?&lt;br&gt;
+			- Wyłącz i idź na spacer.&lt;br&gt;
+		&lt;/fieldset&gt;
+
+		&lt;hr style=&quot;height: 2px; width: 80%; background-color: red; border: none;&quot;&gt;
+
+		&lt;h2 style=&quot;text-align: left;&quot;&gt;Dowcipy o szkole&lt;/h2&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Klasówka&lt;/legend&gt;
+			&lt;img src=&quot;grafika3.gif&quot; style=&quot;float: right; border: 17px solid #336699; margin: 4px;&quot; width=&quot;107&quot; height=&quot;114&quot; alt=&quot;grafika3-Doe&quot;&gt;
+			Nauczyciel:&lt;br&gt;
+			- Jasiu, dlaczego masz pustą kartkę?&lt;br&gt;
+			- Bo nie lubię ściągać.&lt;br&gt;
+		&lt;/fieldset&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Zadanie domowe&lt;/legend&gt;
+			&lt;img src=&quot;grafika4.gif&quot; style=&quot;float: left; border: 13px solid #336699; margin: 4px;&quot; width=&quot;103&quot; height=&quot;103&quot; alt=&quot;grafika4-Doe&quot;&gt;
+			- Gdzie jest twoje zadanie domowe?&lt;br&gt;
+			- Zjadł je mój pies.&lt;br&gt;
+			- Przecież nie masz psa.&lt;br&gt;
+			- To był pies kolegi.&lt;br&gt;
+		&lt;/fieldset&gt;
+
+		&lt;hr style=&quot;height: 6px; width: 50%; background-color: blue; border: none;&quot;&gt;
+
+		&lt;h3 style=&quot;text-align: center;&quot;&gt;Dowcipy o zwierzętach&lt;/h3&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Kot i mysz&lt;/legend&gt;
+			&lt;img src=&quot;grafika5.gif&quot; style=&quot;float: right; border: 14px solid #336699; margin: 4px;&quot; width=&quot;104&quot; height=&quot;104&quot; alt=&quot;grafika5-Doe&quot;&gt;
+			Dlaczego kot siedzi przy komputerze?&lt;br&gt;
+			Bo pilnuje myszy.&lt;br&gt;
+		&lt;/fieldset&gt;
+
+		&lt;hr style=&quot;height: 10px; width: 30%; background-color: green; border: none;&quot;&gt;
+
+		&lt;!-- zadanie 4: wyliczenia i numerowania o informatyce --&gt;
+		&lt;br&gt;&lt;br&gt;&lt;br&gt;
+		&lt;h1&gt;Poniżej są trzy wyliczenia z różnymi znakami wyliczenia&lt;/h1&gt;
+		&lt;ul style=&quot;list-style-type: square;&quot;&gt;
+			&lt;li&gt;procesor&lt;/li&gt;
+			&lt;li&gt;pamięć RAM&lt;/li&gt;
+			&lt;li&gt;dysk SSD&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;ul style=&quot;list-style-type: disc;&quot;&gt;
+			&lt;li&gt;klawiatura&lt;/li&gt;
+			&lt;li&gt;mysz&lt;/li&gt;
+			&lt;li&gt;monitor&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;ul style=&quot;list-style-type: circle;&quot;&gt;
+			&lt;li&gt;Windows&lt;/li&gt;
+			&lt;li&gt;Linux&lt;/li&gt;
+			&lt;li&gt;macOS&lt;/li&gt;
+		&lt;/ul&gt;
+
+		&lt;br&gt;&lt;br&gt;&lt;br&gt;
+		&lt;h2&gt;Poniżej są trzy numerowania z różnymi znakami numerowania&lt;/h2&gt;
+		&lt;!-- numeracja zaczyna się od numeru w dzienniku: 7 --&gt;
+		&lt;ol type=&quot;1&quot; start=&quot;7&quot;&gt;
+			&lt;li&gt;HTML&lt;/li&gt;
+			&lt;li&gt;CSS&lt;/li&gt;
+			&lt;li&gt;JavaScript&lt;/li&gt;
+		&lt;/ol&gt;
+		&lt;ol type=&quot;A&quot; start=&quot;7&quot;&gt;
+			&lt;li&gt;router&lt;/li&gt;
+			&lt;li&gt;switch&lt;/li&gt;
+			&lt;li&gt;serwer&lt;/li&gt;
+		&lt;/ol&gt;
+		&lt;ol type=&quot;I&quot; start=&quot;7&quot;&gt;
+			&lt;li&gt;Chrome&lt;/li&gt;
+			&lt;li&gt;Firefox&lt;/li&gt;
+			&lt;li&gt;Edge&lt;/li&gt;
+		&lt;/ol&gt;
+
+		&lt;br&gt;&lt;br&gt;&lt;br&gt;
+		&lt;h3&gt;Poniżej są trzy poziomy numerowania/wyliczenia&lt;/h3&gt;
+		&lt;ol type=&quot;1&quot;&gt;
+			&lt;li&gt;Sprzęt
+				&lt;ul style=&quot;list-style-type: square;&quot;&gt;
+					&lt;li&gt;Podzespoły
+						&lt;ol type=&quot;a&quot;&gt;
+							&lt;li&gt;płyta główna&lt;/li&gt;
+							&lt;li&gt;karta graficzna&lt;/li&gt;
+						&lt;/ol&gt;
+					&lt;/li&gt;
+					&lt;li&gt;Urządzenia peryferyjne
+						&lt;ol type=&quot;a&quot;&gt;
+							&lt;li&gt;drukarka&lt;/li&gt;
+							&lt;li&gt;skaner&lt;/li&gt;
+						&lt;/ol&gt;
+					&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+			&lt;li&gt;Oprogramowanie
+				&lt;ul style=&quot;list-style-type: square;&quot;&gt;
+					&lt;li&gt;Systemy operacyjne
+						&lt;ol type=&quot;a&quot;&gt;
+							&lt;li&gt;Windows&lt;/li&gt;
+							&lt;li&gt;Linux&lt;/li&gt;
+						&lt;/ol&gt;
+					&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+		&lt;/ol&gt;
+
+		&lt;span id=&quot;koniec&quot;&gt;&lt;/span&gt;
+		&lt;p&gt;&lt;b&gt;Menu - dół strony&lt;/b&gt;&lt;/p&gt;
+		&lt;a href=&quot;poczta_doe.html&quot;&gt;Link do poczty&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;plik_doe.html&quot;&gt;Link do ściągania pliku&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;#poczatek&quot;&gt;Link początek tekstu&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;#srodek&quot;&gt;Link do środka tekstu&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;tabela_doe.html&quot;&gt;Link do strony zawierającej tabelę&lt;/a&gt;&lt;br&gt;
+		&lt;a href=&quot;formularz_doe.html&quot;&gt;Link do strony zawierającej formularz&lt;/a&gt;&lt;br&gt;
+
+		&lt;!-- zadanie 3: 7 znaków specjalnych na końcu strony --&gt;
+		&lt;p&gt;&amp;copy; &amp;reg; &amp;trade; &amp;euro; &amp;sect; &amp;hearts; &amp;para;&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</pre></details>
+<nav class="nav"><a href="zadanie6.html">← Zadanie 6</a><a href="../index.html">Wszystkie zadania</a><a href="zadanie8.html">Zadanie 8 →</a></nav>
+</main>
+</body>
+</html>

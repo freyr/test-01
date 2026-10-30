@@ -1,0 +1,29 @@
+<p class="tip"><b>Strona główna się nie zmienia.</b> Tabela z projektu (zadanie 8) trafia do pliku <code>tabela_doe.html</code>, do którego prowadzi link z zadania 5. Budujesz ją w 3 etapach, tak jak w instrukcji. Poniżej każdy etap ma swój podgląd i listę zmian.</p>
+
+<h2>Co trzeba zrobić</h2>
+<ol class="req">
+<li>Zbuduj w HTML tabelę z projektu. Wygląd ma być taki sam albo bardzo podobny.</li>
+<li>Pisz kod ręcznie. <b>Nie wolno</b> zapisać pliku z Worda jako <code>.html</code> ani wkleić zrzutu ekranu.</li>
+<li>Użyj znaczników: <code>&lt;meta charset="UTF-8"&gt;</code>, <code>&lt;title&gt;</code>, <code>&lt;table&gt;</code>, <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tr&gt;</code>.</li>
+<li>Etap 1: szkielet z co najmniej 30 komórkami.</li>
+<li>Etap 2: formatowanie zgodne z projektem, stylami liniowymi <code>style="…"</code>.</li>
+<li>Etap 3: scalanie komórek: <code>colspan</code> w poziomie i <code>rowspan</code> w pionie.</li>
+</ol>
+
+<h2>Projekt i wynik</h2>
+<table class="req" style="border-collapse: collapse; width: 100%;">
+<tr><th>Z projektu w Wordzie</th><th>W HTML</th></tr>
+<tr><td>Tytuł nad tabelą</td><td><code>&lt;caption&gt;</code></td></tr>
+<tr><td>Wiersz nagłówka</td><td><code>&lt;thead&gt;</code> i komórki <code>&lt;th&gt;</code></td></tr>
+<tr><td>Kolor tła wiersza</td><td><code>&lt;tr style="background-color: #…;"&gt;</code></td></tr>
+<tr><td>Kolor, krój, rozmiar, wyrównanie</td><td><code>color</code>, <code>font-family</code>, <code>font-size</code>, <code>text-align</code> w każdej komórce kolumny</td></tr>
+<tr><td>Ramka zewnętrzna 3 pkt, podwójna</td><td><code>border: 4px double #2E75B6</code> na <code>&lt;table&gt;</code></td></tr>
+<tr><td>Ramki wewnętrzne 0,75 pkt</td><td><code>border: 1px solid #2E75B6</code> na komórkach: 4 razy cieńsze</td></tr>
+<tr><td>Scalenie w pionie</td><td><code>rowspan="2"</code>, a w wierszu niżej ta komórka znika</td></tr>
+<tr><td>Scalenie w poziomie</td><td><code>colspan="3"</code>, a dwie sąsiednie komórki znikają</td></tr>
+<tr><td>Źródło pod tabelą</td><td><code>&lt;p&gt;</code>: czerwony, kursywa, podkreślenie, 32px</td></tr>
+</table>
+
+<p class="tip"><b>Przykłady w instrukcji używają starych atrybutów</b>, na przykład <code>border=2</code>. W zadaniu 7 walidator ich nie przepuszcza, więc tutaj wszystko robi CSS. Wyjątek: <code>border="1"</code> w etapie 1 to tylko tymczasowa ramka szkicu, w etapie 2 znika.</p>
+<p class="tip"><b>Rozmiary z Worda w pikselach:</b> 1 pkt to około 1,33 px. 11 pkt ≈ 15px, 12 pkt = 16px, 14 pkt ≈ 19px, 24 pkt = 32px.</p>
+<p class="tip"><b>Scalanie zrób na końcu.</b> Najpierw policz tabelę bez scaleń (8 wierszy × 6 kolumn). Potem przy <code>rowspan</code> usuń komórkę z wiersza poniżej, a przy <code>colspan="3"</code> usuń 2 komórki obok. Gdy liczba komórek się nie zgadza, wiersz „wystaje” poza tabelę.</p>

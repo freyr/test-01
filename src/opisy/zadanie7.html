@@ -1,0 +1,28 @@
+<h2>Co trzeba zrobić</h2>
+<ol class="req">
+<li>Utwórz <code>walidacja_doe.html</code> z tytułem <code>Doe-zadanie7</code> i odpowiedziami na 3 pytania: co to jest walidacja, co to jest walidator, czym zajmuje się W3C.</li>
+<li>Sprawdź <code>index.html</code> z zadania 6 w <a href="https://validator.w3.org/">validator.w3.org</a> (zakładka „Validate by File Upload”).</li>
+<li>Zrób zrzut ekranu z błędami, dopisz na nim swoje nazwisko (czerwone, czcionka 20) i zapisz jako <code>blad_poczatek_doe.jpg</code>.</li>
+<li><b>Popraw jak najwięcej błędów.</b></li>
+<li>Sprawdź stronę ponownie, zrób zrzut bez błędów: <code>blad_koniec_doe.jpg</code>.</li>
+<li>Wstaw na stronę walidacji ikonę zgodności z HTML5.</li>
+<li>Dodaj link do <code>walidacja_doe.html</code> jako <b>pierwszą linię pod <code>&lt;body&gt;</code></b> w <code>index.html</code>.</li>
+</ol>
+<h2>Dlaczego walidator zgłasza błędy</h2>
+<p>Zadania 1-6 używają starych znaczników z HTML 4. Przeglądarki dalej je rozumieją, ale standard HTML5 ich nie dopuszcza. Wygląd strony ustawia się teraz stylami CSS w atrybucie <code>style</code>. Wygląd strony się nie zmienia, zmienia się tylko sposób zapisu.</p>
+<table class="req" style="border-collapse: collapse; width: 100%;">
+<tr><th>Było (zadanie 6)</th><th>Jest (zadanie 7)</th></tr>
+<tr><td><code>&lt;html&gt;</code></td><td><code>&lt;html lang="pl"&gt;</code> (język strony)</td></tr>
+<tr><td><code>&lt;body bgcolor="#CCFFCC"&gt;</code></td><td><code>&lt;body style="background-color: #CCFFCC;"&gt;</code></td></tr>
+<tr><td><code>&lt;font color="blue" size="7" face="Arial"&gt;</code></td><td><code>&lt;span style="color: blue; font-size: 48px; font-family: 'Arial';"&gt;</code></td></tr>
+<tr><td><code>&lt;p align="right"&gt;</code></td><td><code>&lt;p style="text-align: right;"&gt;</code></td></tr>
+<tr><td><code>&lt;center&gt;&lt;p&gt;…&lt;/p&gt;&lt;/center&gt;</code></td><td><code>&lt;p style="text-align: center;"&gt;…&lt;/p&gt;</code></td></tr>
+<tr><td><code>&lt;img align="right" border="24"&gt;</code></td><td><code>&lt;img style="float: right; border: 24px solid #336699;"&gt;</code></td></tr>
+<tr><td><code>&lt;hr size="2" width="80%" color="red"&gt;</code></td><td><code>&lt;hr style="height: 2px; width: 80%; background-color: red; border: none;"&gt;</code></td></tr>
+<tr><td><code>&lt;ul type="square"&gt;</code></td><td><code>&lt;ul style="list-style-type: square;"&gt;</code></td></tr>
+<tr><td><code>&lt;a name="srodek"&gt;&lt;/a&gt;</code></td><td><code>&lt;span id="srodek"&gt;&lt;/span&gt;</code> (link <code>#srodek</code> działa tak samo)</td></tr>
+</table>
+<p>Rozmiary <code>size</code> 1-7 zamieniamy na piksele: 1 = 10px, 2 = 13px, 3 = 16px, 4 = 18px, 5 = 24px, 6 = 32px, 7 = 48px.</p>
+<p><code>&lt;ol type="A" start="7"&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code>, <code>&lt;s&gt;</code> zostają: są poprawne w HTML5.</p>
+<p>Te same poprawki dotyczą podstron z zadania 6 (<code>bgcolor</code> i <code>lang</code>).</p>
+<p class="tip"><b>Zrzuty ekranu na tej stronie są przykładowe.</b> Pokazują prawdziwe wyniki walidatora W3C dla tych plików, ale są narysowane jako raport, a nie zrobione na stronie validator.w3.org. Ty zrób prawdziwe zrzuty ze swojej strony.</p>

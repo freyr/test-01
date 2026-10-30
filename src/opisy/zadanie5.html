@@ -1,0 +1,24 @@
+<h2>Co trzeba zrobić</h2>
+<ul class="req">
+<li><b>Pięć animowanych grafik (GIF)</b> pasujących do dowcipów, każda obok innego dowcipu.</li>
+<li>Każda grafika ma parametry z tabeli w instrukcji: <code>align</code> (strona), <code>border</code> (ramka), <code>width</code> (szerokość), <code>height</code> (wysokość), <code>alt</code> (tekst alternatywny).</li>
+<li>Tekst <code>alt</code> to <code>grafikaN-nazwisko</code>, np. <code>grafika1-Doe</code>.</li>
+</ul>
+<h2>Obliczenia dla Johna Doe</h2>
+<p>Dane: urodzony <b>14</b>.<b>03</b>.2009, numer w dzienniku <b>7</b>, nazwisko „Doe” ma <b>3</b> litery, imię „John” ma <b>4</b> litery.</p>
+<table class="req" style="border-collapse: collapse; width: 100%;">
+<tr><th>Nr</th><th>align</th><th>border</th><th>width</th><th>height</th></tr>
+<tr><td>1</td><td>right</td><td>10+14 = 24</td><td>100+14 = 114</td><td>100+7 = 107</td></tr>
+<tr><td>2</td><td>left</td><td>10+3 = 13</td><td>100+3 = 103</td><td>100+3 = 103</td></tr>
+<tr><td>3</td><td>right</td><td>10+7 = 17</td><td>100+7 = 107</td><td>100+14 = 114</td></tr>
+<tr><td>4</td><td>left</td><td>10+3 = 13</td><td>100+3 = 103</td><td>100+3 = 103</td></tr>
+<tr><td>5</td><td>right</td><td>10+4 = 14</td><td>100+4 = 104</td><td>100+4 = 104</td></tr>
+</table>
+<h2>Jak to działa</h2>
+<pre class="code">&lt;img src="grafika1.gif" align="right" border="24" width="114" height="107" alt="grafika1-Doe"&gt;</pre>
+<ul>
+<li><code>src</code> to nazwa pliku. Plik GIF musi leżeć <b>w tym samym folderze</b> co <code>index.html</code>, inaczej obrazek się nie pokaże.</li>
+<li><code>align="right"</code> przesuwa obrazek w prawo, a tekst dowcipu opływa go z lewej.</li>
+<li><code>alt</code> pokazuje się, gdy obrazek się nie wczyta. Czytają go też programy dla osób niewidomych.</li>
+</ul>
+<p class="tip"><b>Na GitHubie wielkość liter ma znaczenie.</b> <code>Grafika1.gif</code> i <code>grafika1.gif</code> to dwa różne pliki. Na Windowsie obrazek działa, a na GitHub Pages nie.</p>
