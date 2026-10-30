@@ -129,8 +129,11 @@ details summary { cursor: pointer; font-weight: 600; margin: 8px 0; }
 }
 body.git { background: linear-gradient(var(--tint), var(--bg) 320px) no-repeat, var(--bg); }
 body.git h1 { color: var(--accent); }
-section.git { margin-top: 48px; padding: 4px 18px 8px; border-radius: 10px; background: var(--tint); }
-section.git .sekcja { border-top: 0; }
+section.git { margin-top: 48px; padding: 0 18px 12px; border-radius: 10px; background: var(--tint); border: 2px solid var(--accent); overflow: hidden; }
+section.git .sekcja { border-top: 0; margin: 0 -18px 12px; padding: 14px 18px; background: var(--accent); color: #fff; }
+section.git .sekcja .pill { background: #fff; color: var(--accent); }
+section.git .card { border-color: var(--accent); border-left-width: 6px; }
+section.git .card h2 { color: var(--accent); }
 section.git .num { font-size: 15px; }
 
 pre.term {
@@ -178,6 +181,8 @@ figure.schemat figcaption { color: var(--muted); font-size: 14px; margin-top: 6p
 
 @media (prefers-color-scheme: dark) {
   .git { --accent: #b69cff; --tint: #241f33; }
+  section.git .sekcja { color: #17141f; }
+  section.git .sekcja .pill { background: #17141f; color: var(--accent); }
   .pill { color: #17141f; }
   .ostrzezenie { background: #3a1c1c; }
 }

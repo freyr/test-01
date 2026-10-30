@@ -3,6 +3,7 @@
 Uruchom z katalogu repozytorium: python3 src/build.py
 """
 import difflib
+import hashlib
 import html
 import json
 import re
@@ -42,6 +43,7 @@ LEKCJE = {
     8: ("git push i git pull: wymiana z GitHubem", "Wysyłanie na GitHub, praca w szkole i w domu, odrzucony push. Ściąga."),
 }
 OSTATNIA_LEKCJA = max(LEKCJE)
+WERSJA_CSS = hashlib.sha1((SRC / "styl.css").read_bytes()).hexdigest()[:8]
 SESJE = json.loads((SRC / "git" / "sesje.json").read_text(encoding="utf-8"))
 
 
@@ -169,7 +171,7 @@ def strona_opisu(nr, kod, poprzedni, nowe_pliki, etapy_html="", glowny="index.ht
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zadanie {nr} - wyjaśnienie</title>
-<link rel="stylesheet" href="styl.css">
+<link rel="stylesheet" href="styl.css?v={WERSJA_CSS}">
 </head>
 <body>
 <main>
@@ -228,7 +230,7 @@ def strona_lekcji(nr):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Git, lekcja {nr} - {tytul}</title>
-<link rel="stylesheet" href="../opis/styl.css">
+<link rel="stylesheet" href="../opis/styl.css?v={WERSJA_CSS}">
 </head>
 <body class="git">
 <main>
@@ -260,7 +262,7 @@ def strona_glowna():
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zadania HTML 1-{OSTATNIE}</title>
-<link rel="stylesheet" href="opis/styl.css">
+<link rel="stylesheet" href="opis/styl.css?v={WERSJA_CSS}">
 </head>
 <body>
 <main>
